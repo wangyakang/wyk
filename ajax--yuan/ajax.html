@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp</title>
+    <script>
+//        jsonp  一般用于可控的跨域请求
+//        function bb(data) {
+//            console.log(JSON.parse(data))
+//            var data=JSON.parse(data)
+//            var tbody=document.querySelector("tbody");
+//            var str="";
+//            for(var i=0;i<data.length;i++){
+//                str+="<tr>";
+//                str+="<td>"+data[i].name+"</td>";
+//                str+="<td>"+data[i].age+"</td>";
+//                str+="</tr>";
+//            }
+//            tbody.innerHTML=str;
+//        }
+    </script>
+    <!--<script src="http://localhost:2222/?callback=bb"></script>-->
+</head>
+<body>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+    </tr>
+</table>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    //不支持跨域访问
+//    var ajax=new XMLHttpRequest();
+//    ajax.onload(function (e) {
+//        console.log(e.response)
+//    })
+//window.onload=function () {
+    //ajax跨域请求   不能随意请求，
+//    $.ajax({
+//        url:"http://localhost:2222",
+//        dataType:"jsonp",
+//        jsonp:"callback",  //随机创建一个方法名
+//        success:function (e) {
+//            console.log(e)
+//        }
+//    })
+
+    $.ajax({
+        url:"http://localhost:2222",
+        dataType:"jsonp",
+        jsonpCallback:"aa" //随机创建一个方法名
+    })
+    function aa(e) {
+        console.log(e)
+    }
+//}
+</script>
+</html>

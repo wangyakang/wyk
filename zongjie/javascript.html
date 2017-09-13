@@ -1,0 +1,1054 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>总述</title>
+</head>
+<body>
+	<script>
+	//切图：html、css、js的静态页面
+	浏览器
+		1.解析html+css;   webkit(谷歌内核)  moz(火狐内核 )   o(opera浏览器内核)  ms(ie内核)
+		2.解析javascript  v8引擎(嵌入到javascript的运行化境中)   使得javascript运行速度提高
+	//动态页面：与后台数据连接
+	javaScript:面向对象，基于对象和事件驱动的解释性（不需要编译）松散型(数据类型存储不严格)的语言
+			面向对象：统筹的
+			javaScript语法：ECMAscript\BOM\DOM      (javascript操作bom/dom,actionscript操作动画，都是基于ECMAscript语法)
+		//调试工具
+		alert()	//阻塞：不点击确定，无法执行下一步
+		document.write()  //文档重写
+		console.log()  //输出结构，包含所有属性
+		document.addEventListener("DOMContentLoaded",function(){})
+		window.onload=function(){}
+
+		ECMAscript
+		变量(存储数据)==》运算符(运算规则)==》流程控制(有条件的执行，实现)==》函数(代码重用)
+			变量：var 声明变量：不能以数字开头，区分大小写
+				  传值：初始类型赋值传递  var num=200;
+								  var gert=num;
+								  num=300;(只传值，Num的变化对gert没影响)
+
+				  传址:引用类型赋值传递   var aa=[a,s]
+										  var bb=aa;
+										  aa.push("ss")(传址，bb改变)
+				  变量被重新申明时没有赋值，值不变
+				  存储信息以便复用，存在内存中，内存(临时显示)
+			常量：const 声明常量，声明之后不可变
+
+			***数据类型：内存（栈、堆、代码段、静态区）中存储区域不同  (面试必问数据类型分类)
+						快速处理复杂的代码
+						a.栈区：存储简单类型， 初始类型
+						b.堆区：存储复杂的类型，引用类型
+					 初始类型：栈中存储，变量赋值传值不传址
+						number
+							默认0x开头的为16进制  以0开头的为8进制
+							加权方式：0123（8进制）3*8^0+2*8^1+1*8^2
+						string
+							var aa="\t"  \n换行  \r回车  \f分页 \t制表符(Tab)
+
+						null 占位符
+							直接清空对象;对象原型链的终点
+						undefined
+							1）一个变量，只声明，不赋值，默认情况是undefined
+							2）函数中传参，如果形式参数没有被传值，默认是undefined ；
+							3）如果一个数组里某个下标的位置没有被赋值，那么默认值是undefined ；
+							4）对象若没有某个属性，那么这个属性的值是undefined ；
+							5）函数没有定义返回值，默认返回值为undefined
+						(null undefined:垃圾回收机制，null直接清空，undefined内部回收机制)
+						boolean
+							true false (任何数据类型都可被判断为 true false )
+
+					 引用类型：堆中存储，栈中存放地址，变量赋值传址
+						function   数组   对象：数组对象、自定义对象
+					 //计算机单位
+						// b  位     0 1
+						// B  字节   2^3 b   Int:4个字节
+						// KB        2^10B   1024*8b
+						// MB		 2^10KB
+						// GB        2^10MB
+						// TB		 2^10GB
+			运算符：// 表达式：分号之前的
+				//数据类型转换：
+				算术运算符
+					+  -  *  /  %  ++   --
+					+ (二义性)：加号
+						任何一种数据类型和字符串相加表示连接
+						var name="王亚康"
+						var sex="女"
+						var str="我的名字叫"+name+"我的性别是："+sex
+						ECMAscript6.0 var str=`我的名字叫${name},我的性别：${sex}`
+					++ ：num++(先输出再赋值) 	++num(先赋值再输出)
+						var num=3;				var num=3;
+						var nub=num++;			var nub=++num;
+						console.log(num);		console.log(num);
+						console.log(nub);		console.log(nub);
+						// num=4;nub=3;			// num=4;nub=4;
+				逻辑运算符
+					&&   ||  !  //与、或、非
+					console.log(0||"aa")  //aa
+					console.log(1||ture)  //1
+					//与、或 在能判断真假的时候停止，表达式隐式调用boolean进行判断，但表达式最后的值不会被转化为boolean类型，返回停止值
+					console.log(!0)   // true
+					//非运算结果一定转换为boolean类型
+				关系运算符
+					> <  >=  <= ==（等于）  ===（全等于） !=(不等于)  !==（不全等）
+						===：值是否相等，类型是否相等
+						console.log(""==0," "==0) //ture;
+				赋值运算符
+					//	=  +=  -=  *=  /=  %=
+					var num="3";
+					var num+=4;		 //num=num+4
+					console.log(num) // 34(字符串连接)
+				一元运算符
+					!  +   -  new       delete  typeof     ++  ==
+					非 正 负  创建对象,  删除    判断类型
+					new :(实例化构造函数)
+					typeof:用来检测基础数据类型   检测null,输出object
+						   返回结果：number  string  object  undefined 	 boolean function
+						   typeof的检测结果的类型是字符串
+						   // var aa=function(){}
+						   // console.log(typeof (aa))
+						   // console.log(typeof)
+					delete :删除对象的属性
+							var obj={name:"zhangsan",sex:"man"};
+							delete obj.sex;
+							console.log(obj.sex) //undefined
+				三元运算符
+					有条件的情况下赋值
+					var a= 1>2?  1:2;  // 冒号两边可以任意赋值  new obj():new Arry()
+					// 判断1>2(判断条件，if(1)隐式数据类型转换)的真假，真，将1（：前面的）赋值给a，假，将2（：后面的）赋值给a
+				特殊运算符
+					,  :1.变量申明与赋值	  2.函数传参，多个参数
+					() :1.提高优先级  2.函数的调用  3.正则，形成原子分组
+			流程控制：顺序结构、选择结构、循环结构
+				顺序结构
+				选择结构|条件结构
+					if   switch
+						var num=10  
+							(ECMAscript6)if
+						if(true){
+							//块变量:定义作用范围，只能在花括号中起作用，外部不可调用
+							let num=10;
+							alert(num)
+						}
+						num=0;
+						var i="外面的i"
+						for(let i=0;i>10;i++){}
+					
+					switch:判断单个值，并且可罗列，不能进行隐性的数据类型转换
+						//case后跟的条件必须与参数全等
+						var nub=2;
+						switch(nub){
+							case 1:alert('a');break;
+							case 2:alert('b');break;
+						}
+				循环结构
+					for   for(var i in)
+						// 方式1，括号内的分号不能少
+						var i=0;
+						for(;i<20;i++){
+	
+						}
+						//方式2
+						for(var i=0;i<20;i++){
+	
+						}
+						//方式3
+						for(var i=0;i<20;){
+							i++;
+						}
+
+					while(条件){循环语句}
+						<!-- （while条件在真时执行，先判断再执行） -->
+						<!-- (知道循环次数时用for语句，只知道停止条件时用 while、do while) -->
+
+					do{
+						循环语句
+					}while（条件）
+						<!-- do{}while()语句先执行一次，再判断条件
+						因此，do{}while()一定会执行一次循环 -->
+			**函数：创建、调用、运行 、参数、返回值       内置顶层函数：number、string...
+				封装代码；函数当做对象去用(形成一个命名空间，防止全局变量的污染)；函数当做类去用(实例化构造函数)
+				var names="zhangsan"            
+				function aa(){
+					函数当做对象去用
+				}
+				aa.names="zhangsan"
+				console.log(aa.names)
+				1.创建方式：（定义）
+					//fun()		预解析
+					1.function fun(){}
+					2.var fun=function(){}	//函数名就是函数的调用，堆中的函数将地址传给变量
+					3.var fun=new Function("alert(1)"); //所有函数都可以看成是由new Function构建出来的
+					console.log(fun.constructor)  //获取对象的构造函数
+					console.dir(fun)			  //获取函数的结构
+				2.调用函数：
+					1.name()  函数名加小括号
+					2.自调用:将匿名函数括号括起来，再调用	
+						(function(){
+							alert(1);
+						})()
+					3.事件调用
+						function aa(){
+							alert(1);
+						}
+						div.onclick=aa
+				3.函数的参数：为了使同一个函数体实现不同的状态；可以接收任何的数据类型
+					实参<形参：undefined
+					实参>形参：arguments接收实参
+					arguments:接收函数运行时传递的所有实参
+					arguments.callee：当前函数的引用，函数本身
+						function aa(a,b,c){
+							var bb=a+b+c
+							console.log(arguments.callee)//和console.log(aa)效果一样		
+						}
+						aa()
+						console.log(aa)
+						function aa(a,b){
+							var a=a||4;   //参数设置默认值
+							var b=b||4;
+						}
+						aa(n,m)
+				4.函数的返回值：函数的运行结果
+					//任何函数都有返回值，默认返回值为undefined
+					//一个函数可以有多个返回语句，但只能有一个返回值
+					function fun(a,b){
+						var res=a+b;
+						console.log(res);
+					}
+					console.log(fun(1,3))
+					//外部需要引用函数内部值时需要返回
+					function fun(a,b){
+						var res=a+b;
+						return res;
+					}
+					console.log(fun(1,3))
+				5.函数的环境：
+					宿主环境：浏览器
+					执行环境：全局环境、局部环境
+						全局环境：window;
+						局部环境：函数
+							全局变量、局部变量：为了程序的安全(var使得局部变量的改变不影响全局变量的值，函数外部不可访问函数内部的值)和内存的释放(函数执行完毕之后，内存中删掉变量存储信息)
+							全局变量：全局作用域，定义在函数最外层的变量
+							局部变量：局部作用域，定义在函数里面的变量
+								作用域：变量在某个代码段范围内有意义
+								作用域链：函数在运行时隐式的创建集合，该集合保存函数可见范围内所有的变量和对象	  ，这个集合即为作用域链
+				6.预解析：预解析是否有语法的错误、标点符号的错误、内存中是否有足够的的空间可以存储变量和函数（必须要做的事）
+					1）script块依次解析，从上到下连成一片下边的可以调用上边    的函数
+					2.每个script块内部的 var 声明的变量和 function 解析到本块的开头，解析的顺序就是写的顺序，Var解析的变量没有赋值，因此上边script块不能调用下边script块内的函数
+					//函数中声明变量可以是全局变量，在第一次调用时才会使用
+					3.函数依次解析每个环境，将var function 解析到环境开头
+						1)var nub=200;
+						function fun(){
+							var nub=300;
+							console.log(nub);
+						}
+						fun()
+						console.log(nub);  //300 200
+
+						2)var nub=200;
+						function aa(){
+							var nub=300;
+							function bb(){
+								nub=400;   //
+								console.log(nub);
+							}
+							bb();
+							console.log(nub)							
+						}
+						aa()
+						console.log(nub);  //400  400  200
+						3)var nub=200;
+						function aa(){
+							nub=300;
+							function bb(){
+								nub=400;
+								console.log(nub);
+							}
+							bb();
+							console.log(nub)							
+						}
+						aa()
+						console.log(nub);  //400  400  400
+						4)var nub=200;
+						function aa(){
+							var nub=300;
+							function bb(){
+								nub2=400;   // 变量没有申明直接赋值为全局变量
+								console.log(nub);
+							}
+							bb();
+							console.log(nub)							
+						}
+						aa()
+						console.log(nub2);  //300  300  400
+						//有申明无赋值undefined
+						5)//预解析将申明放在开头，因此不会报错，str无赋值，undefined,arr是个空对象
+						  var nub=200;
+						  if(nub<200){
+							var str=[]
+						  }else{
+							var arr={}
+						  }
+						  console.log(str,arr)  //undefined Object
+						6)	function aa(){
+								var num=10;
+								return function(){
+									console.log(num++)
+								}
+							}
+							// aa()
+							var fn=aa();   //变量存储的是函数aa的返回值的函数function
+							fn()  //调用的是返回函数  10
+							fn()
+							fn()
+							fn()
+							console.log(num)       //10 11 12 13 报错
+						8） console.log(a)       //function a(){console.log(4)}
+							var a=1;
+							console.log(a)        //1
+							function a() {
+								 console.log(2)
+							}
+							console.log(a);      //1
+							var a=3;
+							console.log(a);      //3
+							function a() {
+								console.log(4)
+							}
+							console.log(a)       //3
+							a()                  //报错
+						9)var a=1;
+						function fun(a) {
+							console.log(a)   //1
+							a=2;
+						}
+						fun(a);
+						console.log(a)  //1
+				7.回调函数
+					把一个函数或函数的引用当做参数（不是函数的返回值fun()）传入到另一个函数中.
+					function fun(){
+						return function(){
+
+						}
+					}
+					console.log(fun) 
+				8.函数的重载
+					一个函数在调用时，传入的参数个数或类型不同时，执行不同的代码块
+					function fun(type){
+						if(typeof type=="number"){
+
+						}else if(typeof type=="string"){
+
+						}
+					}
+				9.函数递归(自己调用自己)
+				//找到变化的规律与出口(结点)
+					//斐波那契数列 1 1 2 3 5 8 13 21
+					function feibo(n){
+						if(n==1||n==2){
+							return 1;
+						}
+						return feibo(n-1)+feibo(n-2);		
+					}
+					alert(feibo(8))
+				10.*闭包
+				   在一个函数定义另一个函数，内部函数用到外部函数的局部变量，在外部调用内部函数的时候形成闭包(保留函数的局部变量不被删除)
+					function aa(){
+						var nub=200;
+						function bb(){
+							console.log(nub);
+						}
+						return bb;
+					}
+					var result=aa();
+					result()
+
+					aa()()
+						//获取函数内部的值
+						1）外部声明变量，函数全局变量改变值，通过函数的调用改变变量值并进行调用
+							var aa;
+							function bb() {
+								aa="sdsa";
+							}
+							bb();
+							console.log(aa);
+						2)闭包
+							function aa() {
+								var aa="sdsa";
+								bb(aa)
+							}
+							function bb(aa) {
+								 console.log(aa)
+							}
+							aa();
+					//jacascript 垃圾处理机制
+						//1）局部的变量在函数运行完毕之后直接删除
+						//2) 当一个对象不再被引用时，js会在某个时刻删除该对象
+				11.内置顶层函数
+					var aa="0x13ucs"
+					Number:只能转化纯数值字符串，不能识别八进制。null==0 ,ture=1 ,强制转化为Bloolean类型
+					Boolean(): 0 false undefined null "" NaN转换为假（if else语句中使用）
+						//  !!相当于Boolean
+					parseInt(12w，8)：数值开头，后面的是将数值当成8进制，最后转化为十进制
+					eval()：将符合js语法规范的代码解析
+							里面传入字符串，如果字符串解析为代码进行执行
+							var str="var nub={aa:'bb'}";
+							eval(str);
+							console.log(eval(str)); //无返回值
+							console.log(nub)
+				12.隐式数据类型转换
+					1)算术运算符调用Number,如果能够转换数值进行运算，不能就返回NaN
+					2)比较运算符调用Number
+					  两个字符串进行比较时，转化为ASCII码进行比较
+					  null==undefined 为true
+					3)逻辑运算符调用Boolean类型，但与、或运算符返回值不会是Boolean类型
+					4)if(条件) 、 三元运算符 调用Boolean类型
+			数组：13道题 length,不要允许三维数组的存在
+
+				将一系列存在某种直接或间接关系的数据联系起来，方便操作
+				类数组转化为数组:call改变指针 divs=Array.prototype.slice.call(divs) 
+				1.定义方式
+					var arr=[];
+					var arr=new Array()
+						//var arr=new Array(4)
+						//console.log(arr.length)
+						//new构建数组时，仅有一个参数且为数值时，参数代表数组的长度 
+					//数组可以存储任何的数据类型，常用来存储对象的属性
+						**var arr=[
+							{name:"zhangsan",age:10},
+							{name:"lisi",age:20},
+							{name:"wangwu",age:30}
+						]
+						console.log(arr[0].age)
+				2.数组遍历：for in  //常用来遍历对象的属性
+					var arr=['a','b','v','e','f']
+					for(var i in arr){
+						console.log(i)
+						console.log(arr[i])
+					}
+					//排序
+					冒泡排序、选择排序、插入排序、sort内置方式
+					var arr=[2,6,4,3,5]
+					function copy(arr){
+						var len=arr.length,newarr=[];
+						for(var i in arr){
+							newarr[i]=arr[i]
+						}
+						return newarr;
+					}
+					// copy(arr)
+					function maopao(arr){
+						var newarr=copy(arr),len=arr.length,temp;
+						for(var i=0;i<len;i++){
+							for(var j=i+1;j<len;j++){
+								if(newarr[i]>newarr[j]){
+									temp=newarr[i];
+									newarr[i]=newarr[j];
+									newarr[j]=temp;
+								}
+							}
+						}
+						return newarr;
+					}
+					function xuanze(arr){
+						var newarr=copy(arr),len=arr.length,temp,minIndex;
+						for(var i=0;i<len;i++){
+							var minIndex=i;
+							for(var j=i+1;j<len;j++){
+								if(newarr[minIndex]>newarr[j]){
+									minIndex=j
+								}
+							}
+							temp=newarr[i];
+							newarr[i]=newarr[minIndex];
+							newarr[minIndex]=temp;
+						}
+						return newarr
+					}
+					var arr=[2,6,4,3,5]
+					function charu(arr){
+						var newarr=copy(arr),len=arr.length;
+						for(var i=1;i<len;i++){
+							var pre=i-1;
+							var cut=newarr[i];
+							while(pre>=0&&cut<newarr[pre]){
+								newarr[pre+1]=newarr[pre];
+								pre--;
+							}
+							newarr[pre+1]=cut;
+						}
+						return newarr
+					}
+					console.log(charu(arr))
+					console.log(arr)
+					function sort(arr,callback){
+						for(var i=0;i<arr.length;i++){
+							for(var j=i+1;j<arr.length;j++){
+								if(callback(arr[i],arr[j])){
+									tem=arr[i];
+									arr[i]=arr[j];
+									arr[j]=tem
+								}
+							}
+						}
+						return arr
+					}
+					console.log(sort(arr,function(a,b){
+						return a<b
+						//return a.age>b.age   可以对数组里面对象的某一属性的值进行排序
+					}))
+				3.给二维数组赋值时，必须赋值一维数组
+					var arr=[1,3,4];
+					arr[2]=[10,2,4,2];
+					//arr[2][3]=10; 报错
+					//arr[2][3]=[1,2];  不报错 ，但无法赋值
+					console.log(arr)
+				4.通过文档中的元素长度进行排序
+					document.addEventListener("DOMContentLoaded",function(){
+						// var divs=document.querySelector(); //获取一个元素，可传入任何的选择器
+						var divs=document.querySelectorAll("div"); //获取全部元素
+						// function makeArr(list){
+						// 	var newarr=[];
+						// 	for(var i=0;i<list.length;i++){
+						// 		newarr.push(list[i])
+						// 	}
+						// }
+						// makeArr(list)
+						divs=Array.prototype.slice.call(divs) 
+						divs.sort(function(a,b){
+							return a.offsetWidth<b.offsetWidth
+						}) //排序后内存当中存储
+						//如果直接操作页面结构的位置，信息发生变化，数组下标对应的值发生改变，影响操作
+						divs.forEach(function(obj,index){
+							var clone=obj.cloneNode(true)
+							clone.style.width=obj.clientWidth+"px";
+							document.body.appendChild(clone)
+						})
+						divs.forEach(function(obj,index){
+							document.body.removeChild(obj)
+						})
+					})   //html结构加载完成后
+			//类数组方式转化为数组
+			 // var lis=Array.prototype.slice.call(divs)
+			 // };
+			对象:属性、方法、子对象
+				全局对象Math  
+				本地对象 （构造函数，实例化之后才可用）Number()  String() Array() Boolean()  Function() Date()  RegExp()
+				宿主对象：BOM   DOM
+				1.构造函数初始化对象
+				  类是对象的抽象，对象是类的实例化(相似特征的对象抽象化为类，再通过类判断对象是否为类的实例化)
+					new 构造函数
+
+					1)var obj={};
+						 //默认将对象的属性加上引号
+						var obj={name:"lisi",age:10}
+						var obj={"name":"lisi","age":10}
+					2)var obj=new Object();//Object是js 的顶层对象，一切对象都可看做是由Object实例化而来
+					3)function Animal(){
+
+					}
+					var obj=new Animal();
+				3.对象的属性与方法
+					对象的属性为函数时，默认为方法
+				4.对象访问
+					对象.属性名     //属性
+					对象.方法名()   //函数属性
+					对象['属性名']
+					对象['方法名']()
+				//数组与对象
+					var obj={0:"lisi","age":10}
+					//数字可以作为属性
+					1)var arr=[1,2,3,4]
+					  console.log(arr["2"])
+					  console.log(arr[2])
+					2)console.log(obj.age)
+					//console.log(obj.0) //报错，点后边不能为数字
+					3)console.log(obj[0])//访问时，属性为数字类型可以将引号省略
+					4)var aa="age";
+					  console.log(obj[aa])
+					  //通过变量访问属性，相当于将变量提取值
+				5.对象遍历
+					for (i in obj){
+						obj[i]
+					}
+				6.对象三大特性：封装(函数安全性，内部运行，外部接口，有限使用)、继承、多态(灵活多变，通过参数实现不同功能)
+				 对象的prototype属性在静态区中存储，提高内存的使用率，json格式存储属性
+					fun.prototype ={
+						name:"zhangsan",
+						age:18,
+						jump:function(){
+							alert('jump')
+						}
+					}
+					继承：
+						继承的原理：拷贝
+							深拷贝：拷贝值
+							浅拷贝:拷贝地址，影响源对象的属性值
+							var json={name:"zhangsan",age:12,son:{name:"lisi"}}
+							var json1=copy(json)
+							//浅拷贝
+							function copy(json){
+								var newobj={}
+								for(var i in json){
+									newobj[i]=json[i]
+								}
+								result newobj;
+							}
+							//深拷贝
+							function copy(json){
+								var newobj={};
+								for(var i in json){
+									if(typeof json[i]=="object"){
+										newobj[i]=copy(json[i])
+									}else{
+										newobj[i]=json[i]
+									}
+								}
+								return newobj
+							}
+
+						// ec6 继承
+							// 构造函数：当实例化类的时候，自动执行的函数叫构造函数
+							class person{
+								constructor(){
+									this.name="zhangsan"
+								}    //构造函数
+								say(){
+									console.log(this.name)
+								}
+							}
+							class stu extends person{   //继承
+								constructor(){
+									super();   //将父类的this继承到子级中
+								} 
+								study(){
+									console.log("xuexi")
+								}
+							}
+							console.log(new person())  
+							console.log(new person().say())  
+							console.log(new stu())  
+							console.log(new stu().study())  
+
+					function Fun(){
+
+					}
+					Fun.prototype.aa="wqr"
+					Object.prototype.bb="wudh"
+					var fun=new Fun()
+					console.log(fun.aa)
+					console.log(fun.bb)
+
+					原型：
+					//继承链：javascript继承的规则
+						实例化出来的对象能够继承构造函数Prototype属性身上的属性和方法。
+					//Prototype：函数的属性，值是一个对象
+					console.log(fun.__proto__===Fun.prototype)
+						//Fun.prototype本身的属性是对象，继续继承
+					console.log(Fun.prototype.__proto__===Object.prototype)
+						//Object.prototype 本身是对象，但是顶层对象，达到最顶端，输出结果为空
+					console.log(Object.prototype.__proto__)
+					//1.var fun=new Object() 内部创建空对象
+						//任何对象都是由Object new出的实例化对象
+					//2.fun.__proto__指向构造函数Fun.prototype(不是函数对象)
+					//	Fun.prototype.__proto__指向构造函数Object.prototype
+					//	Object.prototype.__proto__
+						//实例化的对象必定都有添加在构造函数的属性，通过prototype实现继承,js继承链/原型链
+						//任何对象都有一个__proto__属性，任何函数对象都有一个prototype属性
+					//3.Fun.call(fun)	改变this指针指向
+					Object.prototype.talk=function(){
+						console.log("talk")
+					}
+					var arr=[];
+					Array.prototype.aa='bb'
+					console.log(arr.aa)  //输出bb，继承数组函数中的prototype属性
+					arr.talk()
+					1）原型继承：prototype
+						父类实例化对象后放在子类原型上边，子类继承父类的属性
+						student.prototype=new person();
+						student.prototype=person.prototype
+					2）call() //对象冒充    对象1.方法.call(对象2，参数,)
+						function fun(a,b){
+							console.log(a,b)
+							console.log(this)
+						}
+						fun()   //没有调用构造函数this默认为window
+						var obj={};
+						fun.call(obj,1,2) // this指向obj
+						fun.apply(obj,[1,2])
+					3）apply() //对象冒充	对象1.方法.apply(对象2，[参数,])
+					//call() 与 apply()不会继承prototype原型上的属性
+					//原型继承时，先继承，再实例化构造函数；call、apply对象冒充时，先实例化构造函数，再冒充继承
+					function da(name,age){
+						this.name=name
+						this.age=age
+					}
+					function xiao(size,sex){
+						this.size=size;
+						this.sex=sex;
+					}
+					xiao.prototype=new da("zhang",2);
+					var obj=new xiao("20","man");
+					da.call(obj,"zhang",2);
+					console.log(obj.name);
+							this:谁调用函数或谁实例化对象，this指向谁
+							转换this指针:call apply
+					//eg:
+						function myArray(){
+							for(var i in arguments){
+								 this[i]=arguments[i];
+							 }
+							this.length=arguments.length
+						}
+						myArray.prototype={
+							getValue:function(type){
+								  var type=type||"min";
+								  var temp=this[0];
+								  for(var i =0;i<this.length;i++){
+									console.log("aa")
+									  if(type=="min") {
+										  if (temp > this[i]) {
+											  temp = this[i];
+										  }
+									  }else if(type=="max"){
+										  if (temp < this[i]) {
+											  temp = this[i];
+										  }
+									  }
+								  }
+								  return temp;
+							  },
+							  sort:function(callback){
+								for(var i=0;i<this.length;i++){
+									for(var j=i+1;j<this.length;j++){
+										if(callback(this[i],this[j])){
+											var temp=this[i];
+											this[i]=this[j];
+											this[j]=temp
+										}
+									}
+								}
+								return this
+							  }
+						}
+						var arr=new myArray(4,5,3,8,1,9,2);
+						console.log(arr.sort(function(a,b){
+							return a>b
+						}))
+				7.constructor 构造函数;
+					var arr=[];
+					console.log(arr.constructor);
+					console.log(arr instanceof Array)  //true
+					//检测某一个构造函数是否为对象的实例化
+							markdown  farbox
+				8.删除对象属性 delete 对象.属性
+				  删除对象     对象==null
+				9.jacascript中自定义对象的方式：
+				  1）通过类的方式(构造函数实例化对象)
+					能够继承人类思考特性的方式
+				  2)通过json方式:javascript中独有的创建对象的方式，快速的存储和传递一些数据，内存中快速存储、传递、读取的方式，但不可批量处理(没有类)
+					以键值对方式存储任何数据类型
+					var person={name:"zhang",age:11,say:function(){}}
+					var person1={name:"zhang",age:11,say:function(){}}//不是同一对象
+			数组对象、字符串对象、数学对象
+				1.数组对象：
+					方法       	含义			返回值      			对原数组的影响
+					arr.push()    	末尾追加    	新数组的长度			有影响
+					arr.unshift()	开头追加		新数组的长度			有影响
+					arr.pop()		后边删除元素	删除的元素				有影响
+					arr.shift()		前面删除元素	删除的元素				有影响
+					arr.splice()	万能删除元素	删除的元素组成的数组	有影响	
+						// 参数：第一个参数是要操作的位置，第二个参数是删除的个数，后边的参数是要添加的元素
+					arr.slice()		截取			截取的新数组			没有影响
+						// 参数：第一个参数是截取的开始位置，第二个为截取的结束位置，也可以不指定结束位置，
+						默认从开始位置一直截取到最后(可以为负值)
+					arr.join()		转换			转换的新字符串			没有影响
+						// 默认用","进行连接，转化为字符串，可以传参，为指定连接的字符
+					arr.concat()	连接			连接的新数组			没有影响
+						// 可以同时连接多个数组，在原数组的基础上进行连接
+					arr.sort()		排序			排序的新数组			有影响
+						// 不传参数，默认以ASCII码(2^7)的大小进行排序  unicode
+						// 传参时，必须是一个回调函数，接受两个参数
+						var arr=[1,3,53,23]
+						var result=arr.sort(function(m,n){
+							return m-n; //升序
+							return n-m; //降序
+						}) 
+						console.log(arr)
+						console.log(result)
+					属性：
+						length  constructor
+				2.字符串对象
+					函数名       	 		  含义      返回值      		           对原数组影响
+					str.charAt()	 		  查询      返回指定位置的字符		          无
+					str.charCodeAt() 		  查询      返回指定位置的unicode码	          无
+					String.fromCharCode()	  将指定的unicold编码转化为字符
+					str.indexOf()			  查找	    返回指定字符第一次出现的位置        无
+								//如果没有返回-1
+					str.lastIndexOf()		  查找	    返回指定字符最后一次出现的位置      无
+					str.replace("a","A")	  查找并替换指定字符第一次出现的位置	          无
+								//找不到原样返回
+					str.slice()				  截取	    截取的字符串			              无
+								//从开始的位置截取到结束的位置，支持负数
+					str.substring(起始，终止) 截取      截取的字符串			              无
+
+								//从开始的位置截取到结束 的位置，不支持负数
+					str.substr(起始下标,长度 )截取       截取的字符串			           无
+								//从开始的位置截取到指定的长度，如果不指定长度，截取到最后
+					str.split(",")			  转换      转换后的数组				           无
+								//接收一个参数为分割的字符，第二个参数为数组的长度，可不接收参数
+					str.toUpperCase()	      将字母转化为大写						           无
+					str.toLowerCase()         将字母转化为小写						        无
+				3.数学对象  Math 内置对象
+					Math.PI 				  π 
+					Math.abs()                绝对值
+					Math.round()   		  四舍五入
+					Math.ceil()     		  进一法:只要满1就进制
+					Math.floor()  			  去尾法：把小数点后的都去掉
+					Math.random()    		  随机数
+					Math.sqrt()				  开平方
+					Math.pow(2,3)			  n次方
+					Math.sin( 弧度)           正弦：对边/斜边  
+					//Math.sin(Math.PI/6)为无限接近0.5的值，是由于Js独特存储有关，不擅长计算
+					Math.cos()                余弦：邻边/斜边
+					nub.toFixed(n)			  保留n个小数
+
+		BOM: 顶层对象window   
+			属性、方法（***滚动条、时间函数）
+			子对象：history
+					location:替换页面2种、刷新页面
+					navigator
+					document
+			1.window 对象的属性与方法
+				document.documentElement.clientWidth		获取浏览器的宽度
+				document.documentElement.clientHeight		获取浏览器的高度
+
+				window.screen.width 						屏幕分辨率的宽度
+				window.screen.height 						屏幕分辨率的高度
+			2.时间函数
+				setInterval(函数/eval,频率)			
+				//开启时间函数，每隔一定时间运行一次，返回时间函数ID
+					//第一个参数是执行线程的函数的程序，第二个参数是间隔执行时间
+				clearInterval(函数/eval,频率)		
+				//结束时间函数
+				setTimeout(语句，3000)  //  延时（3秒后执行代码，并且只执行一次）
+				//开启时间函数，只执行一次，返回时间函数ID
+				clearTimeout(t)  (清除)
+				//结束时间函数
+
+				//每开启一次时间函数，就实现一个进程(实现某一功能的程序的一次运行活动)
+				// 线程  一个进程的分步
+					//一个进程有多个线程，线程依赖进程存在
+					//进程可被计算机分配资源 
+					//线程之间可以资源共享，相互通讯
+				window.onload=function(){
+					var n=0;
+					var t=setInterval(function(){
+						n++;
+						console.log("运行"+n+"次");
+					},2000);
+					console.log(t);
+					var btn=document.getElementsByTagName('input')[0];
+					btn.onclick=function(){
+						clearInterval(t)
+					}
+				}
+			3.location:直接操纵地址栏
+			  //地址： http//www.baidu.com：800/s?ie=sdjbxcj/#box?sdad
+					网络传输协议  https (安全)									protocol
+					网络传输协议  http
+					协议		  file  (本地文件传输)
+					协议		  ftp	(邮件传输协议)
+ 
+					www						万维网
+					www.baidu.com       	服务器域名/主机名				host
+					www.baidu.com：800   	：800 端口						port
+					/s 						路径 	  						pathname
+					/#box?					锚链接/地址 ：实现直接跳转页面	hash
+					?sdad					查询字符串						search
+							//锚链接：
+
+				属性： 
+					location.href       		获取整个路径(可以设置)	
+					console.log(location.href)
+					location.host
+				方法：
+					location.reload()  //重新加载，刷新页面
+							//参数可以是(boolean)，如果是turn，将绕过缓存，重新加载数据
+					location.assign('history1.html')  //跳转页面并保存当前页面
+					location.replace('histo.html')  //直接替换页面，不可回退，不会留下历史记录
+			4.history
+				history.length 		返回历史记录的长度
+				history.back()		加载历史记录的上一个
+				history.forward()	加载历史记录的下一个
+				history.go(n)		0 刷新   1 加载历史记录的下一个  -1 加载历史记录的上一个
+		***DOM：核心对象 document(window的子对象，页面加载完成之后使用)
+			document：对元素的样式、内容、位置进行操作
+				文档树模型：(节点)
+			属性4、方法5
+			事件：事件源
+				  事件
+				  事件处理程序
+				  事件对象
+				1）.遮罩
+				2）.搜索框：属性操作
+				3）.选项卡:获取元素
+					 初始化
+					 添加事件
+
+
+			1.获取元素
+				document.getElementById('')				//通过id名获取
+				document/obj.getElementsByTagName('') 		//通过标签名
+					 //(获取DOM元素集合，不是数组，通过数组方式访问)
+				document.getElementsByClassName('')    // 兼容性问题，通过类名获取 
+				document/obj.getElementsByName('')	  //通过表单name名获取，在redio中name一样
+
+				document.title  //文档标题，可设置document.title="文档标题"
+				document.URL    //返回当前文档的url，只能获取不能赋值
+			2.DOM集合：
+				document.all		文档所有元素的集合
+				document.forms		文档for对象的集合
+				document.anchors	文档锚链接的集合	
+				document.links		文档所有链接的集合，包括图片地图
+				document.images		文档所有图片的集合
+			3.事件
+				用户的操作或行为：用户的鼠标点击、移动、键盘操作
+			  事件源 
+				事件发生在哪个元素身上，那个元素就是事件源
+			  事件处理程序
+				javaScript对事件作出的响应
+			  1）事件类型
+				鼠标事件：
+				click  dblclick  mouseover  mousemove  mouseout
+				mousedown  mouseup
+				键盘事件：
+				//键盘事件只能用在docunment属性上
+				//打印键：触发keydown keyup 、非打印键
+				keydown  keypress  keyup
+				表单事件：
+				submit  表单提交			(表单)
+				reset	表单重置			(表单)
+				focus   表单获取焦点		(表单控件)
+				blur    表单失去焦点		(表单控件)
+			4.元素操作
+				<div class="aa" style="" id="bb" aa="cc">
+					<div>获取内容</div>
+				</div>
+				1）元素内容
+					获取：innerHTML(DOM属性，识别HTML标签，获取全部并设置)
+						  innerText(获取文本内容或设置文本)
+					设置：div.innerHTML="<b>我是加粗</b>"
+							innerHTML  innerText  都会替换元素里的所有内容
+				2）元素属性
+					console.log(div.aa)//undefined
+					console.log(div.getAttribute("aa"))
+					//aa为自定义属性，只可以通过getAttribute获取
+					//id style  class等标准属性可以直接获取并设置
+					//所有属性都可以通过getAttribute获取
+					获取：获取内容后，div.id  div.className 
+					设置：直接设置 div.className="ss"
+						  通过setAttribute设置
+						  div.setAttribute("aa","bb")
+				3）元素样式(css)
+					获取
+						div.style.css属性   只能获取行内样式
+						getComputedStyle(对象,null).css属性   获取非行内样式，只能获取不能设置
+						//获取的background-color有连字符时去掉连字符，首字母大写(W3c)，在IE中直接报错，因此封装函数中不可以用来判定条件 
+						div.currentStyle.css属性   (IE)      获取非行内样
+						式，只能获取不能设置 
+					设置 (设置的属性都是行内样式)
+						单个属性设置：obj.style.css属性=""
+						多个属性设置：obj.style.cssText="width:200px;height:1px"
+								//多个属性设置直接将行内样式的Style重新设置
+									  加类名或ID直接设置
+									  在Css样式中添加id样式，再在js中添加Id名
+									  obj.id=" "
+		// this 指针方向
+		   谁调用函数或谁实例化对象，this指向谁
+		1）function fun(){
+			this 指向window  //this没有确定的对象
+		   }
+		2) var obj={aa:function(){alert(this)}}
+			//指向obj      //调用对象
+			3）	box.onclick=function(){
+				this            //this指向box；
+				fun()			//this指向window  函数中的回调函数
+				fun.call(box)	//this指向box
+			}
+			function fun(){
+				this  
+			}
+		4)	function Fun(){
+				this.aa="aa"
+			}
+			Fun.prototype={
+				eat:function(){
+					this  //this指向newobj
+					var that=this;  //将this保留，在内部其他函数中使用
+					document.onclick=function(){
+						this   //this指向document
+						that	//全局变量，将上边的this覆盖，直接使用无影响
+					}
+				},
+				talk:function(){
+		
+				}
+			}
+			var newobj=new Fun()   //this指向newobj
+	</script>
+	github:利用git进行版本控制、专门用于存放软件代码和内容的共享虚拟主机服务
+	svn\git:版本控制协同开发(共享代码，任何时候都可操作)工具     记录整个项目的版本及项目整个过程
+TortoiseGit:图形化方式操作git
+采用命令行的操作：
+	1.服务器端的git   客户端的git
+	  客户端配置好git：git无反应时(git/ /help )   安装路径的b目录(d:/git/bin;)添加到环境变量(右键我的电脑==》属性==》高级系统设置==》高级==》环境变量==》Path==》编辑)中  
+	  服务器端的git  GitHub(提供存储代码的地方)    
+	2.cmd
+	3.将文件夹变为可管理的
+		dir:当前目录(默认c盘)       d:回车  ==》进入d盘  切换盘
+		cd:进入document下面     cd 文件夹名称
+		git init：接管文件    自动创建.git目录，目录下记录变化
+		git status   :监控并提供修改信息，但并不能进行管理  输出文件状态
+		git add .
+		git add index.html    接管并管理文件
+		git diff     对比修改前后的信息
+		git commit   强制添加注释使得以后方便管理     git commit -m  添加注释
+		git log    输出所有版本信息
+		git reset --hard HEAD^     返回到上一级的版本
+		git reset --hard 版本号     返回到某一版本
+		git remote add origin https://github.com/wangyakang/ceshi.git	添加远程地址
+		git push origin  master http://   (主分支)
+		git clone  克隆本地地址
+		git pull origin  master http://
+
+		mkdir 创建文件
+	4.fork 复制本地，开源项目可以进行修改，修改之后可进行请求  pull requests
+</body>
+<script>
+	//单线程的异步机制
+	for (var i = 0; i < 5; i++) {
+		setTimeout(function() {
+			console.log(new Date, i);
+		}, 1000);
+		console.log(new Date,i)
+	}
+	console.log(new Date, i);
+//  16:57:46 GMT+0800  0
+//  16:57:46 GMT+0800  1
+//  16:57:46 GMT+0800  2
+//  16:57:46 GMT+0800  3
+//  16:57:46 GMT+0800  4             1040
+
+//  16:57:46 GMT+0800  5             1042
+//  16:57:47 GMT+0800  5             1038
+//  16:57:47 GMT+0800  5
+//  16:57:47 GMT+0800  5
+//  16:57:47 GMT+0800  5
+//  16:57:47 GMT+0800  5
+
+	//实现i的输出
+	1.设置在对象的属性上   2.闭包    3.添加在元素的属性上
+</script>
+</html>

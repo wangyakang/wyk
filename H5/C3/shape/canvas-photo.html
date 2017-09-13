@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas操作图片</title>
+</head>
+<style>
+    canvas{
+        background: #ccc;
+    }
+</style>
+<body>
+<canvas width="800" height="400"></canvas>
+<img src="../imgs/1.jpg" alt="">
+</body>
+<script>
+    //9个参数：
+    // 三个参数必填  1.图片的资源  2.放置的位置x\y
+    //将图片的所有内容放置在画布的指定位置   drawImage(img,imgx,imgy,imgwidth,imgheight,cx,cy,cw,ch)
+//    cobj.drawImage(imgobj,0,0)
+    var imgobj=document.querySelector("img");
+    var canvas=document.querySelector("canvas");
+    var cobj=canvas.getContext("2d");
+//    cobj.globalAlpha=0.6;   //透明度0-1
+
+//    //混合图像的显示，目标图像上显示源图像
+    cobj.drawImage(imgobj,0,0,400,200,0,0,400,200)  //目标图像
+//    cobj.globalCompositeOperation="source-in"   //控制目标图像与源图像的显示方式
+//    cobj.drawImage(imgobj,0,0,400,200,0,0,400,200)  //源图像
+</script>
+</html>

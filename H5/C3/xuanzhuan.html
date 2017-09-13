@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .out{
+        width: 200px;height: 200px;position: fixed;top: 0;left: 0;right: 0;bottom: 0;margin: auto;
+        perspective:900px;
+    }
+    .behind{
+        width: 200px;height: 200px;position: fixed;top: 0;left: 0;right: 0;bottom: 0;margin: auto;
+        /*transition: transform 2s linear;*/
+        transform-style: preserve-3d;
+        /*transform-origin: center center 40px;*/
+    }
+    .behind div{
+        position: absolute;width: 200px;height: 200px;
+    }
+    .behind div{
+        top: 0;left: 0;opacity: .5;
+    }
+    .behind div:nth-child(1){
+        transform: rotateY(90deg);
+        transform-origin: left;background: red;
+    }
+    .behind div:nth-child(2){
+        transform: rotateX(-90deg);
+        transform-origin: top;background: blue;
+    }
+    .behind div:nth-child(3){
+        transform: translateZ(-200px);
+        background: yellow;
+    }
+    .behind div:nth-child(4){
+        transform: rotateY(-90deg);
+        transform-origin: right;background: green;
+    }
+    .behind div:nth-child(5){
+        transform: rotateX(90deg);
+        transform-origin: bottom;background: black;
+    }
+    .behind div:nth-child(6){
+        background: palevioletred;
+        /*backface-visibility: ;*/
+    }
+    .behind:hover{
+        /*transform: rotate3d(1,1,0,90deg);*/
+    }
+</style>
+<body>
+<div class="out">
+    <div class="behind">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+</body>
+<script>
+
+    var box=document.querySelector(".behind");
+    var clientw=document.documentElement.clientWidth;
+    var clienth=document.documentElement.clientHeight;
+    var cx,cy
+    document.onmousedown=function (e) {
+        cx=e.clientX;
+        cy=e.clientY;
+        document.onmousemove=function (e) {
+            var movex=e.clientX;
+            var movey=e.clientY;
+            var x=movex-clientw/2;y=movey-clienth/2;
+            var len=Math.sqrt((movex-cx)*(movex-cx)+(movey-cy)*(movey-cy));
+            box.style.transform="rotate3d("+(-y)+","+x+",0,"+len+"deg)"
+            return false;
+        }
+        document.onmouseup=function () {
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+    }
+</script>
+</html>

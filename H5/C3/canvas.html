@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--行内块元素，默认大小300*150px，默认颜色透明色-->
+    <!--canvas的宽高不能设置在css样式中(按照一定的比例放大缩小),要设置在属性上面-->
+    <!--canvas绘制的图形-->
+    <canvas width="300px" height="400px"></canvas>
+    <img src="apple/img/banner1-l.jpg" alt="">
+<div contenteditable="true"></div>  可编辑属性
+</body>
+<script>
+    var canvas=document.querySelector("canvas");
+    var cobj=canvas.getContext("2d");  //获取2d对象，通过2D对象绘制图形
+    //    <!--canvas绘制的图形不保存在内存中，运行速度块
+    //  通过2d对象实现对图形的操作,并且要在绘制完成前进行设置样式,注意顺序
+    // -->
+
+    //画布设置阴影
+    cobj.shadowColor="green";
+    cobj.shadowBlur="10";
+    cobj.shadowOffsetX="20";
+    cobj.shadowOffsetY="30";
+
+    //画布填充渐变色
+        //线性渐变
+//    var colorobj=cobj.createLinearGradient(0,0,100,100)  //创建渐变对象，确定2d对象所在的位置
+//    colorobj.addColorStop(0,"red")    //颜色
+//    colorobj.addColorStop(0.5,"blue")
+//    colorobj.addColorStop(1,"black")
+        //径向渐变
+    var colorobj=cobj.createRadialGradient(19,30,30,7,7,10)  //确定渐变范围与大小：开始圆的位置及大小，结束时圆的位置及大小
+    colorobj.addColorStop(0,"red")    //颜色及停靠位置
+    colorobj.addColorStop(0.5,"blue")
+    colorobj.addColorStop(1,"black")
+
+    //填充图片
+    var imgobj=document.querySelector("img");
+    var obj=cobj.createPattern(imgobj,"no-repeat")
+
+    cobj.drawImage(imgobj,0,0)
+        cobj.fillStyle=obj;  //填充颜色属性
+        cobj.fillRect(0,0,100,100); //画布中绘制一个填充的矩形，位图
+//    cobj.strokeStyle="blue";  //边框颜色
+//    cobj.lineWidth=10   //边框的大小
+
+    //画布绘制，从中间向两边进行绘制，在
+    cobj.strokeRect(100,100,100,100) //画布中绘制一个边框矩形，位图
+    //坐标以左上角为(0,0)点，向右向下为正
+
+    //画布绘制独立的图形，指定开始的路径
+    //除了fillRect strokeRect  所有的绘制必须以beginPath()开头,开启画布，
+//    cobj.beginPath();
+    //绘制矩形
+//    cobj.rect(0,0,100,20)
+//    cobj.fill();
+//    cobj.closePath()
+//    cobj.clearRect()//清除画布
+
+//    画线
+    cobj.moveTo(0,0)    //当前绘制的起点
+    cobj.lineTo(100,30)   //划线下一个点
+    cobj.stroke();  //描边
+    cobj.fill();  //填充
+    cobj.closePath()  //将独立图形封闭，首尾相连
+
+    //获取指定图像区域的信息
+    var data=cobj.getImageData(0,0,100,100);
+    //
+    cobj.putImageData(data,0,0)
+    //data:stream/octet  资源的流类型，一种下载模式
+    canvas.toDataURL(,"data:stream/octet")   //事件地址   保存的地址是data类型
+
+
+    //canvas  绘制文本
+    var str="anas"
+    cobj.textBaseline="top";//文本对齐方式
+    cobj.font="12px 黑体";   //字体大小
+    cobj.measureText("asd").width;  //测量文本的宽度
+    cobj.strokeText(str,0,0,100)  //文本内容   放置位置    最大显示长度
+    cobj.fillText(str,0,0,100)  //文本内容   放置位置    最大显示长度
+
+    //画布中的文字的格式
+    function wrap(text,height,initx,inity) {
+        var x=initx;
+        for(var i=0;i<text.length;i++){
+            cobj.strokeText(text[i],initx,inity)
+            initx+=cobj.measureText(text[i]).width;
+            if(initx>x+width){
+                initx=x;
+                height+=height
+            }
+        }
+    }
+
+    //画布中的像素操作
+    var data=cobj.createImageData(100,100)  //创建像素
+    //    确定循环次数，直接操作队形下标
+    for(var i=0;i<data.width*data.height;i++){   //修改每个像素
+        data.data[i*4+0]=255-data.data[i*4+0]  //r
+        data.data[i*4+1]=255-data.data[i*4+0]  //g
+        data.data[i*4+2]=255-data.data[i*4+0]  //b
+        data.data[i*4+3]=255  //a
+    }
+//    知道每行每列的位置进行操作
+    for(var i=0;i<data.height;i++){   //i=y
+        for(var j=0;j<data.width;j++){  //i=x
+            data.data[data.width*i*4+j*4]=255;
+            data.data[data.width*i*4+j*4+1]=0;
+            data.data[data.width*i*4+j*4+2]=0;
+            data.data[data.width*i*4+j*4+3]=255;
+        }
+    }
+    //高斯模糊：权重   像素获取   根据权重赋值新的像素
+
+    //粒子动画
+    //贝塞尔曲线
+    cobj.quadraticCurveTo(控制点x，控制点y，线条)  //二次贝塞尔曲线
+    cobj.bezierCurveTo(两个控制点)   //三次贝塞尔曲线
+</script>
+</html>

@@ -1,0 +1,99 @@
+.hanbox{
+	width: 100vw;
+	height: 100vh;
+	background: #3169F7;
+	position: relative;
+	overflow: hidden;
+	
+}
+.hanstaue{
+	width: 100%;
+	height:0.4rem;
+	background: #3156F7;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 100;
+}
+.hantop{
+	background: #3169F7;
+	
+}
+.hannav{
+	width: 100%;
+	height: 3.45rem;
+	position: relative;
+	background-size: 100%;
+
+}
+.fanhui{
+	width: 0.6rem;
+	height: 0.6rem;
+	background: #3164F7;
+	border: 0.01rem solid #3648F9;
+	border-radius: 50%;
+	box-sizing: border-box;
+	color: #fff;
+	text-align: center;
+	line-height: 0.5rem;
+	font-size: 0.25rem;
+	position: absolute;
+	left: 0.4rem;top: 0.8rem;
+}
+
+.ly-navTitle{
+	height: 1.34rem;
+	width: 50%;
+	/*margin-top: 0.4rem;*/
+	text-align: center;
+	position: absolute;
+	left: 2rem;
+	top: 0.4rem;
+	vertical-align: middle;	
+	justify-content: space-around;
+	align-items:center;
+}
+p{
+	padding: 0;margin: 0;
+}
+.ly-navTitle p:first-child{
+	color: #F3F4F9;
+	font-size: 0.4rem;
+	margin-top: 0.3rem;
+	/*line-height: 1rem;*/
+}
+.ly-navTitle p:last-child{
+	color: #7192F7;
+	font-size: 0.28rem;
+}
+.pinglun{
+	width: 89%;
+	height: 68%;
+	border-radius: 0.2rem 0.2rem 0 0;
+	/*position: relative;*/
+}
+.pinglun textarea{
+	width: 100%;
+	height: 100%;
+	padding: 0.4rem;
+	overflow: hidden;
+	font-size: 0.26rem;
+	border-radius: 0.2rem 0.2rem 0 0;
+}
+.zishu{
+	height: 0.4rem;
+	width: 100%;
+	position: fixed;
+	bottom: 0.4rem;right: 0.4rem;
+}
+.zishu span{
+	float: right;
+	font-size: 0.16rem;
+}
+.zishu span:nth-child(2){
+	color:#3169F7;
+}
+.zishu span:nth-child(1){
+	color:#bbbbbb;
+}
+

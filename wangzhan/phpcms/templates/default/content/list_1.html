@@ -1,0 +1,42 @@
+{template "content" ,"header"}
+<!-- banner -->
+	<div class="pinpai_banner dis">
+		<div class="gushi_out">
+			<div class="gushi_box">
+				<img src="{IMG_PATH}myimg/zy_banner.png" alt="">
+			</div>
+		</div>
+	</div>
+<!-- banner结束 -->
+	<!-- 品牌故事 -->
+	<div class="gushi_neirong">
+		{pc:content action="category" catid="$top_parentid" num="10"}
+		<div class="left">
+			<ul>
+				{loop $data $v}
+					<li><a href="{$v[url]}">{$v[catname]}</a></li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="right">
+			{pc:content action="lists" catid="$catid" num="4" moreinfo="1"}
+				{loop $data $r}
+					<div class="title">
+						<span class="title_left">{$r[title]}</span>
+						<span class="xiao">{$r[copyfrom]}</span>
+						<div class="biaoti">
+							<a href="{siteurl($siteid)}">首页</a> > {$r[title]}
+						</div>
+					</div>
+					<div class="neirong">
+						<p class="hanggao">{$r[content]}</p>
+					</div>
+				{/loop}
+			{/pc}
+		</div>
+		{/pc}
+	</div>
+		<div class="clear">	</div>
+	<!-- 品牌故事结束 -->
+{template "content" ,"footer"}
+

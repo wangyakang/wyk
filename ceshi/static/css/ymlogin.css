@@ -1,0 +1,121 @@
+.ym_bodyimg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/login/ymloginbg.png);
+	background-size: 100%;
+}
+.ym_reg_header{
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: transparent !important;
+}
+.ymloginlogo{
+	width: 1.49rem !important;
+	height: 1.49rem;
+}
+.ymloginlogo img{
+	width: 100%;
+	height: 100%;
+}
+.ym_login_content{
+	padding-top: 3.21rem !important;
+}
+.ym_login_circle1, .ym_login_circle2{
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	display: inline-block;
+	background: #135bd1;
+}
+.mui-input-row .mui-input-clear~.mui-icon-clear{
+	color: #ff0000;
+	opacity: 1;
+}
+.ym_login_theme{
+	position: relative;
+	z-index: 3;
+	top: -0.2rem;
+}
+.ym_login_theme p{
+	text-align: center;
+	color: #fff;	
+	font-weight: 700;
+}
+.ym_login_theme p:nth-child(1){
+	font-size: 0.39rem;
+}
+.ym_login_theme p:nth-child(2){
+	font-size: 0.26rem;
+}
+.link-area1{
+	position: relative;
+}
+.link-area1 a{
+	color:#fff;
+}
+.mui-btn-primary1{
+	width: 3.05rem;
+    height: 0.92rem;
+    border-radius: 0.5rem;
+    border: 2px solid #fff;
+    background: #6c90dd;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+}
+.start_imgs{
+	float: left;
+	width: 0.46rem;
+    height: 0.42rem;
+    margin-left: 0.3rem;
+}
+.mui_btn_start{
+	line-height: 0.30rem;
+	text-align: center;
+}
+.start1{
+	font-size: 0.28rem;
+	font-weight: 700;
+}
+.start2{
+	font-size: 0.12rem
+}
+.mui-input-group, .mui-table-view{
+	background-color: transparent;
+}
+.mui-table-view:before, .mui-table-view:after{
+	background-color: transparent;
+}
+.mui-input-row1{
+	position: relative;
+    right: 0;
+    border-bottom: 1px solid #bec6d8;
+    top: 0.79rem;
+}
+.mui-input-group .mui-input-row:after{
+	background-color: transparent;
+}
+.mui-input-row input{
+	color: #fff;
+}
+.mui_input_circle1, .mui_input_circle2{
+	width: 0.13rem;
+	height: 0.13rem;
+	border-radius: 0.5rem;
+	background: #fff;
+	position: absolute;
+	top: -0.06rem;
+}
+.mui_input_circle1{
+	left: 0;
+}
+.mui_input_circle2{
+	right: 0;
+}
+.link-area1 a{
+	font-size: 0.28rem;
+}

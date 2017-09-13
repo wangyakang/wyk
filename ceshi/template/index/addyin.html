@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script src="{JS_PATH}/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="{CSS_PATH}/add2.css"/>
+    <link rel="stylesheet" type="text/css" href="{CSS_PATH}/public/swiper.min.css"/>
+    <script src="{JS_PATH}/public/swiper.min.js"></script>
+			
+</head>
+<body>	
+	<div class="l_top">
+		<img src="{IMG_PATH}/more-副本-3-拷贝.png" class="fanhuia"/>
+		<script src="{JS_PATH}/public/touch.js"></script>
+		<script>
+			touch.on(".fanhuia","tap",function(){
+				window.location.href="index.php?m=index&f=pay2"
+			})
+		</script>
+	</div>
+	<div class="l_title">
+		<span class="es_text">DERFULCTOM</span>
+		<span class="e_text">BANK.CARD</span>
+			<div class="wei"><img src="{IMG_PATH}/division_02.png" style="width: 2.07rem;height: 0.05rem;"/></div>
+			<span class="c_text">添加银行卡片</span>
+	</div>
+	<div class="l_add">
+		<form action="">
+			<input type="text" name="card" id="card" placeholder="请输入您的银行卡号" class="inputs"/>
+			<input type="text" name="card" id="user" placeholder="请输入持卡人姓名" class="inputs"/>
+			<input type="text" name="card" id="idcard" placeholder="请输入您的银行卡号身份证号码" class="inputs"/>
+			<input type="text" name="card" id="home" placeholder="请输入您的开户银行" class="inputs"/>
+		</form>
+		<a href="../pay2/index.html"><div class="l_buttom"></div></a>
+	</div>
+</body>
+</html>

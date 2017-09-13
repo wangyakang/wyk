@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+		<script src="animate.js"></script>
+	</head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		/*.box{
+			width: 400px;
+			height: 200px;
+			position:relative;
+			margin: 0 auto;
+			overflow: hidden;
+		}*/
+		/*.imgbox{
+			width: 2000px;
+			height: 100%;
+			position: absolute;
+			top:0;
+			left: 0;
+		}*/
+		/*.imgbox li{
+			width:400px;
+			height: 200px;
+			float: left;
+		}*/
+		.box{
+			width:400px ;
+			height: 200px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.imgbox{
+			width: 400px;
+			height: 200px;
+			position: relative;
+		}
+		.imgbox li{
+			 width: 100%;
+			 height: 100%;
+			 position: absolute;
+			 left: 400px;
+			 top: 0;
+		}
+		.imgbox li.first{
+			left: 0;
+		}
+		.imgbox li img{
+			width: 100%;
+			height: 100%;
+		}
+		.circle{
+			width: 50px;
+			height:8px ;
+			position: absolute;
+			bottom: 5px;
+			left: 45%;
+		}
+		.circle li{
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: red;
+			float: left;
+			margin-left: 2px;
+		}
+		.circle li.first{
+			background: #130153;
+		}
+		.left,.right{
+			width: 30px;
+			height: 50px;
+			background: #000000;
+			opacity: 0.2;
+			position: absolute;
+			top:45%;
+			font-size: 50px;
+			color: #0085D0;
+		}
+		.left{
+			left: 0;
+		}
+		.right{
+			right: 0;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<ul class="imgbox">
+				<li class="first"><img src="jp-right-1.jpg" alt="" /></li>
+				<li><img src="jp-right-2.jpg" alt="" /></li>
+				<li><img src="jp-right-3.jpg" alt="" /></li>
+				<li><img src="jp-right-4.jpg" alt="" /></li>
+			</ul>
+			<ul class="circle">
+				<li class="first"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="left">&lt;</div>
+			<div class="right">&gt;</div>
+		</div>
+		
+	</body>
+	<script>
+	
+//		var n=0;
+//		var width=$(".box").width()
+//		var t=setInterval(move,2000);
+//		function move(type){
+//			type=type||"r";
+//			if(type=="r"){
+//				n++;
+//				if(n>=$(".imgbox li").length){
+//					n=0;
+//				}		
+//			}else if(type=="l"){
+//				n--;
+//				if(n<0){
+//					n=$(".imgbox li").length-1;
+//				}
+//			}
+//			$(".circle li").removeClass("first").eq(n).addClass("first")
+//			$(".imgbox").animate({left:-n*width},200);
+//		}
+//		
+//			$(".box").hover(function(){
+//				clearInterval(t)
+//			},function(){
+//				t=setInterval(move,2000);
+//			})
+//			
+//			$(".left,.right").on("click",function(){
+//				if($(this).is(".left")){
+//					move("l")
+//				}else if($(this).is(".right")){
+//					move("r")
+//				}
+//			})
+//			$(".circle li").on("click",function(){
+//				$(".circle li").removeClass("first").eq($(this).libs()).addClass("first")
+//				$(".imgbox").animate({left:-$(this).libs()*width},200);
+//			})
+	//双下标轮播
+	var now=0;
+	var next=0;
+	var width=$(".box").width()
+	console.log(width)
+	var t=setInterval(move,2000);
+	function move(){
+		next=now+1;
+		
+	}
+	</script>
+</html>

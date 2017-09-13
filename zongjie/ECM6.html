@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<td contenteditable="true"></td>   可编辑状态
+	</body>
+	<script>
+		<!--浏览器-->
+			1.解析html+css;   webkit(谷歌内核)  moz(火狐内核 )   o(opera浏览器内核)  ms(ie内核)
+			2.解析javascript  v8引擎(嵌入到javascript的运行化境中)   使得javascript运行速度提高
+		<!--javascript-->
+		1.document.addEventListener("DOMContentLoaded",function(){})
+		  window.onload=function(){}
+		2.变量：存储信息以便复用，存在内存中，内存(临时显示)
+			1)常量：const 声明常量，声明之后不可变
+			2)+用法
+				var name="王亚康"
+		   	 	var sex="女"
+		   	 	var str="我的名字叫"+name+"我的性别是："+sex
+		   	 	ECMAscript6.0 var str=`我的名字叫${name},我的性别：${sex}`
+		   	3)块变量:定义作用范围，只能在花括号中起作用，外部不可调用
+		   		var num=10  
+//				(ECMAscript6)if
+				if(true){
+					let num=10;
+					alert(num)
+				}
+				num=0;
+				
+				var i="外面的i"
+				for(let i=0;i>10;i++){}
+		3.forEach
+			divs.forEach(function(obj,index){
+				var clone=obj.cloneNode(true)
+				clone.style.width=obj.clientWidth+"px";
+				document.body.appendChild(clone)
+			})
+		4.构造函数及继承   封装类
+			class person{
+				constructor(参数){
+					this.name="zhangsan"
+				}    //构造函数
+				say(){
+					console.log(this.name)
+				}
+			}
+			class stu extends person{   //继承
+				constructor(参数){
+					super(参数);   //将父类的this继承到子级中 继承父类的参数，需要传参
+				} 
+				study(){
+					console.log("xuexi")
+				}
+			}
+		5.var aa=document.querySelectorAll()
+		6.//    Promise:构造函数    ec6
+        原型上的方法：可通过实例化获得
+        1.指定要执行的函数
+        2.在执行完毕后要调用reslove()
+        3.then()来执行最后的步骤
+        var obj=new Promise(function(reslove){
+            //执行的函数
+            setTimeout(function(){},3000)
+            reslove("执行完毕") //确定执行完毕,会传送给then的function
+        })
+        obj.then(function(e){
+            //执行完毕后再执行的函数
+            console.log(e)
+        })
+	</script>
+</html>

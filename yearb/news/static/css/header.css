@@ -1,0 +1,76 @@
+/*顶部通栏*/
+.header{
+	background: #f7f7f7;
+	border-bottom: 1px solid #ececec;
+}
+.head-tab{
+	height: 40px;
+    width: 1000px;
+    margin: 0 auto;
+}
+.head-tab img{
+	width: 194px;
+	height: 40px;
+	float: left;
+	display: block;
+}
+.head-right{
+	float: right;
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+}
+.head-right span a{
+	color: #042953;
+	padding-left: 2px;
+}
+.head-right s{
+	padding: 0px 18px;
+}
+.head-right span a:hover{
+	text-decoration: underline;
+}
+.head-right a:hover{
+	color: #042953;
+}
+/*导航*/
+.head-bg{
+	background: #fff;
+}
+.nav{
+	width: 1000px;
+	margin: 0 auto;
+	height: 75px;
+}
+.nav .imgs{
+	float: left;
+	padding-top: 21px;
+}
+.nav .nav-right{
+	float: right;
+	padding-top: 28px;
+}
+.nav-right li{
+	float: left;
+	padding: 0 6px;
+	position: relative;
+}
+.nav-right li a{
+	display: block;
+	color: #666;
+	padding: 0px 10px 24px 10px;
+	position: relative;
+	font-size: 14px;
+}
+.nav-right li a.first{
+	border-bottom: 4px solid #052953;
+    background: url(../static/img/head/navsj.png) no-repeat center bottom;
+    color: #032a54;
+}
+.nav-right li.dh a:hover{
+	border-bottom: 4px solid #052953;
+	background: url(../static/img/head/navsj.png) no-repeat center bottom;
+}
+.nav-right li.dh a:hover .dhz{
+	color: #032a54;
+} 

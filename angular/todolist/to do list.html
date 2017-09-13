@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/angular.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/todolist.css">
+</head>
+<body>
+<div class="container-fluid box">
+    <div class="row">
+        <div class="left col-xs-5 col-md-4 col-sm-3">
+            <div class="input-group wz-search">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                <input type="text" class="form-control" placeholder="search" aria-describedby="basic-addon1">
+            </div>
+            <div class="done">
+                <span class="glyphicon glyphicon-th"></span>
+                <span class="fontco">已完成</span>
+                <span class="badge">42</span>
+            </div>
+            <div class="daiban">
+                <div class="title-daiban">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <span class="fontco">待办事宜</span>
+                    <span class="badge">42</span>
+                </div>
+                <div class="listBox">
+                    <input type="text" value="新建" class="form-control fontco" placeholder="Username">
+                    <span class="glyphicon glyphicon-trash del"></span>
+                </div>
+            </div>
+            <div class="left-add">
+                <span class="glyphicon glyphicon-plus"></span>
+                <span class="fontco" ng-click="add()">添加事项</span>
+            </div>
+        </div>
+        <div class="right col-xs-7 col-md-8 col-sm-9">
+            <div class="title-tiaomu">
+                <div class="header-title">新建标题</div>
+                <div class="add-tm">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span>新建条目</span>
+                </div>
+            </div>
+            <div class="listBox">
+                <input type="text" value="新建" class="form-control fontco" placeholder="Username">
+                <span class="glyphicon glyphicon-ok-circle done-li"></span>
+                <span class="glyphicon glyphicon-remove-circle del"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

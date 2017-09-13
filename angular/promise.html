@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    //
+    // //promise 的链式调用
+    // function one() {
+    //     var promise=new Promise(function (reslove) {
+    //         setTimeout(function () {
+    //             console.log(1)
+    //             reslove("第一个执行完")
+    //         },2000)
+    //     })
+    //     return promise;
+    // }
+    // function two() {
+    //     var promise=new Promise(function (reslove) {
+    //         setTimeout(function () {
+    //             console.log(2)
+    //             reslove("第二个执行完")
+    //         },2000)
+    //     })
+    //     return promise;
+    // }
+    // function three() {
+    //     var promise=new Promise(function (reslove) {
+    //         setTimeout(function () {
+    //             console.log(3)
+    //             reslove("第三个执行完")
+    //         },2000)
+    //     })
+    //     return promise;
+    // }
+    // one().then(function (e) {
+    //     console.log(e);
+    //     return two()
+    // }).then(function (e) {
+    //     console.log(e)
+    //     return three()
+    // }).then(function (e) {
+    //     console.log(e)
+    // })
+
+    //promise函数本身的属性与方法   promise.resolve("q"):返回一个promise对象
+//    var promise=Promise;
+//    setTimeout(function () {
+//         alert(1)
+//        promise.resolve("q").then(function (e) {
+//            console.log(e)
+//        })
+//    },2000)
+//    //    console.dir(Promise)
+//        console.dir(Promise.resolve())
+
+    //
+    function defer() {
+        return promise();
+    }
+    function promise() {
+        this.resolveArr=[];
+        this.doneArr=[];
+        this.promise=this;
+    }
+    promise.prototype={
+        resolve:function (args) {
+            this.resolveArr.push(Promise.resolve(args))
+                this.resolveArr[0].then((e)=>{  //队列思想，删掉
+                    this.resolveArr.shift()
+                    this.doneArr[0](e)
+                    this.doneArr.shift()
+                })
+        },
+        then:function (callback) {
+            this.doneArr.push(callback)
+            return this;
+        }
+    }
+//    var obj=defer()
+//    setTimeout(function () {
+//        alert(1)
+//        promise.resolve("q")
+//    },2000)
+//    obj.then(function (e) {
+//        console.log(e)
+//    })
+</script>
+</html>

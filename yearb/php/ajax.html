@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax</title>
+	</head>
+	<body>
+		ajax:已有的一些语言以及异步思想，存在数据库中
+			1.表单异步验证
+			2.深层次导航：选项卡 不影响整个页面的前提下进行数据库的提取，按需加载
+			3.快速的用户与用户间的交流响应
+			4.类似投票系统：实时得到投票结果
+			ajax通过a链接\css\js\img\html发起http请求=>
+			<input type="text" formenctype="application/x-www-form-urlencoded" />
+	</body>
+	<script>
+		//1.获取XMLHttorequest对象，ie8以下浏览器没有该对象
+		var aa=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")
+//		//2.
+//		aa.open("get","ajax1.html",true,"用户名","密码")
+//		aa.send()
+//		true:同步还是异步,默认异步
+//		 同源策略:域名下的页面不可获取其他域名下的数据库
+		  //同步   异步    javascript单线程异步机制语言:
+		   	//单线程：同一时间只能进行一件事
+		  	//异步：所有不能及时完成的动作，都是异步的
+		  	        //1.时间控制的   setInterval  setTimeout
+		  	        //2.事件控制的   window.onload   onclick
+//		  	setTimeout(function(){
+//		  		console.log(1)
+//		  	},0)
+//		  	document.onclick=function(){
+//		  		console.log(3)
+//		  	}
+//		  	console.log(2)
+//		
+//ajax.readyState
+//0 － （未初始化）还没有调用send()方法 
+//1 － （载入）已调用send()方法，正在发送请求 
+//2 － （载入完成）send()方法执行完成，已经接收到全部响应内容 
+//3 － （交互）正在解析响应内容 
+//4 － （完成）响应内容解析完成，可以在客户端调用了 
+		aa.open("get","ajax1.html",true,"用户名","密码")//接收传递方式、地址、同步异步
+		aa.send()
+		aa.onload=function(){
+			console.log(aa.response)
+			console.log(aa.readyState)
+		}
+		//颗粒化控制
+		aa.onreadystatechange=function(){//运行过程中监听对象
+			if(aa.readyState===4){   //保留状态
+				if(aa.status===200){ //服务器返回状态，地址找不到时返回404
+					console.log(aa.responseText)
+				}else if((aa.status===404)){
+					alert("地址访问不到")
+				}
+			}else if(aa.readyState===3){
+				
+			}
+		}
+	
+	</script>
+</html>

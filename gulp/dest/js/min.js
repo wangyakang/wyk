@@ -1,0 +1,1 @@
+function aa(o){console.log(o)}function vv(o){console.log(o)}aa("测试的js"),vv("用来合并的jss");

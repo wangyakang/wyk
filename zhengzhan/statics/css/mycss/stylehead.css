@@ -1,0 +1,180 @@
+/*top*/
+	.m_top{
+		width: 100%;
+		height: 121px;
+		min-width: 1200px;
+		background: #fff;
+	}
+	.body{
+		background: #f6f6f6；
+	}
+	.m_toph{
+		width: 100%;
+		height: 40px;
+		background: #eee;
+		border-bottom: 1px solid #666;
+	}
+	.m_topcen{
+		width: 1000px;
+		height: 40px;
+		margin: 0 auto;
+	}
+	.m_tel{
+		float: left;
+	}
+	.m_text{
+		font-size: 12px;
+		color: #666;
+		line-height: 40px;
+		float: right;
+		margin-left: 15px;
+	}
+	.m_texto{
+		font-size: 12px;
+		color: #666;
+		line-height: 40px;
+		float: right;
+		margin-left: 15px;
+	}
+	.m_texto:hover{
+		color: #31353d;
+	}
+	.m_textt{
+		font-size: 12px;
+		color: #042953;
+		line-height: 40px;
+		float: right;
+		margin-left: 3px;
+	}
+	.m_textt:hover{
+		text-decoration: underline;
+	}
+/*logo*/
+	.m_logocen{
+		width: 1000px;
+		height: 80px;
+		margin: 0 auto;
+		background: #fff;
+		margin-top: 1px;
+	}
+	.logokuai{
+		width: 1000px;
+		height: 80px;
+		margin: 0 auto;
+	}
+	.logo{
+		float: left;
+		margin-top: 24px;
+	}
+/*banner*/
+	#m_b_box{
+		width: 100%;
+    	height: 520px;
+    	overflow: hidden;
+    	position: relative;
+	}
+	.m_banner{
+		width: 100%;
+    	height: 520px;
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+	}
+	.m_banner li{
+		width: 100%;
+		height: 100%;
+		float: left;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		opacity: 0.1;
+	}
+	.m_banner li img{
+		display: block;
+    	width: 1920px;
+    	height: 520px;
+    	position: absolute;
+    	left: 50%;
+    	top: 0px;
+    	margin-left: -960px;
+
+	}
+	.m_banner li.firstd{
+		opacity: 1;
+		z-index: 10;
+		position: absolute;
+		left: 0;
+    	top: 0px;
+	}
+	.dian{
+		width: 1000px;
+    	height: 11px;
+    	position: absolute;
+    	bottom: 66px;
+    	left: 50%;
+    	margin-left: -500px;
+    	text-align: center;
+    	z-index: 1000;
+/*    	background: #666;*/
+	}
+	.dian li{
+		width: 55px;
+    	height: 11px;
+    	background: url(../../images/myimg/sidbtn_02.jpg) no-repeat center bottom;
+    	margin-right: 17px;
+    	cursor: pointer;
+    	display: inline-block;
+	}
+	.dian .firstd{
+		background: url(../../images/myimg/sidbtn_01.jpg) no-repeat center bottom;
+	}
+/*导航*/
+	.daohang{
+		height: 80px;
+		/*background: blue;*/
+		float: right;
+
+	}
+	.zibox{
+		width: 88px;
+		height: 48px;
+		float: right;
+		line-height: 80px;
+		text-align: center;
+	}
+	.daohang a{
+		float: left;
+		color: #666;
+		font-size: 14px;
+		margin:0 5px;
+		line-height: 36px;
+		padding: 20px 10px;
+		border-bottom: 4px solid #fff;
+	}
+
+	.daohang a:hover{
+		border-bottom: 4px solid #052953;
+		color: #032a54;
+		background: url(../../images/myimg/navsj.png) no-repeat center bottom;
+	}
+	.daohang .first {
+		border-bottom: 4px solid #052953;
+		color: #032a54;
+		background: url(../../images/myimg/navsj.png) no-repeat center bottom;
+	}
+	.tiao{
+		width: 100%;
+		height: 35px;
+		opacity: 0.8;
+		background: #666;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 10000;
+	}
+	.laba{
+		width: 1000px;
+		height: 35px;
+		margin: auto;
+	}

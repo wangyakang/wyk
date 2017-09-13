@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+<div class="one">
+
+</div>
+<p v-on:click="add()" style="border: 1px solid blue">
+    <span>{{num}}</span> <br> <br>
+    <span  style="background: red">{{add1}}</span> <br>
+    <span>{{num1}}</span>
+</p>
+</body>
+<script>
+    new Vue({   //配置项
+        el:"p",        //指定控制器
+        data:{              //数据绑定，数据的属性相当于Vue的属性  相当于angular的$scope
+            name:'zhangsan',
+            num:1,
+            num1:1,
+            say:function () {
+
+            }
+        }   ,
+        methods:{   //一般在mthods放置方法   数据有更新，所有的方法都会执行
+
+            say:function () {
+                console.log(this.name)
+            },
+            add(){    //ec6
+                ++this.num;
+//                ++this.num1;
+            },
+//            add1(){    //ec6
+//                alert(1)
+//            }
+        },
+        computed:{    //在computed中的方式直接调用，在视图中不用调用方法    只跟新部分数据，不需要重新渲染变化的东西，一般放复杂的运算
+            say:function () {
+                console.log(this.name)
+            },
+//            add(){    //ec6
+//                ++this.num;
+//            },
+            add1(){    //ec6
+                alert(1)
+                return ++this.num1;
+            }
+        },
+//        beforeCreate:function () {
+//            console.log("数据绑定之前")
+//        },
+//        created:function () {
+//            console.log("")
+//        },
+//        beforeMount:function () {
+//            console.log("数据绑定之前")
+//        },
+//        mounted:function () {
+//            console.log("数据绑定之前")
+//        },
+//        beforeUpdate:function () {
+//            console.log("数据更新")
+//        },
+//        updated:function () {
+//            console.log("数据绑定之前")
+//        },
+//        activated:function () {
+//            console.log("数据绑定之前")
+//        },
+//        deactivated:function () {
+//            console.log("数据绑定之前")
+//        },
+//        beforeDestroy:function () {
+//            console.log("对象销毁之前")
+//        },
+//        destroyed:function () {
+//            console.log("对象销毁完成")
+//        }
+    })
+</script>
+</html>

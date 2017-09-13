@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--PHPCMS V9-->
+		网站内容管理系统，也是一个开源的PHP开发框架
+		PHP+MYSQL作为技术基础进行开发
+		V9采用OOP（面向对象）方式进行基础运行框架
+		功能：支持UTF-8编码和语言包
+		
+		
+		api:接口文件目录
+		caches：缓存文件目录、高速缓存
+			*configs：配置
+				cache.php
+				credit.php
+				*database.php：数据库  //上传时使用
+				*system.php：系统
+		install：安装包
+			install.php：安装程序
+		**phpcms：操作主目录，网站主框架
+			languages：框架语言包目录
+			*libs：框架主类库、主函数库目录
+			model：框架数据库目录
+			modules：框架模块目录
+			plugin：
+			***templates：框架系统模板目录 
+				default：默认
+					content
+						index.html:网站的主页
+						list.html:列表页  (一篇一篇的文章)在管理内容中添加
+						show.html:详情页
+						category.html:二级导航页
+						header.html:打包头部html
+						footer.html:打包尾部html
+		*phpsso_server：站点   phpsso主目录 ，可以同时管理多个网站
+		*statics：静态，系统附件包
+			css：  系统css包
+			images:系统图片包
+			js：系统js包
+		uploadfile：网站附件目录，存放附带文件
+		*admin.php：后台管理入口
+		*index.php：程序主入口
+		robots.txt：搜索引擎蜘蛛限制配置文件，针对搜索引擎关键词等的优化
+		
+		
+		IDE：集成开发环境   HBuilder\WebStorm
+		帧窗口
+		
+		后台管理中心：内容   操作之后进行栏目缓存
+			管理栏目：
+				添加栏目：
+			模型管理：
+			类别管理：
+			推荐位管理：
+			
+			
+	<!--整站逻辑-->
+	一、首页=》导航=》列表页=》详情页面
+	二、首页=》一级导航=》二级导航=》列表页=》详情页面
+	<!--整站头部、尾部打包-->
+	引入css及js文件：{CSS_PATH}+原先的css文件(注意路径)
+				  {JS_PATH}+原先的js文件
+				  {IMG_PATH}+原先的img文件
+				  {CSS_PATH}：静态常量,默认地址
+	背景图片的位置应该使用相对地址
+	
+	第一步按照网站的特点需要将网站公共的部分直接拿出来作为单独的一部分，footer\hearder
+	第二部替换掉相对应的css\js\img,css中的背景图片需要写相对应的地址
+		引入的css\js在statics=》css=》mycss中添加，html添加在header.html中
+		在index.html中直接引用头部{template "content" ,"header"}
+					                  尾部{template "content" ,"header"}
+	建立栏目，用pc标签取相对应的数据
+	<!--动态引入-->
+	导航对于静态的内容可以不用连接后台
+	动态导航在后台建立，栏目添加=》栏目名称中添加一级栏目
+	引入的导航改变：通过下标控制
+	{pc:content action="category" catid="0" num="4"}
+	{php $i=0}   
+	{loop $data $v}
+		{$i++}
+		{if $i==3} <a href="">{$v[catname]}</a> {else}<span>{$v[catname]}</span>{/if}
+	{/loop}
+	<!--引入二级导航，在一级导航引入的loop循环中加入二级导航的loop循环-->
+	{pc:content action="category" catid="$v[catid]" num="4"} <!-- 对应的是每个一级导航下的二级导航-->
+		{loop $data $r}
+			<a href="{$r[url]}">{$r[catname]}</a>  <!--获取导航名-->
+		{/loop}
+	{/pc}
+	<!--列表页-->
+	获取上级栏目的
+	不在show页面上取内容，{pc:content action="lists" catid="$catid" num="4" moreinfo="1"}
+	<!--copyfrom   inputtime-->
+	<!--pc:系统认识的语句，pc只是定义了要操作的内容
+		action:定义我们要操作的栏目、列表
+		category:导航分类
+		catdir:栏目的标题英文名 
+		catid='0':获取每个网页的不同导航，首页导航catid=0。每次定义要做什么的时候，我们必须制定操作的id
+		num="4"：操作的次数，获取几个导航。制定输出的每页最大个数，同时也影响了loop的循环次数
+		siteid="$siteid":定义要操作的网站id  $siteid是当前网站的id、
+		order:定义排序方式，"listor ASC"定义排列顺序以升序方式进行排列，DESC 定义顺序以降序方式进行排列
+		loop:多次循环,取回来的所有数据都存在$data中。真正循环输出数据
+		$v:每次循环的时候，保存每一行的数据
+		{$v[catname]}：catname是保存栏目名称的字段，这里就是用数组的方式取相应的字符段
+		对于多个二级导航页，可以以category_  形式保存多个页面，在后台数据中进行模板设置,将一级导航链接到不同的二级导航页面-->
+		if语句的使用：
+			{if $i=3}
+			//这是满足条件做的事
+			{else if $i=4}
+			//这是满足条件做的事
+			{else}
+			{/if}
+			
+			<img src="{thumb($v[image])}" alt="" />
+	<!--分页-->
+	 pc标签中加page=$page   num确定每页显示的数量
+	loop循环外边 {$pages}
+	js中修改样式
+	<div class="aa">
+		{$pages}
+	</div>
+	<script>
+		$(".a").eq(0)remove().end().eq(1).addClass("left").html("<")
+		$(".aa span").css({background:"red"})
+	</script>
+	</body>
+	<!--@import url()-->
+</html>

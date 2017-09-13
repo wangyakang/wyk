@@ -1,0 +1,104 @@
+.ym_bodyimg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/login/ymbg.png);
+	background-size: contain;
+}
+.ym_reg_header{
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: transparent !important;
+}
+.ym_logo{
+	position: absolute;
+    left: 0;
+    top: 0.97rem;
+    width: 5.16rem;
+    height: 1.52rem;
+    z-index: 1;
+}
+a{
+	color: #fff;
+}
+.ym_main{
+	padding-top: 1.5rem !important;
+    padding-left: 1.34rem;
+    height: 9.30rem;
+    background: burlywood;
+}
+.ym_main_list{
+	margin-top: 20px;
+    height: 9.30rem;
+    background: url(../images/login/ymmain1.png);
+}
+.ym_wrap{
+    position: relative;
+    top: 3.5rem;
+}
+.ym_reg_icon{
+	position: absolute;
+    width: 2.53rem;
+    height: 2.16rem;
+    top: 7.6rem;
+    left: -0.8rem;
+}
+.ym_reg_icon img{
+	width: 100%;
+	height: 100%;
+}
+.mui-input-row label{
+	color:#a1a3a3;
+	font-size: 0.30rem;
+} 
+.ym_main_list label{
+	width: 15% !important;
+	padding: 11px 2px 11px 14px;
+}
+.ym_main_list input{
+	width: 85% !important;
+	font-size: 0.26rem;
+}
+.ym_primary{
+	width: 2.02rem;
+    height: 0.55rem;
+    border-radius: 0.5rem;
+    background: #c6c8c8;
+    border: 1px solid #c6c8c8;
+    line-height: 0.15rem;
+    font-weight: 700;
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+}
+.ym_reg_title{
+	width: 3.04rem;
+	height: 0.83rem;
+	position: absolute;
+	top: 2.41rem;
+	left: 0.3rem;
+}
+.ym_reg_title img{
+	width: 100%;
+	height: 100%;
+}
+.mui-bar .mui-icon{
+	font-size: 16px;
+}
+.ym_reg_circle1, .ym_reg_circle2{
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.ym_reg_circle1{
+	background: #21fee9;
+}	
+.ym_reg_circle2{
+	background: #50fe21;
+}
+.mui-input-row .mui-input-clear~.mui-icon-clear{
+	color: #ff0000;
+}

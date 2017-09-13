@@ -1,0 +1,253 @@
+/*banner部分*/
+.banner-box{
+	width: 100%;
+    height: 520px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f6f6f6;
+}
+.imgbox{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.imgbox li{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.imgbox li img{
+	width: 1920px;
+    height: 520px;
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    margin-left: -960px;
+}
+.imgbox li.first{
+	z-index: 4
+}
+.borde{
+	width: 1000px;
+	height: 11px;
+	position: absolute;
+	bottom: 66px;
+	left: 50%;
+	margin-left: -500px;
+	text-align: center;
+	z-index: 10;
+}
+.borde li{
+	width: 55px;
+	height: 11px;
+	background: url(../img/banner/05.jpg) center bottom no-repeat;
+	margin-right: 17px;
+	display: inline-block;
+	cursor: pointer;
+}
+.borde li.first{
+	background: url(../img/banner/04.jpg) center bottom no-repeat;
+}
+.later_bg{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: url(../img/banner/zzao.png);
+	z-index: 20;
+}
+.bg_box{
+	width: 1000px;
+	height: 35px;
+	line-height: 35px;
+	margin: 0 auto;
+}
+.bg_box .listener{
+	width: 51px;
+	height: 35px;
+	float: left;
+	background: url(../img/banner/laba.png) no-repeat;
+}
+/*内容部分*/
+/*公司简介*/
+.homemain{
+	background-color: #f6f6f6;
+}
+.ym-home{
+	width: 1000px;
+	padding: 51px 0px 0px 0px;
+    margin: 0 auto;
+}
+.jianjie{
+	height: 198px;
+	position: relative;
+	padding-left: 332px;
+    margin-bottom: 30px;
+}
+.jianjie_img{
+	width: 332px;
+    height: 198px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.jianjie_box{
+	height: 198px;
+	background: #fff;
+}
+.jianjie_top{
+	height: 64px;
+	line-height: 64px;
+	background: #052953;
+}
+.jianjie_bottom{
+	width: 560px;
+	padding-left: 48px;
+	margin: 34px auto 0px auto;
+	background: url(../img/jianjie/sy_01.png) no-repeat left top;
+}
+.jianjie_top img{
+	display: block;
+	float: left;
+	padding: 17px 15px 0 30px;
+}
+.jianjie_top p{
+	float: left;
+    font-size: 18px;
+    color: #ffffff;
+    background: url(../img/jianjie/bsj.jpg) no-repeat center bottom;
+}
+.jianjie_top a{
+	display: block;
+	width: 63px;
+	height: 20px;
+	float: right;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	line-height: 20px;
+	margin: 22px 30px 0px 0px;
+	background: #f29636;
+}
+.jianjie_top a:hover{
+	opacity: .95;
+}
+.jianjie_bottom p{
+	width: 512px;
+    padding-right: 48px;
+    font-size: 12px;
+    color: #666666;
+    line-height: 24px;
+    background: url(../img/jianjie/sy_02.png) no-repeat right bottom;
+}
+/*新闻聚焦*/
+.news{
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+.news_left{
+	width: 633px;
+	float: left;
+	background: #fff;
+	/*background: #eee;*/
+}
+.news_right{
+	width: 337px;
+	float: right;
+	background: #fff;
+	/*background: orange;*/
+}
+.news_content{
+	padding: 0px 30px 15px 30px;
+}
+.szfocus{
+	height: 101px;
+	padding-top: 30px;
+	border-bottom: 1px dashed #73737b;
+	margin-bottom: 10px;
+}
+.szfocus dt{
+	width: 75px;
+	height: 75px;
+	float: left;
+}
+.szfocus dd{
+	color: #999999;
+    font-size: 12px;
+    width: 480px;
+    float: right;
+}
+.szfocus dd div{
+	font-size: 14px;
+	text-align: right;
+}
+.szfocus dd div a{
+	color: #666666;
+    float: left;
+    font-size: 14px;
+}
+.szfocus dd div a:hover{
+	color: #052953;
+}
+.news_list li{
+	height: 35px;
+	line-height: 35px;
+	color: #999999;
+}
+.news_list li span{
+	float: right;
+	font-size: 14px;
+}
+.news_list li a{
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	display: block;
+	padding-left: 19px;
+	background: url(../img/jianjie/xwqq_01.png) no-repeat 0px 13px;
+	color: #666666;
+	font-size: 14px;
+}
+.news_list li a:hover{
+	background: url(../img/jianjie/xwqq_02.png) no-repeat 0px 13px;
+	color: #052953;
+}
+/*创投研究*/
+.yanjiu{
+	height: 101px;
+    padding-top: 30px;
+    border-bottom: 1px dashed #73737b;
+    margin-bottom: 10px;
+}
+.yanjiu_list li{
+	height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+}
+.yanjiu_list li a{
+	color: #666;
+	font-size: 14px;
+}
+.yanjiu dd{
+	padding-left: 44px;
+	color: #999999;
+	font-size: 12px;
+	line-height: 20px;
+	position: relative;
+}
+.yanjiu dd img{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.yanjiu_list li a:hover{
+	color: #052953;
+}
+/*投资企业动态*/
+.news_invest{
+	padding: 15px 30px 18px 30px;
+}

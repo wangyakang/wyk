@@ -1,0 +1,40 @@
+@color:blue;
+.raduis(@num:50%,@num:50%,@num:50%,@num:50%){           //二义性，本身可以编译,加括号取消二义性，可传参
+  -moz-boder-radius:@arguments;
+  -webkit-boder-radius:@arguments;
+  -ms-boder-radius:@arguments;
+  -o-boder-radius:@arguments;
+  border-radius:@arguments;
+}
+.shadow(@type,@x:0,@y:0,@b:5px,@c:#000) when (@type=inset){
+  -moz-box-shadow:@x @y @b @c @type;
+  -webkit-box-shadow:@x @y @b @c @type;
+  -ms-box-shadow:@x @y @b @c @type;
+  -o-box-shadow:@x @y @b @c @type;
+  box-shadow:@x @y @b @c @type;
+}
+.shadow(@type,@x:0,@y:0,@b:10px,@c:#000) when (@type=outset){
+  -moz-box-shadow:@x @y @b @c;
+  -webkit-box-shadow:@x @y @b @c;
+  -ms-box-shadow:@x @y @b @c;
+  -o-box-shadow:@x @y @b @c;
+  box-shadow:@x @y @b @c;
+}
+.inner{
+  width: 500px;height: 500px;
+  border: 50px solid @color;
+  .raduis(20px,20px,20px,20px);
+  .shadow(outset,20px,10px,20px,red);
+  border-image-source:url("../C3/timg.jpg");
+  border-image-width:10px;
+  border-image-slice:50;
+  border-image-repeat:round;
+  border-image-outset:10px;
+}
+.aa(@i:0) when (@i<10){
+  .inner@{i}{
+    width:@i/12*100%;
+  }
+  .aa(@i:@i+1);
+}
+.aa();

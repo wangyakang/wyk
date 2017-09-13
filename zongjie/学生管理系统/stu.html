@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ajax.js"></script>
+		<script src="function.js"></script>
+	</head>
+	<style>
+	td,th{
+		text-align: center;
+		line-height: 24px;
+	}
+	.aa{
+		background: #e60;
+		font-size: 20px;
+		color: #fff;
+	}
+	span{
+		margin-left: 10px;
+	}
+	.wait{
+		width: 5px;height: 10px;
+		background: #000;
+		position: fixed;
+		left: 0;top: 0;bottom: 0;right: 0;
+		animation: wait 1s ease infinite alternate;
+		margin:  auto;
+	}
+	.wait:before{
+		width: 5px;height: 10px;
+		content: "";
+		position: fixed;
+		display: block;
+		left:15px;top:0;
+		background: #000;
+		animation-delay: 3s;
+	}
+	.wait:after{
+		width: 5px;height: 10px;
+		content: "";
+		position: fixed;
+		display: block;
+		left:30px;top:0;
+		background: #000;
+		animation-delay: 6s;
+	}
+	/*帧动画*/
+	/*@keyframes name{  
+		from{}
+		to{}
+	}*/
+	@keyframes wait{
+		0%{
+			transform:scale(1) ;
+		}
+		100%{
+			transform: scale(1.3);
+		}
+	}
+	</style>
+	<body>
+	<table border="1" cellspacing="0" cellpadding="0" width="500px"  align="center">
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="4"><div  class="add">添加</div></td>
+			</tr>
+		</tfoot>
+	</table>
+	<!--<div class="wait"></div>-->
+	
+	</body>
+	<script type="text/javascript">
+		var tbody=document.querySelector("tbody");
+		//通过ajax取数据
+		ajax({
+			url:"select.php",
+			dataType:"json",
+			success:function(e){
+				var str="";
+				for(var i=0;i<e.length;i++){
+					str+="<tr id="+e[i].id +">";
+						str+="<td class='name'>"+e[i].name+"</td>";
+						str+="<td class='age'>"+e[i].age+"</td>";
+						str+="<td class='sex'>"+e[i].sex+"</td>";
+						str+="<td class='aa'><span class='del'>删除</span></td>";
+					str+="</tr>";
+					console.log(e)
+				}
+				tbody.innerHTML=str;
+			}
+		})
+		//添加功能
+		var add=document.querySelector(".add");
+		add.onclick=function(){
+			ajax({
+				url:"add.php",
+				success:function(e){
+					var str=$("<tr>");
+					str.id=e;
+					str.innerHTML="<td class='name'></td><td class='age'></td><td class='sex'></td><td class='aa'><span class='del'>删除</span></td>"
+					tbody.appendChild(str);
+				}
+			})
+		}
+		//删除功能
+		tbody.onclick=function(e){
+			var ev=e||window.event;
+			var targetObj=ev.target||ev.srcElement;
+			if(targetObj.className=="del"){
+				var targetid=targetObj.parentNode.parentNode.id;
+				ajax({
+					url:"del.php",
+					data:{id:targetid},
+					success:function(text){
+						if(text=="ok"){
+//							console.log(text)
+							tbody.removeChild(targetObj.parentNode.parentNode)
+							targetObj.parentNode.parentNode=null;
+						}else{
+							alert("删除失败")
+						}
+					}
+				})
+					//编辑功能
+			}else if(targetObj.nodeName="TD"&&targetObj.className!="aa"){
+				var value=targetObj.innerText;
+					targetObj.innerHTML=""
+				var input=$("<input>")
+				input.type="text";
+				input.value=value;
+				targetObj.appendChild(input);
+				input.focus();
+				input.onblur=function(){
+					var val=this.value;
+					if(val==""||val==value){
+						targetObj.innerHTML=value;
+					}else{
+						var ziduan=targetObj.className;
+						var id=targetObj.parentNode.id;
+						ajax({
+							url:"ajax.php",
+							data:{id:id,type:ziduan,value:val},
+							success:function(text){
+								if(text==1){
+									targetObj.innerHTML=val;
+								}else{
+									alert("编辑失败")
+								}
+							}
+						})
+					}
+				}
+			}
+		}
+	</script>
+</html>

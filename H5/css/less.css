@@ -1,0 +1,50 @@
+.inner {
+  width: 500px;
+  height: 500px;
+  border: 50px solid blue;
+  -moz-boder-radius: 20px 20px 20px 20px;
+  -webkit-boder-radius: 20px 20px 20px 20px;
+  -ms-boder-radius: 20px 20px 20px 20px;
+  -o-boder-radius: 20px 20px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
+  -moz-box-shadow: 20px 10px 20px red;
+  -webkit-box-shadow: 20px 10px 20px red;
+  -ms-box-shadow: 20px 10px 20px red;
+  -o-box-shadow: 20px 10px 20px red;
+  box-shadow: 20px 10px 20px red;
+  border-image-source: url("../C3/timg.jpg");
+  border-image-width: 10px;
+  border-image-slice: 50;
+  border-image-repeat: round;
+  border-image-outset: 10px;
+}
+.inner0 {
+  width: 0%;
+}
+.inner1 {
+  width: 8.33333333%;
+}
+.inner2 {
+  width: 16.66666667%;
+}
+.inner3 {
+  width: 25%;
+}
+.inner4 {
+  width: 33.33333333%;
+}
+.inner5 {
+  width: 41.66666667%;
+}
+.inner6 {
+  width: 50%;
+}
+.inner7 {
+  width: 58.33333333%;
+}
+.inner8 {
+  width: 66.66666667%;
+}
+.inner9 {
+  width: 75%;
+}

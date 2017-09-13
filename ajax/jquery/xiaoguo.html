@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<style>
+		.box{
+			width: 200px;
+			height:200px;
+			background: red;
+			/*display: none;*/
+		}
+	</style>
+	<body>
+		<input type="button"  value="按钮"/>
+		<div class="box"></div>
+	</body>
+	<script>
+	//1.hide():隐藏显示的元素
+//		$(":button").on("click",function(){
+//			$("div").hide(300)
+//			$("div").show(300)
+//			$('div').toggle(300)
+//			$('div').slideDown(200)
+//			$('div').slideUp(200)
+//			$('div').slideUp(600,"linear",function(){
+//				alert(1)
+//			})
+//			$("div").fadeIn('fast')
+//			$("div").fadeOut('fast')
+//			$("div").fadeTo(600,0.2)
+//			$("div").fadeToggle(600)
+//			$("div").animate({},300)
+//		})
+	//数据结构
+	//队列：先传入的元素先执行    栈\树：后进先出       默认动画fx，添加动画依次出现，形成队列
+//	$(":button").on("click",function(){
+//		$("div").fadeIn(200).fadeTo(400,0.2).animate({width:600},5000)
+//	})
+	//stop()  finish()停止、删除正在运行的动画
+//	$("div").animate({width:1000},5000).animate({height:500},5000)
+//	$(":button").on("click",function(){
+//		$("div").stop()   //不传参数停止当前正在运行的动画，继续队列后续动画
+//		$("div").stop(true,false) //第一个参数决定是否清空队列   第二个参数决定是否立即完成当前动画    
+//		$("div").stop(false,true)  
+//		$("div").finish()   //没有参数，立即完成所有动画，到最终的状态
+//		$('div').toggle(300)   //用stop快速点击出现的队列动画  stop(true true)
+//	})
+//	//delay:延迟动画 
+//	$(":button").on("click",function(){
+//		$("div").delay(300).toggle(5000) 
+//	})
+	</script>
+</html>

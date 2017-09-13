@@ -1,0 +1,113 @@
+html,body,ul,li,a{
+	margin: 0;padding: 0;
+	list-style: none;
+}
+body{
+	width: 100vw;
+	height: 100vh;
+	background: url(../images/pay3/Touch-Your-Home.png);
+	background-size: 100% 100%;
+}
+.bankcard{
+	width: 5.78rem;
+	height: 3.70rem;
+	background: url(../images/pay3/YINLIAN.png);
+	background-size: 100% 100%;
+	margin: 0.5rem auto;
+	position: relative;
+	
+}
+.redt{
+	width: 4rem;
+	height: 1rem;
+	text-align: center;
+	margin: 1.2rem auto;
+}
+.redt div{
+	color: red;
+}
+.massage{
+	font-size: 0.24rem;	
+}
+.rmb{
+	font-size: 0.26rem;	
+	font-weight: bold;
+}
+.rmb1{
+	font-size: 0.26rem;	
+	font-weight: bold;
+	color: #FFF;
+	position: absolute;
+	top: 6.6REM;left: 2.8REM;
+}
+.jine{
+	font-weight: bold;
+	font-weight: 0.4rem;
+}
+.jine1{
+	color: #FFF;
+	font-weight: bold;
+	font-weight: 0.4rem;
+	position: absolute;
+	top: 6.45REM;left: 3.7REM;
+}
+.sure{
+	width: 1.8rem;
+	height: 0.8rem;
+	border:1px solid #ccc;
+	text-align: center;
+	line-height: 0.8rem;
+	border-radius: 0.8rem;
+	font-size: 0.24rem;
+	color: #666;
+	margin: auto;
+	margin-top: 2.8rem;
+}
+.num{
+	position: absolute;
+	top: 1.7rem;left: 0;right: 0;bottom: 0;
+	font-size: 0.4rem;
+	color: #fff;
+	text-align: center;
+}
+.nam{
+	position: absolute;
+	top: 2.8rem;left: 0.6rem;
+	font-size: 0.24rem;
+	color: #fff;
+}
+.xx{
+	position: absolute;
+	top: 2.14rem;right: 2.05rem;
+	color: #fff;
+	text-align: right;
+}
+.carxx{
+	float: left;
+}
+.tim{
+	float: left;
+	font-size: 0.28rem;
+	margin-left: 0.1rem;
+}
+.top{
+	font-size: 0.12rem;
+}
+.bot{
+	font-size: 0.12rem;
+}
+.surepay{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;left: 0;right: 0;bottom: 0;
+	background: url(../images/pay3/确认支付.png) repeat;
+	background-size: 7.5rem 13.34rem;
+	display: none;
+}
+.quxiao{
+	position: absolute;
+	top: 0.5rem;right: 0.24rem;
+	color: #888;
+	font-size: 0.5rem;
+}

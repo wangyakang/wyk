@@ -1,0 +1,16 @@
+cron :定期处理事件
+能够接受请求：字符集-》数据-》cookie
+能够响应请求：字符集-》
+一个完善的服务器能够处理时限cookie的能力
+req.headers
+res.setHeader
+
+
+express中封装cookie-parser
+
+
+application   :session  cookie  localstorage
+network:头信息
+
+session  :信息保存在服务器  客户端保存一个秘钥
+cookie-session   cookie-parse

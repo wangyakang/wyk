@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>jQuery</title>
+	<script src="ly/jquery.min.js"></script>
+</head>
+<body>
+	<!-- 返回的this指向的是jquery对象 -->
+	<div id="box">
+		<div class="div">1</div>
+		<div class="div">2</div>
+		<div class="div" id="sel">3</div>
+	</div>
+	<div class="div">4</div>
+
+</body>
+<script>
+	// jQuery(function () {
+	$(function () {
+	// 	console.log($(".div").length);
+	// 一、
+		// jQuery集合
+		// console.log($(".div"));
+		// 加下标，返回的是一个DOM对象
+		// console.log($(".div")[0]);
+		// 核心内容是jquery的入口
+		// $(".div").length;
+		// 可以接受一个selector，可以接受一个DOM对象、jquery对象、选择器类型的字符串
+		// $(".div",$("#box")).length;
+		// $(".div","#box").length;
+
+	// 二、如何将obj转换成jquery对象,用$()
+		// var obj=document.getElementById('box');
+		// $(obj);
+		// $(document);
+
+	// 三、创建元素
+		// 创建出来的是一个jquery对象
+		// $("<div>").html("我是新添加的div").appendTo($(document.body));
+		// $("<div>").html("我是新添加的div").appendTo(document.body);
+		// $("<div class='one'></div>").html("我是新添加的div").appendTo(document.body);
+		// $("<div class='one'>我是新添加的div</div>").appendTo(document.body);
+
+		// $("<div>",{
+		// 	class:"one",
+		// 	id:"box",
+		// 	// text:"我是新添加的内容",
+		// 	html:"我是新添加的内容",
+		// 	click:function(){
+		// 		alert(1);
+		// 	}
+		// }).appendTo(document.body);
+
+		// $("<div></div>",{//<div>里不加数据
+		// 	class:"one",
+		// 	id:"box",
+		// 	// text:"我是新添加的内容",
+		// 	html:"我是新添加的内容",
+		// 	click:function(){
+		// 		alert(1);
+		// 	}
+		// }).appendTo(document.body);
+
+		// console.log($("<div>"));
+
+	// 四、callback
+		// 当文档的所有资源加载完后,运行js,window.onload
+		// 当文档的结构加载完后，就可以运行js,$(document).ready(function(){})
+		// $(document).ready(function(){
+
+		// })
+	
+	// 五、隐式循环依托的就是each
+		// $(".div").each(function(libs,dom){
+		// 	console.log(libs,dom)
+		// })
+
+	// 六、get()
+		// console.log($(".div").get()),
+		// 不传参会将jquery集合转换成DOM集合
+		// console.log($(".div").get(0));
+		// console.log($(".div").get(-1));
+		// 参数可以是负数，倒着数，获取的是对应下标的DOM对象
+
+	// 七、libs
+		// console.log($(".div").libs($("#sel")))		--------结果为2
+		// console.log($("#sel").libs($(".div")))		//--------结果为-1
+		// 返回-1的两种情况，确实是不在这个元素中，第二种情况可能是二者顺序不对,
+	
+		// console.log($(".div").libs($("#sel")))		--------结果为2
+		// （1）、一般情况下是集合在前，要获取的元素在后，返回一个元素在另一个元素集合中索引值
+		// console.log($("#sel").libs());
+		// （2）、用的直接是，获取的是在同辈元素中的位置
+
+	// 八、data  缓存数据的
+		// $(".div").aa="bb";
+		// console.log($(".div").aa)	---------结果为undefined
+
+		// var obj=$(".div");
+		// obj.aa="bb";
+		// console.log($(obj.aa);
+
+		// 给集合对象绑定了属性aa="bb";
+		// var obj=$(".div");
+		// obj.aa="bb";
+		// console.log(obj.eq(0).aa);
+
+		// 给每一个jquery对象上绑定一个属性aa="bb";
+		// $(".div").data("aa","bb");
+
+		// 访问属性也必须要用.data去访问
+		// 一个值是获取，两个值是设置
+		// var obj=$(".div");
+		// obj.data("aa","bb");
+		// console.log(obj.eq(0).data("aa"));
+		// console.log(obj.get(0).aa); 	------undefined;
+
+		$(".div").data("aa","bb");
+		// console.log($(".div").eq(0).data("aa"))
+		// 不加.eq(0)，默认是获取集合里面第一个上面的data
+		console.log($(".div").data("aa"))	
+
+	// 九、
+	})
+</script>
+</html>

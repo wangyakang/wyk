@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3</title>
+</head>
+<body>
+<!--css 编程思想过程化->css3 模块化方式进行升级-->
+css3样式大多都可兼容各种浏览器
+优雅降级：先匹配先遇到的     渐进降级：先匹配常规样式
+（响应式移动端优先）
+
+继承性：后代元素继承前辈元素的一些属性和样式
+叠加性：同一个元素被多个样式规则指定
+优先级：因为css样式的继承性和叠加性，有了优先级的概念
+<!--边框模块-->
+    1.边框设置圆角,加前缀(先进性;表示并不通用，算法优秀，测试版本)
+
+    border-raduis:圆角的半径(%|px|em|rem|vm)
+    参数的顺序：左上，右上，右下，左下
+    css3函数定义：
+        .raduis(@num:50%,@num:50%,@num:50%,@num:50%){           //二义性，本身可以编译,加括号取消二义性，可传参
+            -moz-boder-radius:@arguments;
+            -webkit-boder-radius:@arguments;
+            -ms-boder-radius:@arguments;
+            -o-boder-radius:@arguments;
+            border-radius:@arguments;
+        }
+        div{
+            color:red;
+            .raduis(20px,20px,20px,20px);
+        }
+    2.阴影//可设置多个阴影
+        //if else 逻辑
+        //when
+            .shadow(@type,@x:0,@y:0,@b:5px,@c:#000) when (@type=inset){
+                -moz-box-shadow:@x @y @b @c @type;
+                -webkit-box-shadow:@x @y @b @c @type;
+                -ms-box-shadow:@x @y @b @c @type;
+                -o-box-shadow:@x @y @b @c @type;
+                box-shadow:@x @y @b @c @type;
+            }
+            .shadow(@type,@x:0,@y:0,@b:10px,@c:#000) when (@type=outset){
+                -moz-box-shadow:@x @y @b @c;
+                -webkit-box-shadow:@x @y @b @c;
+                -ms-box-shadow:@x @y @b @c;
+                -o-box-shadow:@x @y @b @c;
+                box-shadow:@x @y @b @c;
+            }
+            div{.shadow(outset/inset)}
+
+        box-shadow: h-shadow v-shadow blur spread color inset;
+                    //水平阴影位置，竖直阴影位置，模糊程度，阴影尺寸，阴影颜色，内阴影
+    3.边框图片：
+        border-image-source:url(图片地址为css的相对路径)
+        border-image-width:10px     //图片边框的宽度
+        border-image-slice:33.33    //图片裁切的比例  四个参数：上右下左
+        border-image-offset:       //图片边框的偏移量
+        border-image-repeat:round,repeat,stretch    //平铺方式
+        border-image-outset:10px     //边框外部扩展
+        border-image有六大属性值，分别是：border-image-source、border-image-slice、border-image-width、border-image-outset、图片重复border-image-repeat
+<!--选择器-->
+    1.伪元素
+      伪类元素
+    2.div:nth-child(n)  :选中div,且div在其父元素中是第N个子元素
+    CSS3结构选择器
+        后代选择器：
+        :nth-child 选择指定索引处的子元素。当前元素在父元素中作为第一类子元素出现，(nth-child从1开始)
+        :nth-child(n) 父元素下的第n个子元素  （前面不能有其他类的同辈元素）
+        :nth-last-child(n) 倒数第n个子元素
+        :first-child 选择父元素下的第一个子元素
+        :last-child 选择父元素下的最后一个子元素
+        :only-child 选择父元素下唯一的子元素，作为独生子出现
+        :root 选择文档的根目录，返回html
+        div :only-child注意空格（选中div下唯一的子元素）
+        同辈元素：
+        :nth-of-type(n) 父元素下的第n个指定类型的子元素,不考虑前面是否有其他类型的同辈子元素
+        :nth-last-of-type(n) 父元素下的倒数第n个指定类型的子元素
+        :first-of-type   作为第一个兄弟元素出现
+        :last-of-type  作为最后的兄弟出现
+        :only-of-type 选择父元素下指定类型的唯一子元素
+    伪类选择器
+        :after 一个元素后面的部分
+        :before  一个元素前面的部分
+        // :before :after   内的元素为行内块元素
+        :first-letter   元素的第一行文字
+        :first-line    元素的第一个文字
+        :focus:   获得焦点
+        ::selection  浏览器选中文字的样式
+        :root    根元素
+        :link指向未被访问页面的链接设置样式
+        :visited设置指向已访问页面的链接的样式
+        :hover  鼠标移入
+        :active在点击时触发
+        :enabled 选择启用状态元素
+        :disabled 选择禁用状态元素
+        :checked 选择被选中的input元素（单选按钮或复选框）
+        :default 选择默认元素
+        :valid、invalid 根据输入验证选择有效或无效的input元素
+        :in-range、out-of-range 选择指定范围之内或者之外受限的元素
+        :repuired、optional 根据是否允许:required属性选择input元素
+    属性选择器
+        [attr]  具有某个属性
+        [attr=val]   具有指定值的属性
+        [attr*=val]     包含指定的值的部分的属性
+        [attr^=val]     属性的值的开头和指定的值一样的元素
+        [attr$=val]     <属性的值的结尾和指定的值一样的元素></属性的值的结尾和指定的值一样的元素>
+<!--背景模块的处理-->
+    //背景图片的处理
+        .aa{
+            background-image:img1,img2  //可以设置多个背景
+            background-attachment: fixed; /*背景定位方式*/
+            background-size:contain;  /*背景图片的大小   cover:显示不全，以比例小的进行缩放   contain:按比例显示，以比例大的进行缩放    px   %   */
+            background-origin:border-box;    /*填充的原点 默认border-box是从容器的边框进行填充 content-box:内边距(不包括padding值)里面进行填充  padding-box :默认从边框内进行填充*/
+            background-clip:border-box;      /*背景的裁切*/
+            background-attachment:local   //让背景随元素内容滚动而滚动
+            /*可填充多个背景图片，各个属性用逗号隔开*/
+        }
+    //颜色、透明度
+        background: transparent;
+        background-color: rgba(12,345,12,.9); //电子产品用来表示特殊颜色的一种
+        background-color: hsl(120,65%,38%); //工业中的一种颜色标准，色调（h)\饱和度（s）\亮度（L）
+        ie中透明度：filter:alpha(opcity:0)
+        rgba(12,345,12,.9)
+            - r  红色：0-255    - g  绿色：0-255     - b  蓝色：0-255     - a  透明度 0-1
+    //线性渐变 ：颜色、位置、方向
+        background: linear-gradient(red 20%,blue 50%,green); //从0-20%是红色，20%-50%是蓝色
+        background: linear-gradient(to right/0deg,red,blue); //渐变的位置   默认180deg
+      径向渐变:
+        background: radial-gradient(ellipse 20px at 10px 10px ,red 20%,blue 50%,green)
+                                      （[形状] [半径] at [x,y],color colorstop）
+                                      （[circle/ellipse]  渐变的作用区域 渐变中心点的位置  颜色  颜色停靠的位置）
+<!--过渡-->
+        .aa{
+            transition-property: width;/*过渡对象*/
+            transition-duration: 3s; /*持续时间*/
+            /*transition-timing-function: linear;  !*过渡方式*!*/
+            /*transition-timing-function: cubic-bezier(四个值，可进运动设置)  !*过渡方式*!*/
+            transition-delay: 2s;  /*延迟的时间*/
+            transition: width 3s linear 2s;
+            //参数顺序：属性  时间  运动方式  等待时间s/ms
+        }
+        //过渡完成之后的事件，监测过渡事件完成,js完成
+        one.addEventListener("webkitTransitionEnd",function () {
+
+        })
+
+
+
+
+    //图形图像的转化
+        在css3之前浏览器里面不能处理图形图像
+        1.必须对图形图像做大量的运算处理
+        2.浏览器并不具备处理图形图像的能力
+        3.硬件的限制，并不能流畅的处理
+            计算机科学
+        api->webgl->opengl //图形处理的类，c语言实现
+
+        所有的图形变化都会不会影响其他元素
+
+<!--2d转换-->
+        属性：  transform属性      transform-origin:x,y(基准点的x,y轴的坐标)   转换的基准点
+        1）平移  translate(x,y)   translateX(x)  translateY(y)相对当前位置进行平移，不会影响其他元素
+        2）旋转  rotate(40deg)    顺时针旋转，支持弧度   js中只支持弧度，不支持角度
+        3）切换  skew(20deg,20deg)   x,y轴斜切角度
+        4）缩放  scale(x,y)       整体缩放，内容发生改变
+        5)矩阵函数实现转换    matrix(a,b,c,d,e,f)
+                |a c e|  |x|
+                |b d f|  |y|
+                |0 0 1|  |1|
+                //e、f控制平移   matrix(1,0,0,1,20px,30px)
+                //1,4控制缩放，2,3旋转    弧度= Math.PI / 180 * deg ;
+                x轴：newx=ax+cy+e
+                y轴：newy=bx+dy+f
+                旋转公式：newx=x*cos()-y*sin()
+                           newy=x*sin()-y*cos()
+//3d转换
+        属性：
+            1）transform:变化的函数
+            2）transform-origin:转化的基准轴
+            3） /*父元素变化保证子元素3d的状态，使得子元素发生3d变化*/
+                transform-style:preserve-3d;
+            4) 在场景中设置焦距，保证3d场景
+               perspective:800px; /*设置焦距，确定透视效果*/
+               perspective-origin: 0 0;  /!*消失点的设置，确定观察的方向*!*/
+            backface-visibility:hidden ;  背面不可见
+            backface-visibility:visible ;  背面可见
+        方法：transform:方法
+            1）平移  translate3d(x,y，z)
+            2）旋转  rotate3d(x,y,z,deg)
+            3）缩放  scale3d(x,y,z)
+            4) translate3d(16个参数)
+            <style>
+                body{
+                    perspective:800px; /*设置焦距，确定透视效果*/
+                    /*perspective-origin: 0 0;  !*消失点的设置，确定观察的方向*!*/
+                }
+                body,html{
+                    background: black;
+                    padding: 0;margin: 0;
+                    position: relative;
+                }
+                .out{
+                    width: 200px;height: 200px;background: red;margin: 30px auto;
+                    transition: transform 1s linear;
+                    transform-origin: top;  /*改变基准轴*/
+                    transform-style: preserve-3d;   /*父元素变化保证子元素的状态，使得子元素发生3d变化*/
+                }
+                .inner{
+                    width: 100px;height: 100px;background: blue;margin: 0 auto;
+                    transform: rotateY(60deg);
+                }
+                /*父元素上设置透视与灭点*/
+                /*设置透视，保证二维空间显示三维动效  在场景设置焦距*/
+                /*灭点：消失点，视野消失的点，任何视野的消失点默认设置在场景的中心，*/
+                /*默认基准轴为中心轴*/
+                .out:hover{
+                    transform: rotateX(45deg);
+                }
+            </style>
+<!--字体图标 @font-face-->
+
+        1.创建字体
+            利用svg制作矢量图，(借助矢量软件 ai)
+            将svg格式的图片生成字体
+            ·可以借助阿里巴巴矢量图平台在线转换
+            ·可以自己下载字体生成器，本地转换
+            ·字体格式  ttf woff
+        2.将创建的字体引入到css页面当中
+            @fomt-face {
+                font-family:"",  指定的字体样式
+                src:"",    字体路径
+            }
+        3.给指定的元素指定相应的字体
+            //知道指定的字体对应的代码
+                html 代码：<div>指定的代码</div>
+                css代码：div{font-family:指定的字体}
+            //不知道指定的字体对应的代码
+                html 代码：<div class="指定的代码"></div>
+                css代码：div:before{content:指定的字体}
+<!--动画-->
+    动画：某个元素的某个属性，连续不断的做运动，在我们的视觉中，形成残留的影响，就叫动画
+          css3 transition 过渡只能处理从a点到b点的过渡
+          关键帧的方式实现动画
+            @keyframes  动画{    //定义关键帧动画
+                0%{
+                    width:20px;
+                }
+                50%{
+                    width:50px;
+                }
+                100%{
+                    width:80px;
+                }
+            }
+            div{
+                animation: 动画  3s linear 1s forwards;
+                //调用动画   完成动画时间   运动方式   延迟时间   完成动画状态
+                animation-name: aa;
+                animation-duration: 2s;
+                animation-timing-function: ease;  /*动画方式*/
+                animation-iteration-count: infinite;  /*运行次数  无穷：infinite*/
+                animation-direction: alternate;    /*是否反向，与运动次数相关*/
+                animation-fill-mode: forwards;  /*完成动画的状态：both/forwards:运动完成的状态    backwards:以前的状态，默认*/
+                animation-delay: 2s;   /**/
+                animation-play-state: paused;  /*动画状态：暂停*/
+            }
+</body>
+<style>
+    .aa{
+        transition-property: width;/*过渡对象*/
+        transition-duration: 3s; /*持续时间*/
+        /*transition-timing-function: linear;  !*过渡方式*!*/
+        /*transition-timing-function: cubic-bezier(四个值，可进运动设置)  !*过渡方式*!*/
+        transition-delay: 2s;  /*延迟的时间*/
+        transition: width 3s linear 2s;
+
+    }
+    @keyframes  {
+
+    }
+</style>
+<script>
+    //过渡完成之后的事件，监测过渡事件完成
+    one.addEventListener("webkitTransitionEnd",function () {
+
+    })
+</script>
+</html>

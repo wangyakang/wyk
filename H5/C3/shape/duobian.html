@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="shaper.js"></script>
+    <script src="bootstrap.min.js"></script>
+</head>
+<style>
+    canvas{
+        background: #eee;
+    }
+    .box-huab{
+        position: absolute;
+        bottom:0;left: 0;
+        width: 100%;height: 100%;
+    }
+    .copy{
+        position: absolute;top: 0;left:0;
+        width: 100%;
+        height:100%;
+    }
+    body,html{
+        padding: 0;margin: 0;
+    }
+    .box{
+        width:1000px;height:500px;
+        position: fixed;
+        top: 0;left: 0;bottom: 0;right: 0;margin: auto;
+    }
+    .navbar{
+        width:1000px;
+        margin: auto;
+    }
+    .xp{
+        width: 10px;height: 10px;
+        border: 1px solid #000;
+        position: absolute;
+        top:200px;left: 0;
+        display: none;
+    }
+    .textarea{
+        width: 50px;height: 50px;position: absolute;
+        top: 0;left: 0;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a href="##" class="navbar-brand">canvas</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="##" data-toggle="dropdown" class="dropdown-toggle">画图<span class="caret"></a>
+                <ul class="dropdown-menu">
+                    <li data-role="line"><a href="##">直线</a></li>
+                    <li data-role="rect"><a href="##">矩形</a></li>
+                    <li data-role="arc"><a href="##">圆</a></li>
+                    <li data-role="bian"><a href="##">多边形</a></li>
+                    <li data-role="jiao"><a href="##">多角形</a></li>
+                    <li data-role="pen"><a href="##">钢笔</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" data-toggle="dropdown" class="dropdown-toggle">画图方式<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li data-role="stroke"><a href="##">描边</a></li>
+                    <li data-role="fill"><a href="##">填充</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" data-toggle="dropdown" class="dropdown-toggle">颜色<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>边框颜色<input type="color" data-role="strokeStyle"></li>
+                    <li>填充颜色<input type="color" data-role="fillStyle"></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" data-toggle="dropdown" class="dropdown-toggle">线条宽度<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li data-role="1"><a href="##">细</a></li>
+                    <li data-role="3"><a href="##">中</a></li>
+                    <li data-role="5"><a href="##">粗</a></li>
+                    <li data-role="nu"><a href="##">num <input type="number" placeholder="请输入宽度"></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" class="xpOpt dropdown-toggle" data-toggle="dropdown">擦除</a>
+                <!--<a href="##" data-toggle="dropdown" class="dropdown-toggle">擦除<span class="caret"></span></a>-->
+                <ul class="dropdown-menu">
+                    <li><a href="##">num<input type="number"></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" class="dropdown-toggle word" data-toggle="dropdown">文字</a>
+                <ul class="dropdown-menu">
+                    <li><a href="##">保存</a></li>
+                    <li><a href="##">返回</a></li>
+                    <li><a href="##">重置</a></li>
+                    <li><a href="##">新建</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" class="dropdown-toggle" data-toggle="dropdown">文件操作<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="##">保存</a></li>
+                    <li><a href="##">返回</a></li>
+                    <li><a href="##">重置</a></li>
+                    <li><a href="##">新建</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="##" class="dropdown-toggle" data-toggle="dropdown">导入图片<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="##">保存</a></li>
+                    <li><a href="##">返回</a></li>
+                    <li><a href="##">重置</a></li>
+                    <li><a href="##">新建</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="box-huab">
+        <div class="xp"></div>
+        <div class="copy"></div>
+        <!--将所有事件放在同辈元素的copy中，模拟橡皮，并将画布事件(监听不到画布上的事件)转移到copy上，-->
+        <canvas width="1000" height="500"></canvas>
+        <div contenteditable="true" class="textarea"></div>
+    </div>
+</div>
+</body>
+<script>
+    var canvas=document.querySelector("canvas");
+    var cobj=canvas.getContext("2d");
+    var copy=document.querySelector(".copy");
+    var shaper=new shape(canvas,copy,cobj);
+    //降低耦合性，获取的data-role属性值与画布方法对应
+    //画图
+    $("ul.dropdown-menu:eq(0) li").on("click",function () {
+        shaper.type=$(this).attr("data-role");
+        if(shaper.type=="pen"){
+            shaper.pen();
+        }else {
+            if(shaper.type=="bian"||shaper.type=="jiao"){
+                shaper.num=window.prompt("请输入边数","8")
+            }
+            shaper.draw();
+        }
+    })
+    //画图方式
+    $("ul.dropdown-menu:eq(1) li").on("click",function () {
+        shaper.style=$(this).attr("data-role")
+    })
+    //边框及填充颜色
+    //change：当值发生改变并失去焦点时触发函数
+    //keydown：当键盘按下时触发函数
+    //keyup：当键盘抬起触发函数
+    //input原生事件：当输入值时发生变化，jquery不支持
+    $("ul.dropdown-menu:eq(2) li").on("change",function () {
+        shaper[$(this).find("input").attr("data-role")]=$(this).find("input").val();
+    })
+    //边框宽度
+    $("ul.dropdown-menu:eq(3) li").on("click",function () {
+        var num=$(this).attr("data-role")
+        if(num=="nu"){
+            $(this).find("input").on("change",function () {
+                shaper.lineWidth=$(this).val();
+            })
+        }else {
+            shaper.lineWidth=$(this).attr("data-role")
+        }
+    })
+//橡皮功能
+        //视觉实现
+    var xp=$(".xp").get(0)
+    $(".xpOpt").on("click",function () {
+        shaper.xp(xp);
+    })
+
+        //消除橡皮，在点击其他菜单时,消除橡皮擦事件
+    $(".dropdown-toggle:not('.xpOpt')").on("click",function () {
+        $(xp).css({display:"none"})
+        copy.onmousemove=null;
+        copy.onmousedown=null;
+    })
+        //橡皮擦大小的改变
+    $("ul.dropdown-menu:eq(4) li").find("input").get(0).oninput=function () {
+        shaper.xpw=$(this).val()
+        shaper.xph=$(this).val()
+        $(xp).css({width:shaper.xpw,height:shaper.xph})
+    }
+    //文件操作
+    $("ul.dropdown-menu:eq(6) li").on("click",function () {
+        var index=$(this).index()
+        if(index==0){  //保存
+            var url=canvas.toDataURL();
+            var newurl=url.replace("image/png","stream/octet")
+            location.href=newurl;
+        }else if(index==1){//返回
+           if(shaper.arr.length){
+               shaper.arr.pop()
+               if(!shaper.arr.length){
+                   shaper.cobj.clearRect(0,0,canvas.width,canvas.height);
+                   return;
+               }
+               shaper.cobj.putImageData(shaper.arr[shaper.arr.length-1],0,0);
+               return shaper.arr;
+           }else {
+               alert("不能返回")
+           }
+        }else if(index==2){//重置
+            shaper.lineWidth=1;
+            shaper.strokeStyle="#000";
+            shaper.fillStyle="#000";
+            shaper.style="stroke";
+        }else if(index==3){//新建
+            if(shaper.arr.length>0){
+                var yes=confirm("是否保存");
+                if(yes){
+                    var url=canvas.toDataURL();
+                    var newurl=url.replace("image/png","stream/octet")
+                    location.href=newurl;
+                }
+                shaper.cobj.clearRect(0,0,canvas.width,canvas.height);
+                shaper.arr=[];
+            }
+        }
+    })
+    //文字输入
+    function wrap(str,initx,inity,width,height){
+        //str-->文字         initx	inity-->初始位置	width-->区间	  height-->行间距
+        var x=initx;
+        for(var i=0; i<str.length; i++){
+            //将文字添加进去
+            cobj.strokeText(str[i],initx,inity)
+            initx+=cobj.measureText(str[i]).width;
+            if(initx>x+width){
+                initx=x;
+                inity+=height;
+            }
+        }
+    }
+    var ox,oy;
+    var flag=true;
+    var fontsize=16;
+    $(".word").click(function(){
+        copy.onmousedown=function(e){
+            if(!flag){
+                flag=true;
+                return;
+            }
+            ox=e.offsetX;
+            oy=e.offsetY;
+            $(".textarea").css("display","block").css({
+                left:ox,
+                top:oy
+            })
+            setTimeout(function(){
+                $(".textarea").focus();
+                flag=false;
+            },0)
+        }
+    })
+    //字体大小
+//    $("ul.dropdown-menu:eq(5) li").change(function(){
+//        fontsize=$(this).val();
+//    })
+
+    $(".textarea").blur(function(){
+        var val=$(this).html();
+        cobj.font=fontsize+"px Arial";
+        wrap(val,ox,oy,150,30);
+        $(".textarea").css("display","none");
+        $(".textarea").html("");
+    })
+    //图片导入
+    var fileObj=new FileReader()  //获取
+    fileObj.onload()
+</script>
+</html>

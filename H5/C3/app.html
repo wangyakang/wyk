@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!--整个页面按照逻辑像素360*640进行计算，如涉及到图片，一般采用3倍倍率进行设计-->
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出，现plus is undefined。"
+   			
+   		});
+   	
+    </script>
+</head>
+<style>
+	div{
+		font-size: 2rem;
+	}
+</style>
+<body>
+	<!--# 移动端环境搭建
+		1. 利用 chrome 浏览器  deviceToolbar 来调试移动端页面的尺寸    
+			手机型号     逻辑像素：设备上应该放置的像素点      倍率       实际像素（设备上实际的物理像素点）=逻辑像素*倍率
+			逻辑像素：安卓 360*640
+		2. 利用本地服务器创建端口,进行真机调试.
+		3. 利用hbuilder等工具进行虚拟机调试 
+    # app
+    	1.native app :手机预先安装的应用
+    		linux系统->ios->android
+    		操作系统：底层架构（linux系统->ios->android）
+    							   -》objective-c语言开发     -》android-java开发
+    		优点：运行速度快，安全性高
+    		缺点：可移植性差，跨平台差
+    	2.web app:基于浏览器开发 html\css\js  H5+C3移动端开发
+    		优点：跨平台，开发速度快
+    		缺点：运行速度比较慢，安全性低
+    		浏览器：能够给我们提供上网的工具
+    	3.混合型app(webapp80%+20% nativeapp)
+    		快速、高效、稳定开发app-->
+	<!--移动端布局方式-->
+	移动端的浏览器内核都采用webkit内核
+	
+		1.纯百分比(高度不变化)
+		2.比例关系布局（适配）
+			rem:相对根元素的大小进行设置
+		3.flxed弹性布局（css3属性）
+			
+		4.div{
+			width:100vw;height:100vh;   /*按照窗口的百分比进行计算：vw窗口宽度，vh窗口高度*/
+			width:100vmax;   /*按照窗口最大的尺寸进行计算*/
+			width:100vmin;  /*按照窗口最小的尺寸进行计算*/
+		}
+	
+	<!--移动端事件-->
+		pc端事件
+			1.只能有一个鼠标操作
+			2.操作更加精准，确定的是一个像素
+			3.鼠标事件：over->move->down->up->click->out (鼠标不可能离开屏幕，从a点到b点的每一个动作，都能够完美的监听)
+		移动端的事件
+			1.可以有多个手指操作(html5不兼容多指操作)
+			2.操作一对像素，确定的是区域
+			3.移动端事件监听先执行移动端在执行鼠标事件，在移动端事件结束后瞬间执行鼠标事件
+			<!--h5提供的原生事件//可以模拟事件-->
+			div.addEventListener("touchstart",function(e){ //监听移动端事件 开始触摸
+				var touch=e.touches[0]    //手指触摸的对象
+				console.log(touch.pageX)
+			})  
+			div.addEventListener("touchmove",function(){})  //监听移动端事件 触摸移动
+			div.addEventListener("touchend",function(){})  //监听移动端事件 触摸结束
+		
+		touch.js  移动端百度手势库   /*更隐蔽的封装*/
+		zepto.js 比jquery体积小,配合touch.js使用
+		
+		swiper.js 移动端网页触摸滑动js  //性能的丧失，编程的自由度限制，可实现的功能变少
+		
+		iscroll.js 解决移动端的固定定位问题    
+		
+		<!--固定定位-->
+		1.ie6不支持固定定位  开销大量的cpu和gpu的运算
+		2.移动端解决固定定位使用iscroll.js
+			1）引入iscroll-probe.js
+</body>
+<script>
+	'use strict'  //遵循严格的编码规则
+	window.onload=function(){
+		size(320)
+	}
+	function size(originW){
+		var clientW=document.documentElement.clientWidth;
+		var originW=originW;    //原图设计尺寸
+		var bili=clientW/originW*100+"px";
+		document.getElementsByTagName("html")[0].style.fontSize=bili;
+	}
+	
+</script>
+<script src="js/touch.js"></script>
+<script>
+	window.onload=function(){
+		$("div").on("drag",function(){
+			alert(1)
+		})
+	}
+</script>
+</html>

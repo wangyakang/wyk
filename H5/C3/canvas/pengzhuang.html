@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跑酷游戏</title>
+</head>
+<style>
+    body,html{
+        width: 100%;height: 100%;
+        padding: 0;margin: 0;
+        overflow:hidden;
+    }
+    canvas{
+        background: url(img/back/back.jpg) repeat-x top;
+        background-size: 100%;
+        background-color: #000000;
+    }
+</style>
+<body>
+<canvas></canvas>
+<img src="img/person/run1.png" alt="" class="run">
+<img src="img/person/run2.png" alt="" class="run">
+<img src="img/person/run3.png" alt="" class="run">
+<img src="img/person/run4.png" alt="" class="run">
+<img src="img/person/run5.png" alt="" class="run">
+<img src="img/person/run6.png" alt="" class="run">
+<img src="img/person/run7.png" alt="" class="run">
+<img src="img/person/run8.png" alt="" class="run">
+
+<img src="img/person/jump1.png" alt="" class="jump">
+</body>
+<script>
+    var canvas=document.querySelector("canvas");
+    var cobj=canvas.getContext("2d");
+    var runImg=document.querySelectorAll(".run");
+    var jumpImg=document.querySelectorAll(".jump");
+    canvas.width=document.documentElement.clientWidth;
+    canvas.height=document.documentElement.clientHeight;
+    function person(canvas,cobj,runImg,jumpImg){
+        this.x=0;  //
+        this.y=500;
+        this.width=83;	//人物矩形大小，也就是图片的大小，按照一定比例缩放
+        this.heith=118;
+        this.canvas=canvas;
+        this.cobj=cobj;
+        this.runImg=runImg;
+        this.jumpImg=jumpImg;
+        this.speedy=5;
+        this.zhongli=10;
+        this.status="runImg";
+        this.state=0;
+    }
+    person.prototype={
+        draw:function(){
+            this.cobj.save();
+            this.cobj.translate(this.x,this.y);
+            //九个参数
+            this.cobj.drawImage(this[this.status][this.state],0,0,827,1181,0,0,this.width,this.height);
+            this.cobj.restore();
+        }
+//        update:function(){
+//            this.speedy+=this.zhongli;
+//            this.y+=this.speedy;
+//        }
+    }
+    var run=new person(canvas,cobj,runImg,jumpImg)
+    run.draw()
+//    function games(canvas,cobj,runImg,jumpImg) {
+//        this.canvas=canvas;
+//        this.canvasW = canvas.width;
+//        this.canvasH = canvas.height;
+//        this.cobj = cobj;
+//        this.person = new person(canvas, cobj, runImg, jumpImg);
+//    }
+//    games.prototype={
+//        play:function(){
+//            var that = this;
+//            var num = 0;
+//            var back = 0;
+//            setInterval(function () {
+//                num++;
+//                back -= that.speed;
+//                that.cobj.clearRect(0, 0, that.canvasW, that.canvasH);
+//                that.person.state = num % 7;
+//                that.person.draw();
+//                that.person.update();
+//                that.canvas.style.backgroundPositionX = back + "px";
+//            },50)
+//        }
+//    }
+//    var newGame=new games(canvas,cobj,runImg,jumpImg);
+//    newGame.play()
+</script>
+</html>

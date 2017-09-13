@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background: chartreuse;
+		}
+	</style>
+	<body>
+		<div id="box">1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<input type="button" />
+	</body>
+	<script>
+//		$("#box").animate({width:500},1000).animate({height:500})
+//		console.log($("#box").queue())   //会将动画放在函数中，存放在默认队列fx中
+//		console.log($("#box").queue().length)
+		//自定义队列:建立队列，手动出队
+		var arr=[
+			function(){
+				$("#box").animate({width:500},1000)// 在该函数执行的过程中下一条函数已经出队,都添加在fx身上，因此清除队列时要清除fx上的函数
+				$("#box").dequeue("ms")
+			},
+			function(){
+				$("#box").animate({height:500},1000)
+			}
+		]
+		$("#box").queue("ms",arr)  //将ms队列给了#box
+//		console.log($("#box").queue("fx"))   //
+//		console.log($("#box").queue("ms"))   //未出队默认动画两条
+		$("#box").dequeue("ms")   //出队
+//		console.log($("#box").queue("fx"))   
+//		console.log($("#box").queue("ms")) //
+		$("#box").clearQueue("fx")  //清空所有的队列
+//清空队列：clearQueue\stop\finish
+			//
+//			$("#box").animate({width:500},1000).queue(function(){
+//				$("#box").slideUp();  //自己手动插入的队列需要手动出队，并且插在了队列的最后一个执行
+//				$("#box").dequeue()
+//			}).animate({height:500},1000)
+	
+//	$(":button").on("click",function(e){
+//		console.log(e)   //e代表的是jquery的事件对象
+//		console.log(e.currentTarget)
+////		this/e.currentTarget:在事件冒泡阶段中的当前DOM元素 
+//	})
+//	$(document.body).on("click mousemove","#box",function(e){
+//		console.log(this)
+//		console.log(e.delegateTarget)  //此属性是最经常有用是通过过事件委派或.on()附加委派的事件，事件处理程序附加在正在处理的元素的祖先上。它可用于，例如，指明委派识别和删除事件处理程序。
+//		e.preventDefault()  //阻止浏览器的默认事件
+////		e.returnValue=false
+//		console.log(e.target)   //最初触发事件的DOM元素
+//		console.log(e.type)   //判断事件源触发类型
+//	})
+//	$("#box").on("click mouseover",function(e){
+//		console.log(e.type)
+//	}
+	//e.which:针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮。
+//	$(document).keydown(function(e){
+//		console.log(e.which)
+//	})
+
+//工具：$
+//$.each()  $("div").each()  //循环遍历数组、对象
+//	$("div").each()    //继承的原型上的属性
+//	$.each()        //自身的属性
+//	var arr=["a","b","c"]   //遍历数组
+//	var obj={"aa":"bb","cc":"cc"}  //遍历键值对
+//	$.each(obj,function(libs,val){
+//		console.log(libs,val)
+//	})
+//函数继承时的属性归属关系
+//	function aa(){}
+//	aa.click=function(){}
+//	aa.prototype.check=function(){}
+//	var obj=new aa()
+//	obj.check() //可调用
+//	aa.check()  //aa不可调用，aa原型上的属性是继承在实例化对象身上的，与aa无关
+//	aa.click()  //可以调用，click是aa自身的属性
+//	obj.click()  //不可调用，obj继承的只是原型函数中的属性
+
+
+
+//$.grep    $.map  grep是通过返回的boolean进行保留和删除元素   map是通过条件改变数组的内容并进行返回
+//$.grep:使用过滤函数过滤数组元素。此函数至少传递两个参数：待过滤数组和过滤函数。过滤函数必须返回 true 以保留元素或 false 以删除元素。
+//	var arr=["a","b","c"]
+//	var result=$.grep(arr,function(val,libs){
+////		console.log(val)
+//		return val>1   //返回的是一个boolean true保留元素，false删除元素
+//	})
+//	console.log(result)
+//$.map：将一个数组中的元素转换到另一个数组中。
+//	var result=$.map(arr,function(val,libs){
+//		console.log(libs)
+//		return val>1
+//		return val+2
+//	})
+//	console.log(result)
+////$.makeArray(类数组对象):将类数组对象转换为数组对象。   toArray():把jQuery集合中所有DOM元素恢复成一个数组。 效果相同
+//console.log($.makeArray($("div")))
+//console.log($("div").toArray())
+//trim:1.去掉字符串起始和结尾的空格 2.将Json对象转义
+//	var str="  rw  ssdffk  s "
+//	console.log($.trim(str))
+
+	var str='{"aa":"bb","cc":"dd"}' 
+	console.log($.trim(str))  
+	</script>
+</html>

@@ -1,0 +1,14 @@
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd,input{
+	margin: 0;
+	padding: 0;
+	/*去掉表格的标志小点*/
+	list-style: none;
+}
+/*图片去除边框*/
+img{
+	border: 0;
+}
+/*a链接去下划线*/
+a{
+	text-decoration: none;
+}

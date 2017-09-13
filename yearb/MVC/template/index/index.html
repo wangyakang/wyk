@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前台</title>
+    <link rel="stylesheet" href="{CSS_PATH}/index.css">   <!-- 动态监测路径-->
+</head>
+<body>
+<!--前台  界面-》逻辑分开-->
+{foreach $result as $v}
+<li>{$v["cname"]}</li>
+{/foreach}
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+    .box{
+        padding: 40px;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <form class="form-search">
+                    <input type="text" class="input-medium search-query">
+                    <input type="button" value="查询" class="seach">
+                </form>
+            </div>
+            <div class="span9">
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">address</label>
+                        <div class="controls">
+                            <input type="text" id="inputEmail" placeholder="sddress">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPhone">phone</label>
+                        <div class="controls">
+                            <input type="text" id="inputPhone" placeholder="phone">
+                        </div>
+                    </div>
+                    <!--<div class="control-group">-->
+                        <!--<label class="control-label" for="inputPassword">简介</label>-->
+                        <!--<div class="controls">-->
+                            <!--<input type="password" id="inputPassword" placeholder="Password">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="button" value="修改" class="revise">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(".seach").on("click",function () {
+        $.ajax({
+            url:"http://218.244.157.0:7788/Api/QueryLogisticsReceiveList",
+            success:function (e) {
+                $("#inputEmail").val(e.Data.rows[0].after_province)
+                $("#inputPhone").val(e.Data.rows[0].mobile)
+            }
+        })
+    })
+</script>
+</html>

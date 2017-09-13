@@ -1,0 +1,21 @@
+用户体验为导向，首先是视觉的设计与实现
+    css javascript
+
+ 视觉的重构 ：h5,css3   前端工程师
+ 后台语言  Php  过程化
+ node.js  提供底层方法
+
+
+原型继承，跨域原理，BFC，页面性能优化，nodejs，异步编程(回调 promise)，MVC，前端自动化，响应式布局，移动端的新特性（比如让你封装个tap，解释viewport），web安全，js内存管理，前端模块化，web语义化，最新的前端流行类库。
+
+SEO和页面加载优化
+git pull和git fetch有什么区别？
+
+    AngularJS的依赖注入是什么？双向绑定是什么？
+    Service和Factory有什么区别？这是框架细节了，这两个的本质都是Provider的shortcut。
+
+        box-sizing是什么东西？CSS盒模型有两种：border-box和content-box，计算宽度的方式不同。
+        float和absolute布局有啥区别？两者都会脱离文档流，但前者仍会占据位置，后者会覆盖文档流中的其他元素。
+        Node.js是怎么实现并发的？可以去参考一下libuv、cpio……
+        Cookie和Session有什么区别？
+        大页面优化、回流和重绘（通常会和table一起问，它默认并非流式布局）

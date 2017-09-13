@@ -1,0 +1,1 @@
+function aa(a){console.log(a)}aa("输出");

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>广州欢腾鞋业</title>
+	<link rel="stylesheet" href="{CSS_PATH}mycss/bass.css">
+	<link rel="stylesheet" href="{CSS_PATH}mycss/main.css">
+	<script src="{JS_PATH}myjs/jquery.min.js"></script>
+	<script src="{JS_PATH}myjs/main.js"></script>
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="box">
+			<span>
+				<em>.</em>
+				欢迎进入本网站!
+			</span>
+			<ul>
+				<li><a href="">设为首页</a></li>
+				<li><a href="">加入收藏</a></li>
+				<li><a href="lianxi.html">联系我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- header-end -->
+		<!-- 导航 --> 
+	<div class="nav">
+		<div class="nav_box">
+			<div class="logo">
+				<img src="{IMG_PATH}myimg/logo.png" alt="">
+			</div>
+			<ul class="nav_word">
+				{pc:content action="category" catid="0" num="10"}
+				{php $i=0} 
+					{loop $data $v}
+					{$i++}
+					{if $i==1}<li class="a{$v[catid]}" style="background:url({thumb($v[image])});"><a href="index.php"></a></li>{else}<li class="a{$v[catid]}" style="background:url({thumb($v[image])});"><a href="{$v[url]}"></a></li>{/if}
+					{/loop}
+				{/pc}
+			</ul>
+		</div>
+	</div>
+	<!-- 导航结束 -->

@@ -1,0 +1,63 @@
+{template "content","header"}
+	<link rel="stylesheet" href="{CSS_PATH}mycss/base.css">
+	<link rel="stylesheet" href="{CSS_PATH}mycss/main.css">
+	<link rel="stylesheet" href="{CSS_PATH}mycss/tzsqde.css">
+	<script src="{JS_PATH}myjs/jquery.min.js"></script>
+	<script src="{JS_PATH}myjs/szcy.js"></script>
+<!-- banner -->
+	<div class="bg">
+		<div class="banner-box">
+			<img src="{IMG_PATH}myimg/nyimg_02.jpg" alt="">
+		</div>
+<!-- 内容部分 -->
+		<div class="project">
+			<div class="proje_top">
+				<div class="posit">
+					首页
+					<span>/</span>
+					投资申请
+				</div>
+				<h3>投资申请</h3>
+			</div>
+			<div class="proje_db">
+				<div class="rzpro">
+					<p>融资公司：</p>
+					<input type="text">
+				</div>
+				<div class="rzpro">
+					<p>地址：</p>
+					<input type="text">
+				</div>
+				<div class="rzpro">
+					<p>电话：</p>
+					<input type="text">
+				</div>
+				<div class="rzpro">
+					<p>传真：</p>
+					<input type="text">
+				</div>
+				<div class="rzpro">
+					<p>电子邮件：</p>
+					<input type="text">
+				</div>
+				<div class="rzpro">
+					<p>联系人：</p>
+					<input type="text">
+				</div>
+				<div class="rzpro">
+					<p>行业分类：</p>
+					<div class="hylist"></div>
+				</div>
+				<div class="rzpro">
+					<p>上传商业计划书：</p>
+					<input type="text">
+					<input type="file" name="uploadFile" id="uploadFile">
+					<p class="down">
+						<a href="">下载《商业计划书》模板</a>
+					</p>
+				</div>
+				<a href="" class="tijiao">提交申请</a>
+			</div>
+		</div>
+	</div>
+	{template "content","footer"}

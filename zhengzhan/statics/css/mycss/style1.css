@@ -1,0 +1,480 @@
+
+/*导航*/
+	.daohang{
+		height: 80px;
+		/*background: blue;*/
+		float: right;
+
+	}
+	.zibox{
+		width: 88px;
+		height: 48px;
+		float: right;
+		line-height: 80px;
+		text-align: center;
+	}
+	.daohang a{
+		float: left;
+		color: #666;
+		font-size: 14px;
+		margin:0 5px;
+		line-height: 36px;
+		padding: 20px 10px;
+		border-bottom: 4px solid #fff;
+	}
+
+	.daohang a:hover{
+		border-bottom: 4px solid #052953;
+		color: #032a54;
+		background: url(../../images/myimg/navsj.png) no-repeat center bottom;
+	}
+	.daohang .first {
+		border-bottom: 4px solid #052953;
+		color: #032a54;
+		background: url(../../images/myimg/navsj.png) no-repeat center bottom;
+	}
+	.tiao{
+		width: 100%;
+		height: 35px;
+		opacity: 0.8;
+		background: #666;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 10000;
+	}
+	.laba{
+		width: 1000px;
+		height: 35px;
+		margin: auto;
+	}
+	/*正文*/
+	.ipbox{
+		width: 1000px;
+		padding: 51px 0px 0px 0px;
+    	margin: 0 auto;
+	}
+	.jianjie{
+		width: 1000px;
+		height: 198px;
+		background: #fff;
+	}
+	.tu1{
+		width: 332px;
+		height: 198px;
+		float: left;
+	}
+	.jjkuang{
+		width: 668px;
+		height: 198px;
+		float: left;
+	}
+	.jjtop{
+		width: 668px;
+		height: 64px;
+    	line-height: 64px;
+    	background: #052953;
+    	position: relative;
+	}
+	.jjsj{
+		margin-top: 10px;
+		margin-left: 50px;
+		position: absolute;
+		top: 47px;
+    	left: 50px;
+	}
+	.jjsj1{
+		margin-top: 10px;
+		margin-left: 50px;
+		position: absolute;
+		top: 47px;
+    	left: 75px;
+	}
+	.jjsj2{
+		margin-top: 10px;
+		margin-left: 50px;
+		position: absolute;
+		top: 47px;
+    	left: 50px;
+	}
+	.jjsj3{
+		margin-top: 10px;
+		margin-left: 50px;
+		position: absolute;
+		top: 47px;
+    	left: 94px;
+	}
+	.jjsj4{
+		margin-top: 10px;
+		margin-left: 50px;
+		position: absolute;
+		top: 47px;
+    	left: 50px;
+	}
+	.tu2{
+		margin-top: 18px;
+		margin-left: 20px;
+		float: left;
+	}
+	.dongtai{
+		float: left;
+    	font-size: 18px;
+    	color: #ffffff;
+    	margin-left: 20px;
+	}
+	.jjtop a{
+		display: block;
+    	width: 63px;
+    	height: 20px;
+    	float: right;
+    	font-size: 12px;
+    	color: #ffffff;
+    	text-align: center;
+    	line-height: 20px;
+    	margin: 22px 30px 0px 0px;
+    	background: #f29636;
+	}
+	.jjtop a:hover{
+		background: #f7a753;
+	}
+	.lefttop a{
+		display: block;
+    	width: 63px;
+    	height: 20px;
+    	float: right;
+    	font-size: 12px;
+    	color: #ffffff;
+    	text-align: center;
+    	line-height: 20px;
+    	margin: 22px 30px 0px 0px;
+    	background: #f29636;
+	}
+	.lefttop a:hover{
+		background: #f7a753;
+	}
+	.righttop a{
+		display: block;
+    	width: 63px;
+    	height: 20px;
+    	float: right;
+    	font-size: 12px;
+    	color: #ffffff;
+    	text-align: center;
+    	line-height: 20px;
+    	margin: 22px 30px 0px 0px;
+    	background: #f29636;
+	}
+	.righttop a:hover{
+		background: #f7a753;
+	}
+	.wenben{
+		width: 560px;
+    	padding-left: 48px;
+    	margin: 34px auto 0px auto;
+    	position: relative;
+	}
+	.wenben p{
+		color: #666;
+		font-size: 14px;
+		line-height: 20px;
+	}
+	.yin1{
+		position: absolute;
+		top: -15px;
+		left: 0px;
+	}
+	.yin2{
+		position: absolute;
+		top: 75px;
+		left: 550px;
+	}
+	/*正文2*/
+	.ipbox2{
+		width: 1000px;
+		height: 396px;
+		margin: 30px auto;
+	}
+	.left_box{
+		width: 633px;
+		height: 396px;
+    	float: left;
+    	background: #ffffff;
+	}
+	.right_box{
+		width: 337px;
+		/*height: 396px;*/
+		float: right;
+    	background: #ffffff;
+	}
+	.lefttop{
+		width: 100%;
+		height: 64px;
+		background: #052953;
+		line-height: 64px;
+		position: relative;
+	}
+	.righttop{
+		width: 100%;
+		height: 64px;
+		background: #052953;
+		line-height: 64px;
+		position: relative;
+	}
+	.tu3{
+		float: left;
+    	padding: 17px 15px 0px 30px;
+	}
+	.tu4{
+		float: left;
+    	padding: 17px 15px 0px 30px;
+	}
+	.szyan {
+		width: 573px;
+    	height: 101px;
+    	padding-top: 30px;
+    	border-bottom: 1px dashed #73737b;
+    	margin-bottom: 10px;
+    	margin: auto;
+	}
+	.szyan dd {
+    	color: #999999;
+    	font-size: 12px;
+    	width: 480px;
+    	float: right;
+	}
+	.szyan dt {
+    	width: 75px;
+    	height: 75px;
+    	float: left;
+	}
+	.szyan dd {
+    	color: #999999;
+    	font-size: 12px;
+    	width: 480px;
+    	float: right;
+	}
+	.szyan dd div {
+    	font-size: 14px;
+    	text-align: right;
+	}
+	.szyan dd div a {
+    	color: #666666;
+    	float: left;
+	}
+	.szyan dd:hover div a {
+    	color: #052953;
+    	float: left;
+	}
+	.riqi{
+		color: #666666;
+    	float: right;
+    	margin-left: 150px;
+	}
+	.left_box li {
+    	height: 35px;
+    	line-height: 35px;
+    	color: #999999;
+	}
+	.left_box li a{
+    	height: 35px;
+    	line-height: 35px;
+    	overflow: hidden;
+    	display: block;
+    	padding-left: 19px;
+    	margin-left: 30px;
+    	font-size: 14px;
+    	background: url(../../images/myimg/xwqq_01.png) no-repeat 0px 13px;
+    	color: #666666;
+	}
+	.left_box li a:hover {
+    	background: url(../../images/myimg/xwqq_02.png) no-repeat 0px 13px;
+    	color: #052953;
+	}
+	.left_box li span {
+    	font-size: 14px;
+    	text-align: right;
+	    float: right;
+   		margin-right: 30px;
+	}
+	.studylist{
+		width: 277px;
+		height: 332px;
+		margin-left: 30px;
+	}
+	.studylist1{
+		width: 277px;
+		height: 200px;
+		margin-left: 30px;
+	}
+	.studly {
+		width: 277px;
+    	height: 101px;
+    	padding-top: 30px;
+    	border-bottom: 1px dashed #73737b;
+    	margin-bottom: 10px;
+	}
+	.studylist li {
+    	height: 35px;
+    	line-height: 35px;
+    	overflow: hidden;
+	}
+	.studylist1 li {
+    	height: 35px;
+    	line-height: 35px;
+    	overflow: hidden;
+	}
+	.studylist li a{
+    	color: #666666;
+    	font-size: 14px;
+	}
+	.studylist1 li a{
+    	color: #666666;
+    	font-size: 14px;
+	}
+	.studylist li a:hover {
+    	color: #052953;
+	}
+	.studylist1 li a:hover {
+    	color: #052953;
+	}
+	.studly dd img {
+    	top: 0px;
+    	left: 0px;
+	}
+	.studylist li {
+    	height: 35px;
+    	line-height: 35px;
+    	overflow: hidden;
+    	font-size: 14px;
+    	color: #666666;
+	}
+	.studylist1 li {
+    	height: 35px;
+    	line-height: 35px;
+    	overflow: hidden;
+    	font-size: 14px;
+    	color: #666666;
+	}
+	.studylist li:hover {
+    	color: #052953;
+	}
+	.studylist1 li:hover {
+    	color: #052953;
+	}
+	.investmet {
+    	padding: 15px 30px 18px 30px;
+	}
+
+/*二维码*/
+	.erweima{
+		width: 130px;
+		height: 130px;
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+	}
+	.hidden {
+		display: none;
+    	position: absolute;
+    	background: #ffffff;
+    	width: 164px;
+    	height: auto;
+    	overflow-y: auto;
+    	overflow-x: hidden;
+    	padding: 3px 34px 3px 8px;
+    	top: 23px;
+    	left: 0rem;
+    	border-radius: 3px;
+    	max-height: 89px;
+	}
+	.linksbox ul li a {
+   		display: block;
+   		height: 22px;
+   		line-height: 22px;
+   		width: 200px;
+   		color: #31353d;
+    	text-decoration: none;
+    	outline: none;
+    	font-size: 14px;
+	}
+	.linksbox ul li a:hover {
+   		color: #f54746;
+	}
+	/*弹出*/
+	.tanchu{
+		width: 100%;
+    	height: 100%;
+    	position: fixed;
+    	top: 0px;
+    	left: 0px;
+    	background: url(../../images/myimg/zzao.png);
+    	z-index: 10000;
+    	display: none;
+	}
+	.tanchukuai{
+		width: 860px;
+    	background: #ffffff;
+    	position: absolute;
+    	left: 50%;
+    	top: 10px;
+    	margin-left: -362px;
+	}
+	.biaoti{
+    	color: #666666;
+    	text-align: center;
+    	padding: 45px 0px 8px 0px;
+	}
+	.zuozhe{
+		font-size: 12px;
+    	color: #999999;
+    	text-align: center;
+    	padding-bottom: 20px;
+    	margin-left: 5px;
+	}
+	.newtu{
+		text-align: center;
+    	margin: 0cm 0cm 0.0001pt;
+    	font-size: 10.5pt;
+    	font-family: Calibri, sans-serif;
+    	line-height: 21pt;
+	}
+	.gundongqu{
+		padding: 0px 40px 0px 40px;
+    	height: 390px;
+    	overflow: auto;
+	}
+	.heci1{
+		margin: 0cm;
+    	margin-bottom: .0001pt;
+    	text-align: justify;
+    	text-justify: inter-ideograph;
+    	font-size: 18px;
+    	font-family: 'Calibri','sans-serif';
+    	text-align: left;
+    	line-height: 21.0pt;
+	}
+	.bsrt{
+		font-size: 18px;
+		color: red;
+	}
+	.bset{
+		font-size: 18px;
+		color: #888;
+	}
+	.guanbi{
+		display: block;
+    	width: 100px;
+    	height: 35px;
+    	line-height: 35px;
+    	text-align: center;
+    	background: url(../../images/myimg/anniu.png) no-repeat;
+    	font-size: 16px;
+    	color: #ffffff;
+    	margin: 10px auto 10px auto;
+	}
+	.cha{
+		height: 30px;
+    	text-align: right;
+    	font-size: 30px;
+    	margin-right: 10px;
+	}

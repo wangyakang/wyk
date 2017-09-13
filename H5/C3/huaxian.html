@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+    }
+</style>
+<body>
+<canvas width="500px" height="500px"></canvas>
+</body>
+<script>
+    var canvas=document.querySelector("canvas");
+    var cobj=canvas.getContext("2d");
+    var arr=[];
+    canvas.onmousedown=function (e) {
+        var vw=e.offsetX;
+        var vh=e.offsetY;
+//        cobj.beginPath();    //在鼠标down时绘线
+//        cobj.moveTo(vw,vh)
+        canvas.onmousemove=function (a) {
+            var vw1=a.offsetX;
+            var vh1=a.offsetY;
+            cobj.clearRect(0,0,500,500)   //在画当前线的时候要清空所有的线，但保留不下历史记录
+            if(arr.length>0){     //如果画线，就将线条保留
+                cobj.putImageData(arr[arr.length-1],0,0)
+            }
+            cobj.beginPath();      //鼠标移动时只画两个点，确定一条 直线
+            cobj.moveTo(vw,vh)
+            cobj.lineTo(vw1,vh1)   //划线下一个点
+            cobj.stroke();  //描边
+            return false;
+        }
+        canvas.onmouseup=function () {
+            arr.push(cobj.getImageData(0,0,500,500)); //鼠标抬起获取图像区域信息
+            canvas.onmousemove=null;
+            canvas.onmouseup=null;
+        }
+        return false;
+    }
+
+</script>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" 
+    	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>个人中心</title>
+		<script src="{JS_PATH}/public/zepto.js"></script>
+		<script src="{JS_PATH}/public/rem.js"></script>
+		<script src="{JS_PATH}/public/iscroll.js"></script>
+		<script src="{JS_PATH}/public/swiper.min.js"></script>
+		<script src="{JS_PATH}/personal.js"></script>
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}/public/public.css"/>
+		<link rel="stylesheet" href="{CSS_PATH}/Personal.css" />
+		<link rel="stylesheet" href="{CSS_PATH}/public/swiper.min.css" />
+	</head>
+	<body>
+		<div class="csf_Personal">
+			<div class="csf_top">
+				<div class="bluec"></div>
+			</div>
+			<div class="icons"></div>
+			<!--user-->
+			<div class="csf_name">
+				<div class="heng"></div>
+				<div class="name">
+					<p>林中小土鳖</p>
+				</div>
+				<div class="heng"></div>
+			</div>
+			<!--关注量-->
+			<div class="csf_leibie">
+				<div class="fabu">
+					<p class="num">111</p>
+					<p class="cont">发布</p>
+				</div>
+				<div class="fensi">
+					<p class="num">222</p>
+					<p class="cont">粉丝</p>
+				</div>
+				<div class="guanzhu">
+					<p class="num">333</p>
+					<p class="cont">关注</p>
+				</div>
+			</div>
+			<!--目录-->
+			<ul class="cata">
+				<li>
+					<a href="###" class="csflianjie">
+						<span>我的收藏</span>
+						<span class="jiantou">&gt;</a>
+					</a>
+				</li>
+				<li>
+					<a href="###" class="csflianjie">
+						<span>全部订单</span>
+						<span class="jiantou">&gt;</a>
+					</a>
+				</li>
+				<li>
+					<a href="###" class="csflianjie">
+						<span>我的钱包</span>
+						<span class="jiantou">&gt;</a>
+					</a>
+				</li>
+				<li>
+					<a href="###" class="csflianjie">
+						<span>联系客服</span>
+						<span class="jiantou">&gt;</a>
+					</a>
+				</li>
+			</ul>
+			<!--游记-->
+			<div class="csf_travel">
+				<div class="heng"></div>
+				<div class="name">
+					<p>我的游记</p>
+					<p class="englishi">MY TRAVELS</p>
+				</div>
+				<div class="heng"></div>
+			</div>
+			<div class="swiper-container csfcontainer">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide">
+		            	<div class="image"></div>
+				    	<p class="dizhi">北京五日游</p>
+				    	<div class="jizan">
+				    		<span>333</span>
+				    		<span>333</span>
+				    	</div>
+		            </div>
+		            <div class="swiper-slide">
+		            	<div class="image"></div>
+				    	<p class="dizhi">北京五日游</p>
+				    	<div class="jizan">
+				    		<span>333</span>
+				    		<span>333</span>
+				    	</div>
+		            </div>
+		            <div class="swiper-slide">
+		            	<div class="image"></div>
+				    	<p class="dizhi">北京五日游</p>
+				    	<div class="jizan">
+				    		<span>333</span>
+				    		<span>333</span>
+				    	</div>
+		            </div>
+		            <div class="swiper-slide">
+		            	<div class="image"></div>
+				    	<p class="dizhi">北京五日游</p>
+				    	<div class="jizan">
+				    		<span>333</span>
+				    		<span>333</span>
+				    	</div>
+		            </div>
+		            <div class="swiper-slide">
+		            	<div class="image"></div>
+				    	<p class="dizhi">北京五日游</p>
+				    	<div class="jizan">
+				    		<span>333</span>
+				    		<span>333</span>
+				    	</div>
+		            </div>
+		        </div>
+		 	</div>
+		</div>
+		<!--底部-->
+		<div class="footer">
+			<div class="btn">
+				<div class="check"></div>
+				<div class="sanjiao"></div>
+				<img src="{IMG_PATH}/Personal/shouye.png" alt="" class="appa"/>
+			</div>
+			<div class="btn">
+				<div class="check"></div>
+				<div class="sanjiao"></div>
+				<img src="{IMG_PATH}/Personal/jingdian.png" alt="" class="youji"/>
+			</div>
+			<div class="btn">
+				<div class="check"></div>
+				<div class="sanjiao"></div>
+				<img src="{IMG_PATH}/Personal/vidio.png" alt="" class=""/>
+			</div>
+			<div class="btn">
+				<div class="check"></div>
+				<div class="sanjiao"></div>
+				<img src="{IMG_PATH}/Personal/my.png" alt="" />
+			</div>
+			<script src="{JS_PATH}/public/touch.js"></script>
+					<script>
+						touch.on(".youji","tap",function(){
+							window.location.href="index.php?m=index&f=renmen"
+						})
+						touch.on(".appa","tap",function(){
+							window.location.href="index.php?m=index&f=appa"
+						})
+					</script>
+		</div>
+	</body>
+</html>

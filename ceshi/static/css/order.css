@@ -1,0 +1,338 @@
+body,html,a,ul,li{
+	padding: 0;margin: 0;
+	text-decoration: none;
+	list-style: none;
+}
+body,html{
+	width: 100%;height: 100%;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 270100 */
+  src: url('http://at.alicdn.com/t/font_9u6wrobafu3rqkt9.eot');
+  src: url('http://at.alicdn.com/t/font_9u6wrobafu3rqkt9.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_9u6wrobafu3rqkt9.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_9u6wrobafu3rqkt9.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_9u6wrobafu3rqkt9.svg#iconfont') format('svg');
+}
+	.wrap{
+		height: 100%;
+		background: rgb(49,105,247);
+		position: relative;top: 0;left: 0;
+		padding: 0 0.24rem;
+	}
+	.header{
+		width:100%;height:1.38rem;
+		position: absolute;
+		top: 0;left: 0;
+		background: rgb(49,105,247);
+		z-index: 1;
+	}
+	.footer{
+		width: 100%;height: 1.02rem;
+		box-shadow:0 0 10px rgba(101,145,255,.7) ;
+		position: absolute;bottom: 0;left: 0;
+		background: rgb(49,105,247);
+		z-index: 1;
+		margin:0 auto;
+	}
+	.header-left{
+		position: absolute;top:0.37rem;left: 0.24rem;
+		width:0.41rem;height:0.41rem;
+		border-radius: 50%;
+		text-align: center;
+    	line-height: 0.41rem;
+    	border-radius: 50%;
+    	border: 1px solid #3647fa;
+    	color: #fff;
+	}
+	.header-right{
+		text-align: center;
+	}
+	.header-right div:nth-child(1){
+		color: #fff;
+		font-size: 0.3rem;
+		font-weight: 400;
+		margin-top: 0.34rem;
+	}
+	.header-right div:nth-child(2){
+		color:rgb(74,124,255);
+		font-size: 0.22rem;
+		margin-top: 0.08rem;
+	}
+	.body{
+		width:100%;height:17.24rem;
+		padding-top: 1.38rem;
+		padding-bottom:0.5rem;
+	}
+	.price-box{
+		width: 100%;height: 13.3rem;
+		background:#f7f7f7;
+		border-radius: 0.1rem;
+		box-shadow:1px 0 40px rgba(99,99,99,.75);
+	}
+	.photo-box{
+		width: 100%;height: 2.21rem;
+		border-radius: 0.1rem 0.1rem 0 0;
+		background-image: url(../images/order/tu_03.png);
+		background-size:100% ;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+	}
+	.xingji{
+		width: 100%;height:0.54rem;
+		position: absolute;bottom: 0;left: 0;
+		background: rgba(0,0,0,.6);
+	}
+	.word-xin:nth-child(1){
+		float: left;margin-left: 0.3rem;
+		font-size: 0.36rem;color: #F7F7F7;
+		line-height: 0.54rem;
+	}
+	.word-xin:nth-child(2){
+		float: right;margin-right: 0.23rem;
+	}
+	.star{
+		float: right;margin-right: 0.07rem;
+		color: red;line-height: 0.54rem;
+	}
+	.address-box{
+		height: 2.32rem;width: 6.4rem;
+		margin: 0 auto;
+	}
+	.time-box{
+		height: 2.49rem;width: 6.4rem;
+		margin: 0 auto;
+	}
+	.taocan-box{
+		height: 2.69rem;width: 6.4rem;
+		margin: 0 auto;
+	}
+	.number-box{
+		height: 1.47rem;width: 6.4rem;
+		margin: 0 auto;
+	}
+	.pay-box{
+		height: 1.82rem;width: 6.4rem;
+		margin: 0 auto;
+	}
+	.title-ad{
+		color: #323f4a;font-size: 0.34rem;font-weight: 600;
+		height: 0.6rem;
+		line-height: 0.94rem;
+	}
+	.day-ad{
+		color: #bbb;font-size: 0.2rem;
+		height: 0.6rem;line-height: 0.6rem;
+		position: relative;
+		padding-left:0.22rem;
+	}
+	.rili{
+		position: absolute;top: 0.2rem;left: 0;
+		width: 0.21rem;height: 0.18rem;
+		background-image: url(../images/order/order.png);
+		background-size:contain;
+	}
+	.fenlei-ad{
+		margin-top: 0.02rem;
+	}
+	.fenlei{
+		float: left;
+		width: 1.19rem;height: 0.51rem;
+		background-repeat: no-repeat;
+		background-size: contain;
+		margin-right: 0.12rem;
+	}
+	.fenlei:nth-child(1){
+		background-image: url(../images/order/qq_09.png);
+	}
+	.fenlei:nth-child(2){
+		background-image: url(../images/order/qq_10.png);
+	}
+	.fenlei:nth-child(3){
+		background-image: url(../images/order/qq_12.png);
+	}
+	.title-en{
+		font-size: 0.22rem;
+		color: #a5a5a5;
+	}
+	.title-ha{
+		color: #767676;
+		font-size: 0.24rem;
+		margin-top: -0.14rem;
+	}
+	.img-xian{
+		background: url(../images/order/xian.png) no-repeat;
+		height: 0.02rem;
+		margin-top: 0.07rem;
+	}
+	.data{
+		display: flex;
+		 flex-wrap:wrap;
+		 justify-content:flex-start;
+		 align-items:center;
+		 width: 5.57rem;height: 1.77rem;
+	}
+	.data-aa{
+		width: 1.47rem;height: 0.5rem;
+		border-radius: 0.6rem;
+		float: left;
+		background: #fff;
+		margin-right: 0.16rem;
+		text-align: center;
+		line-height: 0.5rem;
+		color: #bfbfbf;font-size: 0.24rem;
+	}
+	.data-aa:nth-child(2){
+		color: #fff;
+		background: blue;
+	}
+	.guanggao-box{
+		width: 6.4rem;height: 0.96rem;
+		margin-top: 0.28rem;
+	}
+	.guanggao-box img{
+		width: 100%;height: 100%;
+	}
+	.fangan{
+		float: left;margin:0 0.28rem;
+		line-height: 0.54rem;
+	}
+	li.fangan span:nth-child(2){
+		font-size: 0.22rem;
+		color: #0ecf8a;
+	}
+	li.fangan span:nth-child(3){
+		font-size: 0.24rem;
+		color: #cbcbcb;
+	}
+	.icon-fangan{
+		font-family: "iconfont";
+		color:#0ecf8a ;
+	}
+	.icon-fangan:after{
+		content: "\e611";
+	}
+	.pay-box1{
+		width: 100%;height: 0.81rem;
+		line-height: 0.81rem;
+	}
+	.pay-mein{
+		float: left;
+		font-size: 0.24rem;
+		color: #767676;
+		position: relative;
+		height: 0.9rem;
+		width: 100%;
+	}
+	.circle-pay,.circle-payq{
+		position: absolute;
+		left: 0;
+		width: 0.09rem;height: 0.09rem;
+		border-radius: 50%;
+		background: blue;
+	}
+.circle-payq{
+	top: 1.35rem;
+}
+.circle-pay{
+	top: 0.38rem;
+}
+	.img-peo{
+		width: 0.34rem;
+		height: 0.34rem;
+		float: left;
+		margin-right: 0.1rem;
+	}
+	.img-peo>img{
+		width: 100%;height: 100%;
+	}
+	
+.chuxing-peo{
+	width: 1.44rem;height: 0.47rem;
+	background: #fff;
+	border-radius: 0.5rem;
+	text-align: center;
+	color: rgb(204,204,204);
+	float: left;
+	line-height: 0.47rem;
+	margin-top: 0.05rem;
+}
+.chuxingx,.right-tit{
+	float: right;
+	color: #bababa;
+	font-size: 0.24rem;
+}
+.mui-daxiao{
+	margin-left: 0.08rem;
+	float: right;
+	width: 82px;
+	height: 0.42rem;
+}
+.left-tit{
+	color: #767676;
+	font-size: 0.24rem;
+	margin-left: 0.32rem;
+	float: left;
+}
+.pay-way{
+	height: 0.92rem;
+	line-height: 0.92rem;
+	width: 100%;
+}
+li.xian{
+	background: rgb(204,204,204);
+	width: 100%;
+	height: 0.01rem;
+}
+.footer a{
+	width: 6.51rem;
+	height: 0.74rem;
+	background-image: url(../images/order/goumai_13.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.14rem;
+}
+.price-box2{
+	width: 100%;
+	height: 1.54rem;
+	padding:0.25rem 0.4rem;
+	position: absolute;
+	left: 0;bottom:1.02rem;
+}
+.neirong-pay{
+	height: 0.8rem;
+	width: 100%;
+}
+.anniu{
+	width: 0.88rem;
+	height: 0.48rem;
+	background: #fff;
+	border-radius: 50px;
+	float: left;
+	color: #222222;text-align: center;
+	line-height: 0.48rem;
+	font-size: 0.24rem;
+}
+.chengyi,.rmb{
+	color: #3252af;
+	float: left;
+	margin: 0 0.16rem;
+	font-size: 0.28rem;
+}
+.anniu,.chengyi,.price{
+	margin-top: 0.28rem;
+}
+.price{
+	color: #fff;
+	float: left;
+}
+.right-price{
+	float: right;
+}
+.price-shu{
+	color: #fff;
+	font-size: 0.54rem;
+}

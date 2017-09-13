@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+    .box{
+        padding: 40px;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
+                    <form class="form-search">
+                        <input type="text" class="input-medium search-query">
+                        <button type="submit" class="btn">查询</button>
+                    </form>
+                </div>
+                <div class="span9">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail">address</label>
+                            <div class="controls">
+                                <input type="text" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPassword">phone</label>
+                            <div class="controls">
+                                <input type="password" id="inputPhone" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPassword">简介</label>
+                            <div class="controls">
+                                <input type="password" id="inputPassword" placeholder="Password">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(".btn").on("click",function () {
+        console.log(1)
+//        $.ajax({
+//            url:"http://218.244.157.0:7788/Api/QueryLogisticsReceiveList",
+//            success:function (data) {
+//                console.log(data)
+//            }
+//        })
+    })
+</script>
+<!--<script>-->
+
+    <!--var arry=['华北1', '华南2', '华南1', '华东1', '华西1', '华东2', '华东4'];-->
+    <!--function maopao(arr){-->
+        <!--var newarr=[],newarr_e=[],newarr_s=[],newarr_w=[],newarr_n=[],len=arr.length;-->
+        <!--for(var i=0;i<len;i++){-->
+            <!--if(arr[i][1]=="东"){-->
+                <!--newarr_e.push(arr[i]);-->
+                <!--newarr_e.sort()-->
+            <!--}else if(arr[i][1]=="南"){-->
+                <!--newarr_s.push(arr[i]);-->
+                <!--newarr_s.sort()-->
+            <!--}else if(arr[i][1]=="西"){-->
+                <!--newarr_w.push(arr[i]);-->
+                <!--newarr_w.sort()-->
+            <!--}else if(arr[i][1]=="北"){-->
+                <!--newarr_n.push(arr[i]);-->
+                <!--newarr_n.sort()-->
+            <!--}-->
+        <!--}-->
+        <!--return newarr.concat(newarr_e,newarr_s,newarr_w,newarr_n)-->
+    <!--}-->
+    <!--console.log(maopao(arry))-->
+
+<!--</script>-->
+
+</html>

@@ -1,0 +1,227 @@
+html,body{
+	width:100vw;
+	background: #f8f8f8;
+}
+.csf_Personal{
+	width:100vw;
+	padding-bottom: 0.4rem;
+	position: relative;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.csf_top{
+	width:120vw;height:4rem;
+	background: url(../images/Personal/pexels-photo-27308.jpg) center no-repeat;
+	border-radius: 50% 50% 50% 50%;
+	margin-top: -2rem;
+	margin-left: -10vw;
+	overflow: hidden;
+	border: 0.03rem solid #6041c4;
+}
+.csf_top .bluec{
+	width: 100%;height:100%;
+	background: blue;
+	opacity: 0.5;
+	border-radius: 50%;
+}
+/*头像*/
+.icons{
+	width: 2rem;height:2rem;
+	border-radius: 50%;
+	border: 0.03rem solid #fff;
+	box-shadow: 0 0.02rem 0.1rem #d3d3d3;
+	position: absolute;
+	left: 0;top: 1rem;right: 0;
+	margin:auto;
+	overflow: hidden;
+	background: url(../images/Personal/fw658.jpg) center 0rem no-repeat;
+	background-size: cover;
+}
+.csf_name{
+	width: 3rem;height:0.3rem;
+	margin: 1.1rem auto;
+	margin-bottom: 0;
+	display: flex;
+	justify-content: center;
+}
+.csf_name:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.csf_name .heng{
+	width: 20%;height: 0.02rem;
+	background: #acacac;
+	float: left;
+	margin-top: 0.14rem;
+}
+.csf_name .name{
+	width: 50%;height: 100%;
+	padding: 0 0.1rem;
+	text-align: center;
+	line-height: 0.3rem;
+	float: left;
+}
+.csf_name .name p{
+	color: #000;
+	font-size: 0.24rem;
+}
+.csf_leibie{
+	width: 100vw;height: 0.64rem;
+	padding: 0.07rem 0;
+}
+.fabu{
+	width:33.3333333%;height:0.5rem;
+	float: left;border-right:0.01rem solid #ff0000;
+	box-sizing: border-box;
+}
+.fensi{
+	width:33.3333333%;height:0.5rem;
+	float: left;border-right:0.01rem solid #ff0000;
+	box-sizing: border-box;
+}
+.guanzhu{
+	width:33.3333333%;height:0.5rem;
+	float: left;
+}
+.csf_leibie p{
+	text-align: center;
+}
+.csf_leibie p.num{
+	font-size: 0.24rem;
+	color: #34373f;
+}
+.csf_leibie p.cont{
+	font-size: 0.24rem;
+	color: #808080;
+}
+/*目录*/
+.cata{padding: 0.5rem 0.24rem;
+}
+.cata li{
+	width: 7rem;height: 0.8rem;
+	border: 0.01rem solid #e6e8e8;
+	box-shadow: 0 0.05rem 0.1rem #eee;
+	margin-top: 0.07rem;
+	font-size: 0.18rem;
+	line-height: 0.8rem;
+	background: #f7f6f6;
+}
+.cata li .csflianjie{
+	display: block;
+	width: 100%;
+}
+.csflianjie .jiantou{
+	display: block;
+	width: 0.3rem;height: 0.3rem;
+	border: 0.01rem solid #bbb;
+	float: right;margin-right: 0.5rem;
+	border-radius: 50%;
+	margin-top: 0.24rem;
+	line-height: 0.3rem;
+	text-align: center;
+}
+/*我的游记*/
+.csf_travel{
+	width: 4rem;height: 0.8rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+.csf_travel:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.csf_travel .heng{
+	width:25%;height:0.02rem;
+	background: #FF0000;
+	float: left;
+	margin-top: 0.14rem;
+}
+.csf_travel .name{
+	width: 50%;
+	font-size: 0.18rem;
+	color: #000;
+	float: left;
+	text-align: center;
+}
+.csf_travel .name .englishi{
+	font-size: 0.16rem;
+}
+.csfcontainer{
+	width: 100%;
+    height: auto;
+    margin: 0.3rem auto;
+    margin-bottom: 0.5rem;
+}
+.csfcontainer .swiper-slide{
+	width: 40% !important;
+	height: auto;
+	margin-right: 0.2rem;
+}
+.image{
+	width: 100%;height:1.5rem;
+	border: 0.02rem solid #B6B6B6;
+	background: url(../images/Personal/164536.jpeg) center no-repeat;
+	background-size: cover;
+}
+.dizhi{
+	width: 100%;
+	text-align: center;
+	line-height: 0.3rem;
+	font-size: 0.20rem;
+}
+.jizan{
+	font-size: 0.18rem;
+	text-align: center;
+}
+/*底部*/
+.footer{
+	width: 100vw;height: 0.5rem;
+	background: #FFFFFF;
+	padding: 0.1rem 0 0.2rem 0;
+	position: fixed;
+	left: 0;bottom: 0;
+	z-index: 100;
+}
+.btn{
+	width: 25%;height: 100%;
+	float: left;
+	border-right: 0.01rem solid #D3D3D3;
+	box-sizing: border-box;
+	text-align: center;
+	position: relative;
+}
+.btn:nth-child(4){
+	border-right: none;
+}
+.btn .check{
+	width: 50%;height: 0.7rem;
+	background: #336af7;
+	position: absolute;
+	left: 25%;top: -0.15rem;
+	display: none;
+	z-index: 100;
+}
+.btn:nth-child(4) .check{
+	display: block;
+}
+.btn .sanjiao{
+	width:0;height:0;
+	border-bottom: 0.1rem solid #0000FF;
+	border-right: 0.1rem solid transparent;
+	position: absolute;right: 0.39rem;top: -0.15rem;
+	z-index: 0;
+	display: none;
+}
+.btn:nth-child(4) .sanjiao{
+	display: block;
+}
+.btn img{
+	width: 30%;height: 100%;
+	position: absolute;
+	left: 0;right: 0;top: 0;bottom: 0;
+	margin: auto;
+	z-index: 100;
+}

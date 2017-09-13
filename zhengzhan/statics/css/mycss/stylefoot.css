@@ -1,0 +1,184 @@
+	/*尾部*/
+	.footbg {
+		width: 100%;
+		height: 200px;
+    	background: #999999;
+	}
+	.footbox {
+    	width: 1000px;
+    	height: 155px;
+    	padding-top: 45px;
+    	margin: 0 auto;
+	}
+	.linksbox {
+    width: 164px;
+    height: 23px;
+    line-height: 23px;
+    padding: 0px 34px 0px 8px;
+    background: url(../../images/myimg/xlk.png) no-repeat;
+    position: relative;
+    color: #666666;
+    float: left;
+    cursor: pointer;
+}
+.linksbox span {
+    display: block;
+    height: 23px;
+    line-height: 23px;
+    overflow: hidden;
+    font-size: 14px
+}
+.footlogo p {
+    float: right;
+    color: #ffffff;
+    padding-top: 8px;
+    font-size: 14px;
+}
+.footlogo p a {
+    color: #ffffff;
+    font-size: 14px;
+}
+.footlogo p span {
+    padding: 0px 10px;
+    font-size: 14px;
+}
+.footlogo {
+    height: 58px;
+    background: url(../../images/myimg/footline.jpg) repeat-x bottom;
+    margin-bottom: 25px;
+    position: relative;
+}
+.recommer {
+    position: absolute;
+    right: 0px;
+    bottom: 3px;
+    font-size: 14px;
+}
+.copyright {
+    float: right;
+    color: #ffffff;
+    line-height: 25px;
+}
+.copyright p {
+    text-align: right;
+    font-size: 14px;
+}
+.copyright div {
+    float: right;
+    font-size: 14px;
+    background: url(../../images/myimg/kexin.png) no-repeat;
+    padding-left: 109px;
+}
+/*二维码*/
+	.erweima{
+		width: 130px;
+		height: 130px;
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+	}
+	.hidden {
+		display: none;
+    	position: absolute;
+    	background: #ffffff;
+    	width: 164px;
+    	height: auto;
+    	overflow-y: auto;
+    	overflow-x: hidden;
+    	padding: 3px 34px 3px 8px;
+    	top: 23px;
+    	left: 0rem;
+    	border-radius: 3px;
+    	max-height: 89px;
+	}
+	.linksbox ul li a {
+   		display: block;
+   		height: 22px;
+   		line-height: 22px;
+   		width: 200px;
+   		color: #31353d;
+    	text-decoration: none;
+    	outline: none;
+    	font-size: 14px;
+	}
+	.linksbox ul li a:hover {
+   		color: #f54746;
+	}
+	/*弹出*/
+	.tanchu{
+		width: 100%;
+    	height: 100%;
+    	position: fixed;
+    	top: 0px;
+    	left: 0px;
+    	background: url(../../images/myimg/zzao.png);
+    	z-index: 10000;
+    	display: none;
+	}
+	.tanchukuai{
+		width: 860px;
+    	background: #ffffff;
+    	position: absolute;
+    	left: 50%;
+    	top: 10px;
+    	margin-left: -362px;
+	}
+	.biaoti{
+    	color: #666666;
+    	text-align: center;
+    	padding: 45px 0px 8px 0px;
+	}
+	.zuozhe{
+		font-size: 12px;
+    	color: #999999;
+    	text-align: center;
+    	padding-bottom: 20px;
+    	margin-left: 5px;
+	}
+	.newtu{
+		text-align: center;
+    	margin: 0cm 0cm 0.0001pt;
+    	font-size: 10.5pt;
+    	font-family: Calibri, sans-serif;
+    	line-height: 21pt;
+	}
+	.gundongqu{
+		padding: 0px 40px 0px 40px;
+    	height: 390px;
+    	overflow: auto;
+	}
+	.heci1{
+		margin: 0cm;
+    	margin-bottom: .0001pt;
+    	text-align: justify;
+    	text-justify: inter-ideograph;
+    	font-size: 18px;
+    	font-family: 'Calibri','sans-serif';
+    	text-align: left;
+    	line-height: 21.0pt;
+	}
+	.bsrt{
+		font-size: 18px;
+		color: red;
+	}
+	.bset{
+		font-size: 18px;
+		color: #888;
+	}
+	.guanbi{
+		display: block;
+    	width: 100px;
+    	height: 35px;
+    	line-height: 35px;
+    	text-align: center;
+    	background: url(../../images/myimg/anniu.png) no-repeat;
+    	font-size: 16px;
+    	color: #ffffff;
+    	margin: 10px auto 10px auto;
+	}
+	.cha{
+		height: 30px;
+    	text-align: right;
+    	font-size: 30px;
+    	margin-right: 10px;
+	}

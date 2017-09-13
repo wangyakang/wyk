@@ -1,0 +1,51 @@
+{template "content" ,"header"}
+<!-- banner -->
+	<div class="pinpai_banner dis">
+		<div class="gushi_out">
+			<div class="gushi_box">
+				<img src="{IMG_PATH}myimg/zy_banner.png" alt="">
+			</div>
+		</div>
+	</div>
+<!-- banner结束 -->
+	<!-- 品牌故事 -->
+	<div class="gushi_neirong">
+		<div class="left">
+			<ul>
+				{pc:content action="category" catid="$top_parentid" num="10"}
+					{loop $data $v}
+						<li><a href="{$v[url]}">{$v[catname]}</a></li>
+					{/loop}
+				{/pc}
+			</ul>
+		</div>
+		<div class="right">
+			<div class="title">
+				<span class="title_left"> {$v[catname]}</span>
+				<span class="xiao"> {$v[catdir]}</span>
+				<div class="biaoti">
+					<a href="{siteurl($siteid)}">首页</a> > {$CATEGORYS[$top_parentid][catname]}
+				</div>
+			</div>
+			<div class="liuyan_box">
+				<form action="get" name="tijiao">
+					<span>留言标题</span><input type="text" name="title" class="tijiaok"> <br>
+					<span>您的姓名</span><input type="text" name="name" class="tijiaok"><br>
+					<span>电子邮件</span><input type="text" name="email" class="tijiaok"><br>
+					<span>联系方式</span><input type="text" name="content" class="tijiaok"><br>
+					<div class="zailiu">
+						<span>留言内容</span><textarea name="liuyan" id="liuyan" cols="30" rows="10"></textarea>
+					</div>
+				</form>
+				<div class="tijiao_anniu"></div>
+			</div>
+		</div>
+		<div class="clear">	</div>
+	</div>
+	<!-- 品牌故事结束 -->
+{template "content" ,"footer"}
+
+
+
+
+

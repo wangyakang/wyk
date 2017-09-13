@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<body>
+		<form action="">
+			<input type="text"/>
+			<input type="text"/>
+			<input type="button" value="按钮" />
+		</form>
+		
+	</body>
+	<script>
+//		$(":button").bind("click",function(){
+//			$.ajax({
+//				type:"get",
+//				url:"ajax.php",
+//				data:"",
+//				dataType:"",
+//				success:function(text){
+//					console.log(text)
+//				}
+//			});
+//			//get方式  jQuery.get(url, [data], [callback], [type])
+				//url:待载入页面的URL地址    data:待发送 Key/value 参数。	callback:载入成功时回调函数。  type:返回内容格式，xml, html, script, json, text, _default。
+
+//			$.get("ajax.php",function(text){
+//				console.log(text)
+//			})
+			//请求载入JSON数据   
+//			$.getJSON("ajax.php",function(text){
+//				console.log(text)
+//			})
+
+//图片加载的设置
+//			var img
+//			$(document).ajaxStart(function(){  //检测到有ajax在运行时触发函数
+//				img=$("<img>",{src:"1.jpg"}).appendTo(document.body)
+//			})
+//			$(document).ajaxComplete(function(){  //AJAX 请求完成时执行函数。Ajax 事件。
+//				$(img).remove()
+//			})
+//		})
+////		$.when:接收延迟对象，以逗号隔开接收多个ajas对象,done中接收数据并可返回
+		$(":button").bind("click",function(){
+			$.when($.ajax({
+				url:"1.jpg",
+			}),$.ajax({
+				url:"jp-right-1.jpg",
+			})).done(function(a,b){
+				console.log(a)
+				console.log(b)
+			})
+		})
+
+//serialize()：序列表表格内容为字符串,用于ajax请求
+//	$(":button").click(function(){
+//		console.log($("form").serialize())
+//	})
+
+	</script>
+</html>

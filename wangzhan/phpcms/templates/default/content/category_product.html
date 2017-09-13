@@ -1,0 +1,58 @@
+{template "content" ,"header"}
+<!-- banner -->
+	<div class="pinpai_banner dis">
+		<div class="gushi_out">
+			<div class="gushi_box">
+				<img src="{IMG_PATH}myimg/zy_banner.png" alt="">
+			</div>
+		</div>
+	</div>
+<!-- banner结束 -->
+	<!-- 品牌故事 -->
+	<div class="gushi_neirong">
+		<div class="left">
+			<ul>
+				{pc:content action="category" catid="$catid" num="10"}
+					{loop $data $v}
+						<li><a href="{$v[url]}">{$v[catname]}</a></li>
+					{/loop}
+				{/pc}
+			</ul>
+		</div>
+		<div class="right">
+			<div class="title">
+				<span class="title_left">{$v[catname]}</span>
+				<span class="xiao">{$v[catdir]}</span>
+				<div class="biaoti">
+					<a href="{siteurl($siteid)}">首页</a> > {$v[catname]}
+				</div>
+			</div>
+			<div class="neirong_xinwen chanpin">
+				<ul>
+				{pc:content action="lists" catid="$v[catid]" num="9" moreinfo="1" page="$page"}
+				{loop $data $v}
+					<li>
+						<a href="{$v[url]}"><img src="{$v[thumb]}" alt="" /></a>
+						<a href="{$v[url]}"><p>{$v[title]}</p></a>
+					</li>
+				{/loop}
+				
+				{/pc}
+				</ul>
+				<ul class="clear"></ul>
+			</div>
+			<div class="xian">
+				<a href="index.php?m=content&c=index&a=lists&catid=23">首页</a>
+				{$pages}
+				<a href="index.php?m=content&c=index&a=lists&catid=23&page=3">尾页</a>
+				<a>1/3页</a>
+			</div>
+		</div>			
+	</div>
+	<div class="clear">	</div>
+<script>
+	$(".a1").eq(0).remove()
+</script>
+			
+	<!-- 品牌故事结束 -->
+{template "content" ,"footer"}

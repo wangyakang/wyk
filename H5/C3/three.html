@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d菜单</title>
+</head>
+<style>
+    .menus{
+        width: 200px;
+        height:50px;
+        overflow: hidden;
+    }
+    .menus .menu{
+        width: 100%;height: 100%;
+        perspective: 600px;
+    }
+    .menus .menu .son{
+        width: 100%;height: 100%;
+        transform-origin: top;
+        transform: rotateX(90deg);
+    }
+    .menus a{
+        display: block;
+        width: 100%;height: 100%;
+        text-decoration: none;margin-bottom: 20px;
+        background: #ccc;line-height: 30px;text-align: center;color: #000;
+    }
+
+</style>
+<body>
+    <div class="menus">
+        <a href="javascript:;">菜单</a>
+        <div class="menu">
+            <div class="son">
+                <a href="#">菜单一</a>
+                <div class="son">
+                    <a href="#">菜单二</a>
+                    <div class="son">
+                        <a href="#">菜单三</a>
+                        <div class="son">
+                            <a href="#">菜单四</a>
+                            <div class="son">
+                                <a href="#">菜单五</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var menus=document.querySelector(".menus");
+    var son=document.querySelectorAll(".son");
+    menus.onmousemove=function () {
+        menus.style.overflow="visible";
+        for(var i=0;i<son.length;i++){
+            son[i].style.transition="transform 0.3s linear "+i*0.2+"s"
+            son[i].style.transform="rotateX(0)"
+        }
+    }
+    menus.onmouseout=function () {
+        for(var i=0;i<son.length;i++){
+            var time=(son.length-1)*0.2
+            son[i].style.transition="transform 0.3s linear "+(time-i*0.2)+"s"
+            son[i].style.transform="rotateX(90deg)"
+        }
+    }
+</script>
+</html>

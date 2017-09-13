@@ -1,0 +1,151 @@
+*{
+	padding: 0;margin: 0;
+}
+body{
+	width: 100%;
+	background: #fff;
+	overflow: hidden;
+}
+.top{
+	width: 100%;
+	height: 0.9rem;
+	background: #3169f7;
+	display: block;
+	padding-top: 0.3rem;
+}
+.l_box{
+	width: 100%;
+	height: 2.62rem;
+	background: #3169f7;
+	margin-bottom: 0.54rem;
+}
+.l_buttom{
+	width: 0.5rem;
+	height: 0.5rem;
+	text-align: center;
+	line-height: 0.4rem;
+	border-radius: 50%;
+	border: 1px solid #3647fa;
+	color: #fff;
+	font-weight: bold;
+	margin-left: 0.24rem;
+}
+.l_title{
+	width: 100%;
+	height: 3.70rem;
+	background: #3169f7;
+}
+.l_etext{
+	color: #fff;
+	font-size: 0.18rem;
+	float: left;
+	margin-top: 0.15rem;
+	margin-left: 0.24rem;
+	margin-right: 8rem;
+}
+.l_betext{
+	color: #fff;
+	font-size: 0.54rem;
+	float: left;
+	margin-left: 0.24rem;
+	margin-right: 3.3rem;
+	margin-top: -0.06rem;
+	font-weight: bold;
+}
+.l_division{
+	margin-left: 0.24rem;
+    margin-top: -0.15rem;
+    float: left;
+    margin-right: 8rem;
+}
+.l_hot{
+	font-size: 0.32rem;
+	color: #fff;
+	float: left;
+	margin-right: 5rem;
+	margin-top: -0.05rem;
+	margin-left: 0.24rem;
+}
+.l_pay{
+	width: 7.20rem;
+	height: 8.42rem;
+	position: absolute;
+	left: 0.15rem;
+	top: 2.6rem;
+}
+.l_buttompay{
+	width: 3.66rem;
+	height: 0.91rem;
+	position: absolute;
+	left: 1.92rem;
+	top: 10.5rem;
+	z-index: 2;
+}
+.bank{
+	width: 3.66rem;
+	height: 0.91rem;
+	position: absolute;
+	left: 0.35rem;
+	top: 0.6rem;
+	z-index: 2;
+}
+.bag{
+	width: 3.66rem;
+	height: 0.91rem;
+	position: absolute;
+	left: 0.35rem;
+	top: 2.3rem;
+	z-index: 2;
+}
+.payzi1{
+	font-size: 0.26rem;
+	position: absolute;
+	left: 1.65rem;
+	top: 0.65rem;
+	z-index: 2;
+	font-weight: bold;
+}
+.payzi11{
+	font-size: 0.20rem;
+	position: absolute;
+	left: 1.65rem;
+	top: 1.15rem;
+	z-index: 2;
+	color: #666;
+}
+.payzi2{
+	font-size: 0.26rem;
+	position: absolute;
+	left: 1.65rem;
+	top: 2.3rem;
+	z-index: 2;
+	font-weight: bold;
+}
+.payzi22{
+	font-size: 0.20rem;
+	position: absolute;
+	left: 1.65rem;
+	top: 2.8rem;
+	z-index: 2;
+	color: #666;
+}
+.num{
+	width: 0.32rem;
+	height:0.32rem;0
+	background: red;
+	border-radius: 50%;
+	color: #fff;
+	text-align: center;
+	line-height: 0.32rem;
+	position: absolute;
+	top: 0.9rem;right: 0.8rem;
+	font-size: 0.18rem;
+}
+.l_zhifu{
+	background: red;
+	position: relative;
+	top:-3rem;
+}
+.zf1{
+	float: left;
+}

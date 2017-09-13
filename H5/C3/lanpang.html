@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蓝胖子</title>
+</head>
+<style>
+    body{
+        margin: auto;
+        width: 100%;
+        height:100%;
+        background: #eee;
+    }
+    .box{
+        width: 500px;margin: 0 auto;position: relative;height: 480px;
+    }
+    .header{
+        width: 310px;height:300px;
+        background:linear-gradient(50deg,#000,#08BBE7 30%,#eee 98%) ;
+        border-radius: 50%;    border: #333 2px solid;position:relative;
+        box-shadow: -5px 10px 15px rgba(0,0,0,0.45);
+    }
+    .face-box{
+        position: absolute;border: #333 2px solid;bottom:16px;left: 0;right: 0;margin: auto;
+        width: 264px;height: 196px;z-index:400;
+        border-radius: 150px 150px;background: linear-gradient(50deg,#000,#fff 10%);
+    }
+    .eye{
+        width:76px;height:90px; border: #333 2px solid;
+        background: #fff;position: absolute;top:-36px;
+        border-radius: 36px;z-index: 100;
+    }
+    .eye:nth-child(1){
+        left: 52px;
+    }
+    .eye:nth-child(2){
+        right: 52px;
+    }
+    .nose{
+        width: 34px;height: 34px;border-radius: 50%;border: #333 2px solid;
+        background: radial-gradient(10px at 25px 14px,#fff 10%,#c93e00 );
+        position: absolute;left: 0;right: 0;top:43px;margin: auto;
+        z-index:100;
+    }
+    .eye-innerl,.eye-innerr{
+        width: 15px;height: 15px;
+        background: #000;border-radius: 50%;
+        position: absolute;bottom: 16px;
+    }
+    .eye-innerl{
+        right: 16px;
+    }
+    .eye-innerr{
+        left: 16px;
+    }
+    .nose-xian{
+        width: 3px;
+        height: 100px;
+        background: #333;position: absolute;
+        left: 0;right: 0;margin: auto;bottom: 36px;z-index: 99;
+    }
+    .huzi-box{
+        width: 230px;height: 90px;position: absolute;
+        left: 0;right: 0;margin: auto;bottom: 62px;
+        z-index: 4;background: #fff;
+    }
+    .huzi{
+        width: 60px;height: 2px;background: #333;position: absolute;
+    }
+    .huzi:nth-child(1){
+        left: 4px;top: 0;
+        transform-origin:-20px 14px;
+        transform: rotate(20deg);
+    }
+    .huzi:nth-child(2){
+        right:4px;top: 0;
+        transform-origin:80px 16px;
+        transform: rotate(-20deg);
+    }
+    .huzi:nth-child(3){
+        left: 4px;top: 0;bottom: 0;margin: auto;
+    }
+    .huzi:nth-child(4){
+        right: 4px;top: 0;bottom: 0;margin: auto;
+    }
+    .huzi:nth-child(5){
+        left: 4px;bottom: 0;
+        transform-origin:-22px -10px;
+        transform: rotate(-20deg);
+    }
+    .huzi:nth-child(6){
+        right: 4px;bottom: 0;
+        transform-origin:80px -18px;
+        transform: rotate(20deg);
+    }
+    .mouse{
+        width: 210px;height: 96px;border: #333 2px solid;background: #fff;
+        position: absolute;left: 0;right: 0;bottom: 36px;margin: auto;
+        border-radius: 0 0 120px 120px;
+    }
+    .ld-box{
+        width: 230px;height: 20px;border: 2px solid #000;
+        background: linear-gradient(#ca4100 ,#800400);border-radius: 20px;position: absolute;
+        bottom: 14px;left:37px;z-index: 400;
+    }
+    .ling{
+        width: 40px;height: 40px;border-radius: 50%;border: 2px solid #000;
+        position: absolute;left: 0;right: 0;margin: auto;top:6px;
+        background: linear-gradient(#f9f12a,#e9e11a 50%,#a9a100 );
+    }
+    .xian-ling{
+        width: 36px;
+        height: 2px;
+        background: #f9f12a;
+        border: #333 solid 2px;position: absolute;
+        top: 8px;
+    }
+    .circle-ling{
+        width: 12px ;height: 10px;border-radius: 5px;
+        background: #000;position: absolute;bottom:10px;left: 0;right:0;margin: 0 auto;
+    }
+    .tiao-ling{
+        width: 3px;height: 15px;
+        background: #000;position: absolute;
+        left: 0;right:0;margin: 0 auto;bottom:-2px;
+    }
+    .guang{
+        width: 11px;height:11px;border-radius: 50%;background:radial-gradient(#fff,transparent);position: absolute;
+        right:6px;top: 2px;z-index: 20;
+    }
+    .body-box{
+        position: absolute;left: 46px;bottom: 34px;
+        width: 220px;  height: 165px;
+        background: linear-gradient(45deg,#0073b3,#00b0e0 50%,#00b0e0 75%,#0096be);border: #333 2px solid;
+    }
+    .left-gebo{
+        width: 100px;height: 100px;
+        position: absolute;left:-95px;top: 6px;
+    }
+    .right-gebo{
+        width: 100px;height: 100px;
+        position: absolute;right:-95px;top: 6px;
+    }
+    .left-gebo .gebo,.right-gebo .gebo{
+        width: 80px;  height: 50px;
+        border: solid 1px #000;
+        position:absolute;top: 17px;z-index: -1;
+    }
+    .left-gebo .gebo{
+        left: 36px;  transform: rotate(145deg);
+        background: #009AD0;box-shadow: 5px -7px 10px rgba(0,0,0,0.25);
+    }
+    .right-gebo .gebo{
+        background: #009DC8;
+        transform: rotate(35deg);right: 36px;
+    }
+    .left-gebo .hand{
+        width: 60px;height: 60px;border: 2px solid #000;
+        background: linear-gradient(45deg,#fff 30%,#ddd 80%,#999);border-radius: 50%;
+        position: absolute;left: 5px;bottom: -2px;
+    }
+    .right-gebo .hand{
+        width: 60px;height: 60px;border: 2px solid #000;
+        background: linear-gradient(45deg,#fff 30%,#ddd 80%,#999);border-radius: 50%;
+        position: absolute;left: 28px;bottom: -2px;
+    }
+     .left-gebo .zhegai,.right-gebo .zhegai{
+        width: 4px;  height: 50px;
+        position: absolute;top: 0;
+    }
+    .left-gebo .zhegai{
+        right:4px;  background: #009AD0;
+    }
+    .right-gebo .zhegai{
+        left: 4px;background:#009DC8;
+    }
+    .koudai{
+        width: 170px;height: 170px;border-radius: 50%;
+        position: absolute;left: 0;right: 0;margin: auto;top:-36px;
+        background: linear-gradient(225deg,#fff 62%,#eee 69%,#999 90%,#444 95%,#000);
+    }
+    .cir-koudai{
+        width: 130px;height: 65px;border-radius: 0 0 130px 130px;border: 2px solid #000;
+        position: absolute;left: 0;right: 0;margin: auto;bottom: 20px;
+        background:linear-gradient(225deg,#fff 42%,#eee 69%,#999 90%,#444 95%,#000); ;
+    }
+    .box-foot{
+        width: 280px;  height: 40px;position: absolute;right:199px;bottom:0;
+    }
+    .foot-left,.foot-right{
+        width: 127px; height: 30px;
+        position: absolute;bottom:4px;border: 2px solid #000;
+    }
+    .foot-left{
+        background: linear-gradient(275deg,#fff 75%,#eee 85%,#999);
+        left: 0;border-radius: 80px 22px 48px 45px;box-shadow: -6px 0px 10px rgba(0,0,0,0.35);
+    }
+    .foot-right{
+        background: linear-gradient(75deg,#fff 75%,#eee 85%,#999);
+        right: 0;border-radius: 33px 88px 43px 67px;
+    }
+    .tui{
+        width: 20px;height: 10px;
+        background: linear-gradient(45deg,#eee 80%,#666);
+        position: absolute;left: 0;right: 0;margin: auto;top:-8px;
+        border: 2px solid #000;border-radius: 10px 10px 0 0;
+    }
+    .xian-foot{
+        width: 20px;height: 2px;background:#eee;position: absolute;
+        left: 0;right: 0;margin: auto;top:4px;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="header">
+        <div class="face-box">
+            <div class="eye">
+                <div class="eye-innerl"></div>
+            </div>
+            <div class="eye">
+                <div class="eye-innerr"></div>
+            </div>
+            <div class="nose"></div>
+            <div class="nose-xian"></div>
+            <div class="huzi-box">
+                <div class="huzi"></div>
+                <div class="huzi"></div>
+                <div class="huzi"></div>
+                <div class="huzi"></div>
+                <div class="huzi"></div>
+                <div class="huzi"></div>
+            </div>
+            <div class="mouse"></div>
+        </div>
+        <div class="ld-box">
+            <div class="ling">
+                <div class="xian-ling"></div>
+                <div class="circle-ling"></div>
+                <div class="tiao-ling"></div>
+                <div class="guang"></div>
+            </div>
+        </div>
+    </div>
+    <div class="body-box">
+        <div class="left-gebo">
+            <div class="gebo"></div>
+            <div class="hand"></div>
+            <div class="zhegai"></div>
+        </div>
+        <div class="right-gebo">
+            <div class="gebo"></div>
+            <div class="hand"></div>
+            <div class="zhegai"></div>
+        </div>
+        <div class="koudai">
+            <div class="cir-koudai"></div>
+        </div>
+    </div>
+    <div class="box-foot">
+        <div class="foot-left"></div>
+        <div class="foot-right"></div>
+        <div class="tui"></div>
+        <div class="xian-foot"></div>
+    </div>
+</div>
+
+</body>
+</html>

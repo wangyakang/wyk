@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+    }
+</style>
+<body>
+<canvas width="500" height="500"></canvas>
+</body>
+<script>
+    var canvas=document.querySelector("canvas");
+    var cobj=canvas.getContext("2d");
+    var x=0,y=0;
+    function wrap() {
+        this.x=x;
+        this.y=y;
+        this.speedx=(10*Math.random()-5);
+        this.speedy=-(4+2*Math.random());
+        this.width=20;
+        this.height=20;
+        this.r=5;
+        this.zhongli=0.5;
+        this.color="rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")"
+    }
+    wrap.prototype={
+        draw:function () {
+            this.cobj.save();
+            this.cobj.translate(this.x,this.y)
+            this.cobj.fillRect(0,0,this.width,this.height)
+            this.cobj.restore();
+        },
+        upload:function () {
+            this.x+=this.speedx;
+            this.speedy+=this.zhongli;
+            this.y+=this.speedy;
+        },
+        arc:function () {
+            cobj.save();
+            cobj.beginPath()
+            cobj.translate(this.x,this.y)
+            cobj.fillStyle=this.color;
+            cobj.arc(0,0,this.r*Math.random(),0,2*Math.PI)
+            cobj.fill()
+            cobj.restore();
+        }
+    }
+    var arr=[];
+    canvas.onmousemove=function (e) {
+        for(var i=0;i<arr.length;i++){
+            x=e.offsetX;
+            y=e.offsetY;
+        }
+    }
+    setInterval(function () {
+        cobj.clearRect(0,0,canvas.width,canvas.height)
+        var circle=new wrap();
+        arr.push(circle)
+        for(var i=0;i<arr.length;i++){
+            arr[i].arc()
+            arr[i].upload()
+            if(arr.length>100){
+                arr.shift()
+            }
+        }
+    },50)
+
+
+    //    var x=0,y=0,speed=2;
+//    setInterval(function () {
+//        //画布对象动画标准格式
+//            //动画位置的确定
+//        x+=speed;y+=speed;
+//            //清除画布
+//        cobj.clearRect(0,0,canvas.width,canvas.height)
+//            //保存状态
+//        cobj.save()
+//            //移动位置
+//        cobj.translate(x,y);
+//        cobj.fillRect(0,0,50,50)
+//        cobj.restore()
+//
+//        //第二个图形保持不变
+//            //圆
+//        cobj.save()
+//        cobj.fillStyle="blue"
+//        cobj.arc(40,40,20,0,2*Math.PI)
+//        cobj.fill();
+//        cobj.restore()
+//    },50)
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/aa.css">
+</head>
+<style>
+  .bb{
+      position: relative;
+      width: 98px;height: 50px;
+      background: #fff;
+      border: 1px solid #000;
+      border-bottom: 50px solid #000;
+      border-radius: 50%;
+      transition: All 0.4s ease-in-out;
+  }
+  .bb:hover{
+      transform: rotate(360deg);
+  }
+    .bb:before{
+        content: "";
+        position: absolute;
+        width: 8px;height: 10px;
+        background: #000;
+        border: 20px solid #fff;
+        left: 0;
+        top: 25px;
+        border-radius: 50%;
+        z-index: 1000;
+    }
+  .bb:after{
+      content: "";
+      position: absolute;
+      width: 10px;height: 10px;
+      border: 20px solid #000;
+      background: #fff;
+      right: 0;
+      top: 25px;
+      border-radius: 50%;
+      z-index: 1000;
+  }
+  @font-face {
+      font-family: 'iconfont';  /* project id 225878 */
+      src: url('//at.alicdn.com/t/font_lkufb8crygbymn29.eot');
+      src: url('//at.alicdn.com/t/font_lkufb8crygbymn29.eot?#iefix') format('embedded-opentype'),
+      url('//at.alicdn.com/t/font_lkufb8crygbymn29.woff') format('woff'),
+      url('//at.alicdn.com/t/font_lkufb8crygbymn29.ttf') format('truetype'),
+      url('//at.alicdn.com/t/font_lkufb8crygbymn29.svg#iconfont') format('svg');
+  }
+    .aa{
+        font-family: "iconfont";
+        font-size: 20px;
+        color: red;
+    }
+    .aa:before{
+        content: "\e60b";
+    }
+</style>
+<body>
+<div class="bb"></div>
+<div class="aa"></div>
+</body>
+</html>

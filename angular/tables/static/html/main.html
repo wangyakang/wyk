@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>编辑</td>
+    </tr>
+    <tr ng-repeat="x in data">
+        <td>{{x.name}}</td>
+        <td>{{x.sex}}</td>
+        <td>{{x.age}}</td>
+        <td>
+            <a href="javascript:;" ng-click="del(x.id)">删除</a>
+            <a href="#!/edit/{{x.id}}">编辑</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4"><a href="#!/add">添加</a></td>
+    </tr>
+</table>

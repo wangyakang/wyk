@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        padding: 0;margin: 0;
+    }
+    .bigbox{
+        width: 800px;height: 400px;
+        border: 1px solid #000;
+        position:fixed;left: 0;right: 0;top: 0;bottom: 0;margin:auto;
+    }
+</style>
+<body>
+<div class="bigbox">
+
+</div>
+</body>
+<script>
+    class dlunbo{
+        constructor(obj){
+            this.num=obj.num;
+            this.url_l=obj.url_l;
+            this.url_r=obj.url_r;
+            this.url_b=obj.url_b;
+            this.url_f=obj.url_f;
+              this.bigbox=document.querySelector(".bigbox");this.arr=[];
+              this.widths=parseInt(getComputedStyle(this.bigbox,null).width);
+            this.heights=parseInt(getComputedStyle(this.bigbox,null).height);
+            this.screen();
+            this.time();
+        }
+        screen(){
+            for(var i=0;i<this.num;i++){
+                var screen=document.createElement("div");
+                screen.style="width:"+this.widths+"px;height:"+this.heights/(this.num)+"px;position:absolute;top:"+(this.heights)/(this.num)*i+"px;left:0;perspective:4800px";
+                //创建box
+                var box=document.createElement("div");
+                box.style.cssText="width:100%;height:100%;position:relative;transition:transform 1s linear "+0.2*i+"s;transform-style:preserve-3d;transform-origin:center center "+(-this.widths/2)+"px";
+                //创建6个面
+                for(var j=0;j<6;j++){
+                    var panl=document.createElement("div");
+                    panl.style.cssText="position:absolute;left:0;";
+                    if(j==0){
+                        //后边
+                        panl.style.width=this.widths+"px";
+                        panl.style.height="100%";
+                        panl.style.transform="translateZ("+(-(this.widths))+"px)";
+                        panl.style.background="url("+this.url_b+") no-repeat";
+                        panl.style.backgroundPositionY=-(this.heights/(this.num))*i+"px"
+                        panl.style.backgroundPositionX=0;
+                    }else if(j==1){
+                        //左面
+                        panl.style.width=this.widths+"px";
+                        panl.style.height="100%";
+                        panl.style.transformOrigin="left"
+                        panl.style.background="url("+this.url_l+") no-repeat";
+                        panl.style.transform="rotateY(90deg)";
+                        panl.style.backgroundPositionY=-(this.heights/(this.num))*i+"px"
+                        panl.style.backgroundPositionX=0;
+                    }else if(j==2){
+                        //上面
+                        panl.style.width=this.widths+"px";
+                        panl.style.height=this.widths+"px";
+                        panl.style.transformOrigin="top"
+                        panl.style.transform="rotateX(-90deg)";
+                        panl.style.backgroundPositionY=-(this.heights/(this.num))*i+"px"
+                        panl.style.background="#000";
+                    }else if(j==3){
+                        //下面
+                        panl.style.width=this.widths+"px";
+                        panl.style.height=this.widths+"px";
+                        panl.style.transformOrigin="bottom"
+                        panl.style.transform="rotateX(90deg)";
+                        panl.style.bottom=0;
+                        panl.style.background="#000";
+                    }else if(j==4){
+                        //右边
+                        panl.style.width=this.widths+"px";
+                        panl.style.height="100%";
+                        panl.style.transformOrigin="right"
+                        panl.style.transform="rotateY(-90deg)";
+                        panl.style.background="url("+this.url_r+") no-repeat";
+                        panl.style.backgroundPositionY=-(this.heights/(this.num))*i+"px"
+                        panl.style.backgroundPositionX=0;
+                    }else if(j==5){
+                        //前面
+                        panl.style.width=this.widths+"px";
+                        panl.style.height="100%";
+                        panl.style.background="url("+this.url_f+") no-repeat"
+                        panl.style.backgroundPositionY=-(this.heights/(this.num))*i+"px";
+                    }
+                    box.appendChild(panl)
+                }
+                this.bigbox.appendChild(screen)
+                screen.appendChild(box)
+                this.arr.push(box)
+            }
+        }
+        //创建场景
+        time(){
+            var deg=0,speed=90,time=(0.2*(this.num)+1.8)*1000,that=this;
+            var t=setInterval(function () {
+                deg+=speed;
+                for(var i=0;i<that.arr.length;i++){
+                    that.arr[i].style.transform="rotateY("+deg+"deg)"
+                }
+            },time)
+            window.onblur=function () {
+                clearInterval(t)
+            }
+        }
+    }
+    var aa=new dlunbo({
+        num:5,
+        url_l:"imgs/1.jpg",
+        url_r:"imgs/2.jpg",
+        url_f:"imgs/3.jpg",
+        url_b:"imgs/4.jpg"
+    })
+</script>
+</html>

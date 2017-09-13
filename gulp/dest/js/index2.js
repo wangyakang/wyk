@@ -1,0 +1,1 @@
+function vv(o){console.log(o)}vv("用来合并的jss");

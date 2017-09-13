@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			border: 1px solid #000;
+			margin: 100px;
+			padding: 10px;
+			overflow: auto;
+			/*position: fixed;*/
+	
+		}
+		.div{
+			width: 1000px;
+			height: 1000px;
+			background: black;
+			margin: 0 auto;
+		}
+	</style>
+	<body>
+		<div class="div">
+			<!--<div class="box">水电费卡死哦我就额客服每次都是你空心菜发货未付还是电脑水电费卡死哦我就额客服每次都是你空心菜发货未付还是电脑城水电费卡死哦我就额客服每次都是你空心菜发货未付还是电脑城城</div>-->
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+		
+	</body>
+	<script>
+		$(document).ready(function(){
+			console.log($(".box").css("width").slice(0,-2)) //填一个值可以返回属性值，有像素单位
+//			console.log($(".box").css("background-color")) 
+//			//设置单个属性
+//			$(".box").css("width","500")
+//			$(".box").css("width",200)
+//			$(".box").css("width","300px")
+//			//设置多个属性
+//			$(".box").css({
+//				width:500,
+//				height:300,
+//			})
+//			$(".box").css("width",function(libs,val){
+//				return libs*100
+////				console.log(libs,val)
+//			})
+//			$(".box").css({
+//				width:function(libs,val){
+//					return parseInt(val)*(libs+1)
+//				}
+//			})
+			
+			
+//			//offset:获取匹配元素在当前视口的相对偏移。返回整型属性值，不包含margin值
+//			console.log($(".box").offset().left)
+//			console.log($(".box").position().left)
+//			//滚动条
+//					//获取
+//			$(window).scroll(function(){
+//				console.log($(".div").scrollTop())//0
+//				console.log($(document).scrollTop())
+//				console.log($(window).scrollTop())
+//				console.log($(document.body).scrollTop())
+//			})
+////					设置
+//			$(".div").offset({left:300,top:200})
+//			$(".div").scroll({left:300,top:200})
+////			
+//			console.log($(".box").outerWidth())   //返回设置的值，没有设置值默认父元素的值
+//			console.log($(".box").width(200))  //返回this指针对象，
+//			$(".box").width(function(libs,val){
+//				console.log(libs,val)
+//			})
+//			
+//			
+//			console.log($(".box").width(function(){
+//			
+//			}))
+
+		})
+	</script>
+</html>

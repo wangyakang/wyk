@@ -1,0 +1,29 @@
+	<ul class="captionmenu">
+				{pc:content action="category" catid="$catid" order="id ASC" num="20"}
+				{php $i=0}
+					{loop $data $r}
+					{$i++}
+					{if $i==6}
+					
+						<div class="qitaleibox">
+							<a href="javascriptvoid:(0)" class="us">{$r[catname]}</a>	 
+						</div>
+						{pc:content action="category" catid="21" order="id ASC" num="1"}
+							{loop $data $q}
+						<div class="dier">
+							<div class="diera" id="company_honor" svalue="company_honor">
+							 	<a href="{$q[url]}">>{$q[catname]}</a>
+							</div>
+						</div>
+						{/loop}
+						{/pc}
+						{/if}
+					{/loop}		
+				{/pc}
+				
+				{$catid}
+				{$v[catid]}
+				{$v[catname]}
+				{$r[catid]}
+				{$r[catname]}
+			</ul>

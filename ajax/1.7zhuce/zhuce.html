@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="fengzhuang.js"></script>
+		<script src="function.js"></script>
+	</head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.input{
+			width: 500px;
+			height: 30px;
+			line-height: 30px;
+		}
+		.input input{
+			width: 150px;
+		}
+		.input span{
+			font-size: 12px;
+			color: red;
+		}
+	</style>
+	<body>
+		<form>
+			<div class="input">
+				输入账号：<input type="text" name="zhanghao" flag="false"/>
+				<span class="mess"></span>
+			</div>
+		 	<div class="input">
+				输入密码：<input type="password" name="pass" flag="false"/>
+				<span class="mess"></span>
+			</div>
+			<div class="input">
+				确认密码：<input type="password" name="passtwo" flag="false"/>
+				<span class="mess"></span>
+			</div>
+			<input type="button" name="sign" value="注册" flag="true"/>  
+			
+		</form>
+		
+	</body>
+	<script>
+		var form=document.forms[0];
+		var elems=form.elements;
+		elems.zhanghao.onfocus=elems.pass.onfocus=elems.passtwo.onfocus=function(){
+			this.setAttribute("flag",false);
+			var next=getNext(this);
+			next.style.color="red"
+			if(this.name=="zhanghao"){
+				next.innerHTML="请输入6-20位数字或字母"
+			}else if(this.name=="pass"){
+				next.innerHTML="请输入6-10位数字或字母的结合"
+			}else if(this.name=="passtwo"){
+				next.innerHTML="请输入密码"
+			}
+		}
+		elems.zhanghao.onblur=function(){
+			var next=getNext(this);
+			var reg=/^[0-9a-zA-Z]{6,20}$/;
+			var str=""
+			if(reg.test(this.value)){
+				str+="zhanghao="+this.value;
+				var that=this;
+				ajax({
+					data:str,
+					url:"check.php",
+					success:function(text){
+						if(text==1){
+							that.setAttribute("flag",true);
+							next.innerHTML="恭喜，用户名可用"
+							next.style.color="green"
+						}else{
+							next.innerHTML="用户名已存在"
+							next.style.color="red"
+						}	
+					}
+				})			
+			}
+		}
+		elems.pass.onblur=function(){
+			var next=getNext(this);
+			var reg=/^[0-9a-zA-Z]{6,10}$/;
+			var reg1=/\d[a-zA-Z]|[a-zA-Z]\b/
+			if(reg.test(this.value)&&reg1.test(this.value)){
+				this.setAttribute("flag",true);
+				next.innerHTML="输入正确"
+				next.style.color="green"
+			}
+		}
+		elems.passtwo.onblur=function(){
+			var next=getNext(this);
+			if(elems.pass.value==this.value){
+				this.setAttribute("flag",true);
+				next.innerHTML="两次输入密码一致"
+				next.style.color="green"
+			}else{
+				next.innerHTML="两次输入密码不一致"
+			}
+		}
+		elems.sign.onclick=function(){
+			for(var i=0;i<elems.length;i++){
+				if(elems[i].getAttribute("flag")=="false"){
+					elems[i].focus()
+					return;			
+				}
+			}
+			var data={};
+			for(var i=0;i<elems.length;i++){
+				data[elems[i].name]=elems[i].value;
+			}
+			ajax({
+				url:"zhuce.php",
+				data:data,
+				success:function(text){
+					if(text==1){
+							alert("注册成功")
+//							location.href="../1.6/denglu.html"
+						}else{
+							alert("注册失败，请重新注册")
+						}	
+				}
+			})
+		}
+	</script>
+</html>

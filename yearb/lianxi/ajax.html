@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../ajax/jquery.min.js"></script>
+		<script src="../ajax/ajax.js"></script>
+	</head>
+	<style>
+		tr,td{
+			text-align: center;
+			line-height: 24px;
+		}
+				</tr>
+			</tfoot>
+	</style>
+	<body>
+		<table width="400" cellspacing="0" border="1px" cellpadding="0" align="center">
+			<thead>
+				<tr>
+					<td>姓名</td>
+					<td>年龄</td>
+					<td>性别</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="add" colspan="4">添加</td>
+				</tr>
+		</table>
+	</body>
+	<script>
+		var tbody=$("tbody");
+		$.ajax({
+			url:"selec.php",
+			dataType:"json",
+			success:function(e){
+				var str="";
+				$(e).each(function(i){
+					str+="<tr id="+e[i].id+">";
+						str+="<td class='name'>"+e[i].name+"</td>";
+						str+="<td class='age'>"+e[i].age+"</td>";
+						str+="<td class='sex'>"+e[i].sex+"</td>";
+						str+="<td class='del'><span>删除</span></td>";
+					str+="</tr>"
+				})
+				$(tbody).append(str)
+			}
+		})
+		$(".add").on("click",function(){
+			$.ajax({
+				type:"get",
+				url:"add.php",
+				success:function(e){
+					$("<tr>",{id:e}).append("<td class='name'></td><td class='age'></td><td class='sex'></td><td class='del'><span>删除</span></td>").appendTo($(tbody))
+				}
+			});
+		})
+		$(tbody).delegate("span","click",function(){
+			var id=$(this).parent().parent().attr("id"),that=this;
+			$.ajax({
+				type:"get",
+				url:"del.php",
+				data:{id:id},
+				success:function(e){
+					if(e=="ok"){
+						$(that).parent().parent().remove()
+					}
+				}
+			});
+		}).delegate("td:not('.del')","dblclick",function(){
+			var old=$(this).html(),that=this;
+			$(this).html("");
+			$("<input>",{type:"text",value:old}).appendTo($(this));
+			$("input").focus().blur(function(){
+				var newv=$(this).val();
+				if(old==newv){
+					$(this).remove();
+					$(that).html(newv)
+				}else{
+					var id=$(that).parent().attr("id");
+					var ziduan=$(that).attr("class");
+					$.ajax({
+						type:"get",
+						url:"bian.php",
+						data:{id:id,type:ziduan,value:newv},
+						success:function(e){
+							$("input").remove();
+							$(that).html(newv);
+						}
+					});
+				}
+			})
+		})
+		$(document).ajaxStart(function(){
+			$("<img>",{src:"1.jpg"}).appendTo(document.body);
+		}).ajaxComplete(function(){
+			$("img").remove()
+		})
+	</script>
+</html>

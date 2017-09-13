@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="fz-ajax.js"></script>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="按钮" />
+		
+	</body>
+	<script type="text/javascript">
+		var btn=document.querySelectorAll("input")[0];
+		btn.onclick=function(){
+			ajax({
+				method:"post",   
+				url:"1.php",  //请求地址
+				asynch:true,	//[true] [false]
+				dataType:"json",  //返回数据的类型
+				data:{aa:"bb",cc:"dd"},
+//				data:"aa=bb&cc=bb",  //传递的数据   str[search]  obj[{}](json格式传数据时不存在+的连接，减少工作出错率)
+				success:function(text){  //fn[callback]
+					console.log(text)
+				},
+				erro:function(e){
+					console.log(e)
+				}
+			})
+		}
+	</script>
+</html>

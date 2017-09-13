@@ -1,0 +1,229 @@
+.main{
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+}
+/*状态栏*/
+    .statue{
+        width: 730px;
+        height: 40px;
+        padding: 0 10px;
+        background: #D33D3C;
+        font-size: 28px;
+        color: #fff;
+        line-height: 40px;
+    }
+    .statue p{
+        width: auto;
+        height: 100%;
+        float: left;
+    }
+    .statue p.statueRight{
+        float: right;
+    }
+    .statue p:before{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .statue p:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .statueRight .iconfont{
+        font-size: 28px;
+        color: #fff;
+        line-height: 40px;
+    }
+/*手机导航*/
+    .nav{
+        width: 702px;
+        height: 88px;
+        background: #F5F5F3;
+        line-height: 88px;
+        padding: 0 24px;
+        position: relative;
+        border-bottom:1px solid #E6E6E4;
+    }
+    .nav i:nth-child(1){
+        float: left;
+        font-size: 40px;
+    }
+    .nav i:nth-child(2){
+        float: right;
+        font-size: 40px;
+    }
+    /*主体*/
+    .shows{
+        width:100%;
+        height: auto;
+    }
+    .showsNews{
+        width: 702px;
+        margin: 0 auto;
+        padding: 20px 24px;
+        text-align: center;
+    }
+    .showsNews .title{
+        font-size: 34px;
+    }
+    .guanzhu{
+        width: 100%;
+        height: 100px;
+        margin-top: 20px;
+        overflow: hidden;
+    }
+    .showsNews>img{
+        width: 100%;
+    }
+    .showsNews>p{
+        letter-spacing: 1px;
+        word-break: break-all;
+        font-size: 24px;
+        text-align: left;
+        margin: 10px 0;
+        text-indent: 2em;
+    }
+    /*信息来源*/
+    .touxiang{
+        width: 80px;
+        height: 80px;
+        margin-top:5px;
+        border-radius: 50%;
+        float: left;
+    }
+    .touxiang img{
+        width: 100%;
+        border-radius: 50%;
+        border: 1px solid #;
+    }
+    .qita{
+        float: left;
+        margin-left: 20px;
+    }
+    .qita p:nth-child(1){
+        font-size: 24px;
+        margin-top: 20px;
+        color: #202020;
+        text-align: left;
+    }
+    .qita p:nth-child(2){
+        font-size: 18px;
+        color: #9D9D9D;
+    }
+    .btn{
+        width: 120px;
+        height: 60px;
+        background: #2990D5;
+        border-radius: 15px;
+        color: #fff;
+        float: right;
+        line-height: 60px;
+        margin-top: 15px;
+        font-size: 26px;
+    }
+    .showsSmall{
+        width: 654px;
+        margin: 0 auto;
+        padding: 15px 24px;
+        background: #F3F5F4;
+        border: 1px solid #E9E9E9;
+    }
+    /*标签*/
+    .biaoqian{
+        width: 100%;
+        margin-top: 20px;
+        text-align: left;
+        font-size: 22px;
+    }
+    .biaoqian a{
+        color: #4A4C4B;
+        display: inline-block;
+        padding: 10px 20px;
+        border: 1px solid;
+        background: #F3F5F4;
+        border: 1px solid #E9E9E9;
+        border-radius: 15px;
+    }
+    /*按钮*/
+    .btns{
+        width: 100%;
+        padding: 30px 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .btns a{
+        font-size: 22px;
+        height: 70px;
+        width: 180px;
+        color: #212121;
+        display: inline-block;
+        border: 2px solid #D7D7D7;
+        line-height: 70px;
+        border-radius: 35px;
+        margin: 0 80px;
+    }
+    .btns a i{
+        font-size: 34px;
+    }
+    /*提问*/
+    .question{
+        width: 654px;
+        padding: 15px 24px;
+        background: #F3F5F4;
+        margin-top: 10px;
+    }
+    .question p{
+        font-size: 30px;
+        text-align: left;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #E7E9E8;
+        padding: 20px 0 20px 0;
+        color: #232323;
+    }
+    .question p:last-child{
+        border-bottom: none;
+    }
+    .question p span{
+        padding: 0 12px;
+    }
+    /*网页底部*/
+    .webBottom{
+        width: 702px;
+        padding: 0 24px;
+        height: 98px;
+        border-top: 2px solid #E6E6E6;
+        background: #F9F9F9;
+    }
+    .webBottom div{
+        width: 50%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .webBottom div.webBottom-left input{
+        height: 60px;
+        width: 90%;
+        padding-left: 20px;
+        border-radius: 50px;
+        font-size: 30px;
+        margin-top: 20px;
+        border: 1px solid #E7E9E8;
+        background: #F3F5F4;
+        color: #1B1D1C;
+    }
+    .webBottom-right{
+        line-height: 100px;
+        text-align: justify;
+    }
+    .webBottom-right i{
+        display: inline-block;
+        font-size: 40px;
+        width: 30%;
+    }
+    .webBottom-right i:last-child{
+        font-weight: bold;
+    }
+
+

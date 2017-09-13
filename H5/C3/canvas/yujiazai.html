@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片预加载</title>
+</head>
+<body>
+
+</body>
+<script>
+//    var obj=new Image();
+//    obj.src="img/demo.png";
+//    obj.onload=function () {
+//        //在图片内存中直接载入图片
+//        img.onmouseover=function () {
+//
+//        }
+//    }
+    function ImageLoad(imgobj) {
+        this.imgObjs=imgobj;
+        this.urlArr=[];
+    }
+    ImageLoad.prototype={
+        geturl:function () {
+            for(var i=0;i<this.imgObjs.length;i++){
+                this.urlArr.push(this.imgObjs[i])
+            }
+        },
+        load:function (url,callback) {
+            var imgobj=new Image();
+            imgobj.src=url;
+            imgobj.onload=function () {
+                callback()
+            }
+        },
+        loadAll:function () {
+            this.geturl();
+            var that=this;
+            var num=0;
+            for (var i=0;i<this.urlArr.length;i++){
+                (function (index) {   //闭包记录
+                    this.load(this.urlArr[index],function () {
+                        num++;
+                        that.load(this.urlArr[index])
+                        if(num==that.urlArr.length){
+                            alert(1)
+                        }
+                    })
+                })(i)
+            }
+        }
+    }
+</script>
+</html>

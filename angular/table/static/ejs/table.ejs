@@ -1,0 +1,25 @@
+
+
+<table border="1" cellspacing="0" cellpadding="0" width="500px" height="200px" align="center"  ng-controller="ctrl">
+    <tr>
+        <td>姓名</td>
+        <td>性别 </td>
+        <td>年龄</td>
+        <td>编辑</td>
+    </tr>
+    <tr ng-repeat="x in data">
+        <td>
+            <input type="text" ng-model="x.name" ng-blur="update(x.id,x.name,'name')">
+        </td>
+        <td>
+            <input type="text"  ng-model="x.sex" ng-blur="update(x.id,x.sex,'sex')">
+        </td>
+        <td>
+            <input type="text"  ng-model="x.age" ng-blur="update(x.id,x.age,'age')">
+        </td>
+        <td ng-click="del(x.id)">删除</td>
+    </tr>
+    <tr>
+        <td colspan="4"><a href="#!/add">添加</a></td>
+    </tr>
+</table>

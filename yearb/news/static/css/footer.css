@@ -1,0 +1,171 @@
+/*底部*/
+.footer{
+	background: #999999;
+}
+.foot_img{
+	float: right;
+	margin-top: 40px;
+	margin-right: 20px;
+}
+.foot_img img{
+	width: 130px;
+	height: 130px;
+	position: fixed!important;
+	bottom: 10px;
+	right: 10px;
+	z-index: 100;
+}
+.footbox{
+	width: 1000px;
+	height: 155px;
+	padding-top: 45px;
+	margin: 0 auto;
+}
+.foot_logo{
+	height: 58px;
+	background: url(../img/footer/footline.jpg) repeat-x bottom;
+	margin-bottom: 25px;
+	position: relative;
+}
+.linksbox{
+	width: 164px;
+    height: 23px;
+    line-height: 23px;
+    padding: 0px 34px 0px 8px;
+    background: url(../img/footer/xlk.png) no-repeat;
+    position: relative;
+    color: #666666;
+    float: left;
+    cursor: pointer;
+}
+.linksbox span{
+	display: block;
+	height: 23px;
+	line-height: 23px;
+	overflow: hidden;
+	font-size: 14px;
+}
+.linksbox ul{
+	position: absolute;
+    background: #ffffff;
+    width: 164px;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 3px 34px 3px 8px;
+    top: 23px;
+    left: 0rem;
+    border-radius: 3px;
+    max-height: 89px;
+    display: none;
+}
+.linksbox ul li a{
+	display: block;
+	height: 22px;
+	line-height: 22px;
+	width: 200px;
+	font-size: 14px;
+}
+.linksbox ul li a:hover{
+	color: #f54746;
+}
+.foot_logo p{
+	float: right;
+	color: #ffffff;
+	padding-top: 8px;
+}
+.foot_logo p a{
+	color: #fff;
+}
+.foot_logo p span{
+	padding: 0px 10px;
+}
+.foot_logo p a:hover{
+	text-decoration: underline;
+}
+.advise{
+	position: absolute;
+	right: 0px;
+	bottom: 3px;
+}
+.copyright{
+	float: right;
+	color: #ffffff;
+	line-height: 25px;
+}
+.copyright p{
+	text-align: right;
+}
+.copyright div{
+	float: right;
+	background: url(../img/footer/kexin.png) no-repeat;
+	padding-left: 109px;
+}
+/*隐藏部分*/
+.mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: url(../img/zzao.png);
+	z-index: 1000;
+	display: none;
+}
+.hddetail{
+	width: 860px;
+	background: #ffffff;
+	position: absolute;
+	left: 50%;
+	top: 10px;
+	margin-left: -362px;
+	display: none;
+}
+.topclose{
+	height: 30px;
+    text-align: right;
+}
+.zz{
+	font-size: 18px;
+	color: #666666;
+	text-align: center;
+	padding: 15px 0px 8px 0px;
+	font-weight: bold;
+}
+.author{
+	font-size: 12px;
+	color: #999999;
+	text-align: center;
+	padding-bottom: 20px;
+	font-style: italic;
+}
+.author span{
+	padding: 0px 8px;
+}
+.hdcontent{
+	padding: 0px 40px 0px 40px;
+	height: 390px;
+	overflow: auto;
+}
+.hdcontent div{
+	text-align: center;
+}
+.hdcontent p{
+	text-align: justify;
+	font-size: 19px;
+	color: black;
+	text-indent: 40px;
+	/*letter-spacing: 1px;*/
+	line-height: 27px;
+}
+.hdclose{
+	display: block;
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	background: url(../img/anniu.png) no-repeat;
+	font-size: 16px;
+	color: #ffffff;
+	margin: 10px auto 10px auto;
+}

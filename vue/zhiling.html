@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div>
+    <input type="text" v-model="name"  @keydown.13="push()" >
+    <span>{{name}}</span>
+    <ul v-if="statuu==1">   <!--v-if:条件为真时显示，为假时隐藏   v-hidden：为假时删除元素  v-once:只执行一次，加快运行效率-->
+        <li v-for="item in arr">
+            {{item}}
+        </li>
+    </ul>
+    <ul v-else-if="statu==2">
+        我是状态2
+    </ul>
+    <div @click="hiden()">隐藏</div>
+    <!--<span v-blind:attr="name"></span>-->
+</div>
+</body>
+<script>
+    var obj=new Vue({
+        el:"div",
+        data:{
+            name:"",
+            arr:[],
+            statu:1,
+        },
+        methods:{
+            push:function () {
+                this.arr.push(this.name);
+                this.name="";
+            },
+            hiden:function () {
+                ++this.statu
+            }
+        }
+    })
+</script>
+</html>

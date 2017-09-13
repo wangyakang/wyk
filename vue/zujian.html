@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div class="box">
+    <custom-ele  :list="list">
+
+    </custom-ele>
+</div>
+</body>
+<script>
+    Vue.component("custom-ele",{
+        props:["list"],
+        template:'<i>{{list}}</i>',
+    })
+    new Vue({
+        el:".box",
+        data:{
+            list:"",
+        },
+        created(){
+            var that=this;
+            fetch("vue.html").then(function (res) {
+                return res.text()
+            }).then(function (data) {
+                that.list=data;
+            })
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<!--<form action="login.php" method="get">
+			账号：<input type="text" name="zhanghao" /> <br />
+			密码：<input type="password" name="pass" />  <br />
+			<input type="submit" name="sub" id="sub" value="提交" />
+		</form>-->
+		<form>
+			<!--账号：<input type="text" name="zhanghao" /> <br />
+			密码：<input type="password" name="pass" />  <br />-->
+			<input type="button" name="sub" value="按钮"/>
+		</form>
+	</body>
+	<script>
+//		var ajax=new XMLHttpRequest()     //ajax对象的创建
+//		var ajax=new ActiveXObject("Microsoft.XMLHTTP")   //低版本使用
+//		console.log(ajax)
+//		ajax属性:
+//		  onreadystatechange  
+//		  readystate
+//		  response
+//		  responseText
+//		  responseXML
+//		  status
+	var btn=document.forms[0].elements["sub"]
+	btn.onclick=function(){
+//	
+//	//兼容ajax，构造对象
+    	var ajax=window.XMLHttpRequest? new XMLHttpRequest() :new ActiveXObject("Microsoft.XMLHTTP") 
+//	
+//	//打开请求方式
+//	//ajax.open() 获取方式，获取地点?数据，同步/异步（默认为异步）  user,pass:用户名、密码，一般不使用
+//	//同步：获取数据后在进行处理        异步：获取数据的同时进行其他操作
+		ajax.open("get","login.php?aa=bb&cc=dd",true);
+		
+		
+//		ajax.open("post","login.php?",true)    //post方式请求需要设置请求头部
+//		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+//		ajax.send('aa=bb&cc=dd')
+////	ajax.open(method,URL?数据 ,asynch,user,pass)
+//	//发送请求 ajax.send()        //(时刻关注ajax是否与服务器建立连接)
+	ajax.send(null)   //如果打开请求方式获取方法是get，参数 默认为null
+	ajax.onreadystatechange=function(){  //判断请求是否成功
+		console.log(ajax.readystate)       
+		if(ajax.readyState==4){
+//			//请求成功
+//			console.log(ajax.status)   
+//			//ajax.status  判断数据是否成功返回
+			if(ajax.status==200){
+//				//成功返回
+				console.log(ajax.responseText);  //保存的数据存储在ajax.responseText身上
+				
+				
+//				var span=$(<span>);
+//				span.style.color"red";
+//				span.innerHTML=ajax.responseText;
+//				document.body.appendChild(span);  //获取的是字符串格式/
+//				var result="("+ajax.response+")"
+//				console(eval(result)
+				
+				
+//				var dom=ajax.responseXML  //获取文本节点
+			}
+		}
+	}
+	
+	  	
+}
+//btn.onclick=function(){
+//	var objs=document.forms[0].elements
+//	var str=''
+//	for(var i=0;i<objs.length;i++){
+//		str+=objs.name+"="+objs[i].value+"&"
+//	}
+//	str=str.slice(0,-1)
+//}
+//ajax.send(str) 
+	</script>
+</html>

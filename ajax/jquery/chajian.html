@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<style>
+		.div{
+			width: 100px;
+			height: 100px;
+			background: #33ACFB;
+			margin-bottom: 20px;
+			/*position: fixed;*/
+			/*bottom: 20px;*/
+		}
+		/*body{
+			height: 2000px;
+		}*/
+	</style>
+	<body>
+		<div class="div"></div>
+		<div class="div"></div>
+		<div class="div"></div>
+		<div class="div"></div>
+		<div class="div"></div>
+		<div class="div"></div>
+	</body>
+	<script>
+		//多库共存
+//		console.log($(".div"))//优先使用jQuery
+//		jQuery.noConflict()   运行这个函数将变量$的控制权让渡给第一个实现它的那个库
+//释放$的使用权,$不在代表jQuery对象  
+//		console.log($(".div"))
+////		释放jQuery后想要再次使用jQuery的三种方法
+//		var ms=jQuery.noConflict() 
+//		console.log(ms(".div"))  //声明变量使用jQuery对象
+		
+//		console.log(jQuery(".div"))//直接使用jQuery
+////		
+//		(function($){
+//			$()
+//		})(jQuery)       //$作为jQuery别名的匿名函数自调用
+		
+		//animate参数：duration:500,动画持续时间    step:步进值，每一步要做的事情
+		//可通过步进值的赋值将看不见的数值变化的过程显示出来
+		
+		var obj={nub:200};
+		$(obj).animate({nub:800},{
+			duration:5000,
+			step:function(){
+				console.log(this.nub)
+				$("div").html(Math.ceil(obj.nub))
+			}
+		});
+		
+		
+//	jQuery.fn.extend(object)：扩展 jQuery 元素集来提供新的方法（通常用来制作插件）。
+//		jQuery函数不可以让scrollTop=0,在自身身上扩展
+//		jQuery.fn.aa=jQuery.prototype={
+//			this.each(function(index,dom){
+//				dom.
+//			})
+//		}
+//		jQuery.fn.extend({//给jQuery对象扩展方法，每个实例化对象都有的属性
+//			aa:function(){
+//				
+//			}
+//		})
+//this指针指向声明的实例化对象
+//		$("div").aa()
+//		jQuery.extend({//给jQuery自身创建方法
+//			aa:function(){
+//				
+//			}
+//		})
+//		$.aa()
+//this指针指向jQuery对象
+//扩展鼠标滚轮事件
+//		jQuery.extend({
+////			console.log(this)
+//			returnTop:function(obj){   //obj传jQuery对象 
+//				obj.on("click",function(){
+////				var top=$(document.scrollTop());
+//					var newobj={top:top}
+//					$(newobj).animate({top:0},{
+//						duration:2000,
+//						step:function(){
+//							$(document).scrollTop(newobj.top)//通过步进值的赋值给滚轮事件进行改变
+//						}
+//					})
+//				})
+//			}
+//		})
+//
+//		$.returnTop($(".div"))
+//扩展鼠标滚轮事件
+		jQuery.fn.extend({
+			mousewheel:function(upFun,downFun){
+				this.each(function(index,dom){
+					if(dom.attachEvent){
+						dom.attachEvent("onmousewheel",fun)
+					}else{
+						dom.addEventListener("mousewheel",fun,false)
+						dom.addEventListener("DOMMouseScroll",fun,false)
+					}
+					function fun(e){
+						var e=e||window.event;
+						if(e.preventDefault){
+							e.preventDefault()		//阻止默认行为
+						}else{
+							e.returnValue=false     //阻止默认行为
+						}
+						var num=e.wheelDelta||e.detail
+						if(num==120||num==3){
+							upFun.call(dom)  //改变指针
+						}else if(num==-120||num==-3){
+							downFun.call(dom)
+						}
+					}
+				})
+			}
+		})
+		$(".div").mousewheel(function(){
+			$(this).css("width","+=20")
+		},function(){
+			$(this).css("width","-=20")
+		})
+	</script>
+</html>

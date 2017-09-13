@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉框组件</title>
+    <script src="../../vue.js"></script>
+</head>
+<style>
+    .box{
+        position: relative;
+    }
+    .sanjiao{
+        width: 0;height: 0;
+        border-bottom:  10px solid #fff;
+        border-top:  10px solid #666;
+        border-left:  5px solid #fff;
+        border-right:  5px solid #fff;
+        position: absolute;
+        left: 5px;top:12px;
+    }
+    .input{
+        width: 200px;height: 30px;
+        margin-left: 30px;
+    }
+    input{
+        border-radius: 20px;
+        border: 1px solid #666;
+        width: 100%;height: 100%;
+    }
+    input:focus{
+        outline: none;
+    }
+    .box-zuj{
+        float: left;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="box-zuj">
+        <custom-ele :listdata="one" title="搜索"></custom-ele>
+    </div>
+    <div class="box-zuj">
+        <custom-ele :listdata="one" title="查询"></custom-ele>
+    </div>
+</div>
+</body>
+<script>
+    //列表组件
+    Vue.component("custom-hiden",{
+        props:["hiden","listdata"],
+        template:`<ul v-show="hiden">
+            <li v-for="item in listdata" @click="show(item)">{{item}}</li>
+        </ul>`,
+        methods:{
+            //观察者模式
+            show(item){
+                this.$emit("se",item)   //发射事件
+            }
+        }
+    })
+    //父组件
+    Vue.component("custom-ele",{
+        props:["listdata","title"],
+        data(){
+            return {
+                hiden:false,
+                val:"",
+            }
+        },
+        template:`<div class="box">
+        <div class="sanjiao"></div>
+        <div class="input">
+            <input type="text" @click="togen" v-model="val">
+            <div class="btn">{{title}}</div>
+        </div>
+        <custom-hiden :hiden="hiden" :listdata="listdata" @se="inp"></custom-hiden>
+    </div>`,
+        methods:{
+            togen:function () {
+                this.hiden=!this.hiden;
+            },
+            inp:function (val) {
+                this.val=val;
+                this.hiden=!this.hiden;
+            }
+        }
+    });
+    new Vue({
+        el:".box",
+        data:{
+            one:["北京","上海","天津"]
+        }
+    })
+//    父子组件之间的数据传递
+//    父--子    单向数据流，直接在数据中绑定
+//    子--父
+</script>
+</html>

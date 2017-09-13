@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+node 代码准备好了->环境(v8引擎)-》载入相应的包
+
+-->
+1.node.js      cmd命令  node -v     node --version        node运行版本
+                          npm  -v     npm --version
+2.ctrl+c  退出node运行环境  ls 系统
+    ejs nodejs中的模板引擎
+3.编辑器配置语言运行
+    设置-》plugins->搜索node.js->没有就去仓库中  browse repositories
+    完成之后在language 中有nodejs&npm 配置作用区域，解除禁用，配置。
+4.javascript 操作dom,bom
+    nodejs  在服务器中运行
+        文件  http  流 数据库
+5.  文件-》模块
+    文件夹-》包
+        a.内置包 （核心包）
+        b.外部包（自己编译的包）
+        c.第三方包
+6.***javascript  amd(面试必问)
+7.nodejs  cmd 方式引入方式(同步模块定义的方式)    html页面 amd引入方式(异步模块定义的方式)
+    require("./index1.js")  //引入文件，必须加上路径 ./  ,支持相对路径，也支持绝对路径
+    exports  //给其他模块发射功能
+    module:每个模块的对象，含id、路径、
+    每个文件都有一个exports方法
+    module.exports.math=function name (){
+        //被引入的文件的函数
+    }
+    //引用函数
+    var obj=require("./index1.js");
+    obj.方法（）
+
+   common.js   //同步引入模块的规则
+    require.js  //浏览器中进行异步加载,其中有很多方法引入模块
+<!--在js的引入时，在header中加载，先加载在渲染页面。
+在脚本、body，先渲染页面在加载
+<script async="async" defor ></script>    异步加载，且defor兼容-->
+1.渲染页面
+2.引入require.js
+3.引入index.js
+4.a
+5.b
+6.执行模块功能
+<script data-main="indx.js"  src="require.js"></script>
+data-main="indx.js"  src="require.js"   //依次引入模块
+define({})  //define定义一个模块
+define(["a"],function(a){})  //依赖a中的模块
+require(["a"],["b"])  //可以直接在index.js中直接引入模块
+
+8.cmd同步引入
+    1）要加载文件必须有路径
+    2）require只会加载一次，就会放在内存里面
+    3）如果不加后缀名，找目录，依次寻找后缀名为.js>.json>.node
+        nodejs的开放性
+    4）如果不加路径，找的是包（模块）
+        包：核心包  直接载入就可以
+            var fs=require("fs")  //提供同步异步方式
+            fs.writeFile("abc.html","abd",function (error) {
+                if(error){
+
+                }else {
+                    console.log("创建成功")
+                }
+            });
+            外部包（自己编译的包）
+                node_modules 文件夹下 优先级最高
+                包文件
+                默认入口文件  index1.js  配置入口文件package.json     npm init
+                require("aa")
+            第三方包   npm install less  //安装包  加 -g 全局都可使用
+            自己的包共享到npm网站
+            npm adduser   //注册
+            npm login    //登录npm网站
+            npm publish  //上传
+
+            rm -rf //强制删除    witch//查看路径  cat//查看代码
+            npm link
+
+            netstat
+            kill  //删除进程，取消端口占用
+
+        自己写一个命令行的命令(linux系统中自带的命令 )
+            js文件中书写功能
+                #!/usr/bin/env node        env//扩展，可以找到node路径
+                功能函数
+            删除命令  回到命令所在包  npm unlink
+<!--http-->
+<!--gulp-->
+</body>
+</html>

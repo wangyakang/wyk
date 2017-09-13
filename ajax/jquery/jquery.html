@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+		<script src="animate.js"></script>
+	</head>
+	<style>
+		.aa{
+			width: 200px;
+			height: 100px;
+			background: red;
+			margin-bottom: 20px;
+		}
+		.hidden{
+			width: 100px;
+			display: none;
+		}
+		.opcity{
+			width: 200px;
+			height: 100px;
+			opacity: 0;
+		}
+	</style>
+	<body>
+		<!--//返回的This都是jquery对象-->
+		<!--<div id="box">
+			<div class="div">
+				短时间内的
+				<div class="one">
+					one
+				</div>
+			</div>
+			<div class="div out">2</div>
+			<div class="div put">3</div>
+		</div>
+		<div class="div">4</div>
+		
+		<form action="">
+			<input type="text" />
+			<input type="button" name="anniu" id="" value="" />
+		</form>
+		
+		<div class="aa"></div>
+		<div class="aa"></div>
+		<div class="aa"></div>
+		<div class="aa"></div>
+		<div class="aa"></div>
+		
+		<div id="hidden"></div>
+		<div class="opcity"></div>
+		
+		
+		<input type="color">
+		<input type="date">
+		<input type="datetime-local">-->
+			
+			<!--fist-child-->
+		<div>
+			<div class="box">1</div>
+			<div class="box">2</div>
+			<span class="box">span</span>
+			<div class="box">3</div>
+			<div class="box">4</div>
+		</div>
+	</body>
+	<script>
+	//结构化伪类
+//		console.log($(".box:first-of-type").html())
+//		console.log($(".box:last-of-type").html())
+//		console.log($(".box:first-child").html())
+//		console.log($(".box:first-of-type").html())
+//		console.log($(".box:nth-child(3)").html())
+//		console.log($(".box:nth-of-type(3)").html())
+		
+		
+//	console.log($("#div"))
+////			$接收对象:DOM对象\选择器类型的字符串\回调函数function
+//		$(function(){   //所有资源加载完毕方可执行
+//			//核心    []括起来的参数可传可不传
+//			//1.jQueryjQuery([selector,[context]])
+//			console.log($(".box"));   //jquery对象的集合    m.fn.init
+//			console.log($(".box")[0]);  //DOM对象，是jquery身上绑定的第n个DOM对象,将jquery对象转化为DOM对象   或$(".box").get[0]  
+//			console.log($(".box").length);
+////			$(".box",$("#box"))  /  var obj=document.getAnonymousElementByid("box");  $(".box",obj)
+//			$(".div","#box")   //接收选择器类型的字符串
+////			$(obj)//将Obj  DOM对象转化为jquery对象  .get[]
+//			
+//			//2.jQuery(html,[ownerDocument])
+//			$("<div>")
+//			$("<div>").html("新添加的内容").appendTo(document.body)
+//			$("<div class='main'>添加内容</div>")
+//			$("<div>",{      //对象格式创建样式，前边的div中不可添加数字
+//				class:"div",
+//				id:"box",
+//				text:"添加的内容",
+//				html:"添加的内容",
+//				click:function(){
+//					alert(1)
+//				}
+//			})
+//		})
+	//
+//	$(document).ready(function(){
+//		//文档的结构加载完毕即可运行，无需图片加载完毕
+//	})
+			//each(callback)  隐式循环  
+			
+//			console.log($(".div").get(0))  //将DOM对象转化为Jquery ，参数可传负数，[-1]最后一个
+//			console.log($(".box").get() ) //不传参数时将前面所有的jquery集合转化为DOM对象
+			//libs([selector|element]) 搜索匹配元素，并返回相应元素的索引值，从0开始计数。找不到返回-1
+//			console.log($('.div').libs($('.put')));  //集合在前，要获取的元素在后（jquery对象、DOM对象、选择器）。不传参数时 ，返回这个元素在同辈中的索引位置
+	
+	//数据
+//	data([key],[value])  //data添加的属性一定不会是DOM对象身上
+//	var obj=$(".div");
+//	obj.aa="bb";
+//	console.log(obj.eq(0).aa);//获取不到加的属性在DOM身上
+	
+//	obj.data("aa","bb")   //给每一个jquery对象身上匹配属性，两个参数设置，一个参数访问
+//	console.log(obj.data(0).aa);   //获取时使用data()方式访问
+//	console.log(obj.get(0).aa);  //DOM方式不可访问 ，返回undifund
+//	
+//	$(".div").data("aa","bb")
+//	console.log($(".div").eq(0).data("aa")); 
+//	console.log($(".div").data("aa"));  //默认访问第0个元素的值
+//	
+//	obj.each(function(libs,dom){   //测试
+//		$(dom).aa="bb"
+//	})
+//	console.log(obj.eq(0).aa);
+
+//选择器
+////	层级  
+//	$(".box .xl")  //匹配所有父元素类名为box的所有类名为xl的子元素
+//	$(".div+.id") //所有.div   .div后边的所有.id
+//	$(".div~p")  //.div后边同等级的所有的p标签
+//	
+//	$(".div").each(function(libs,dom){
+//		console.log($(".div:even").length)
+//	})
+	
+//	console.log($("div:eq(0)"));
+//	
+//	
+//	表单
+//	$(":button").click(function(){
+//		$(":text").get(0).focus();
+//		$(":focus").val("获取焦点的元素")
+//	})
+//	val:主要用来表单值的设置
+//	:has(selector)  //匹配含有选择器所匹配的元素的元素
+//	//id名为box下的div集合  div包含类名为one的元素
+//	console.log($("#box div:has(.one)").html()) 
+//	console.log($("#box div:has(.one)").text())  
+
+
+//	:animated  //作用于正在动画的元素
+//	$(".aa:lt(2)").animate({width:500},2000)
+//	$(":button").click(function(){
+//		$(":animated").css("background","black")
+//	})
+//	
+	//:hidden  匹配所有不可见元素，或者type为hidden的元素 ,opcity为0时不可获取
+	
+	//:first-child
+//	$(".box:only-child")   //获取的是类名为box的元素，但是该元素要作为唯一的子元素
+//	$(".box:first-child")   //获取的是类名为box的元素，但是该元素要作为第一个子元素存在
+//	$(".box:first-of-type")   //获取的是类名为box的元素，但是该元素是该标签类型的第一个
+//	$(".box:nth-child(3)")   //获取的是类名为box的元素，但是该元素是第三个子元素，匹配的序号从1开始
+//	$(".box:nth-of-type(2n)")   //获取的是类名为box的元素，但是该元素是该标签类型的偶数个  ，n可以取0 ，但不存在意义，参数从1开始
+//	
+//	$(".box:nth-of-type(2n)").each(function(){
+//		console.log(this.innerHTML)
+//	})
+//	
+//	
+//	$("input:enabled")  //可用的input标签 ，默认*enabled 包含了a标签
+
+//属性
+	//属性的设置
+  $("div").attr("class","box")   //括号中键，值  键值对形式传
+  $("div").attr({"class":"box",aa:"bb"})  //对象方式传多个值
+  $("div").attr("class",function(index,val){   //val是原来的属性值   返回回调函数,在原来的基础上进行操作 
+  	return "new"
+  	return val+index
+  	return $(this).html()+val  //返回的值会设置给原来的属性值身上
+  })
+   $("div").attr({
+   		class:function(index,val){
+   			
+   		},
+   		id:function(index,val){
+   			
+   		}
+   })
+   $(".div").attr("aa","bb")
+   $(".div").removeAttr("class")
+	// prop:只用于标准属性
+		//addClass可以添加多个或获取
+	$(".box").addClass(function(index,val){
+		return val+index
+	})
+	$(".box").addClass("aa two ths")   
+	console.log($("div").attr(".class")) //可以直接获取，默认获取集合的第一个元素
+	//removeClass()
+	$("div").removeClass("box")  //不传值将所有的class移除，传值将传入的类名n移除
+	
+	//toggleClass(class|fn[,sw])  如果存在（不存在）就删除（添加）一个类。
+	
+	$("div").html(function(index,val){
+		console.log(index,val)
+		return val
+	})
+	</script>
+</html>

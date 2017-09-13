@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="fengzhuang.js"></script>
+		<script src="function.js"></script>
+	</head>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+		text-decoration: none;
+	}
+		.box{
+			width: 1000px;
+			height: auto;
+			margin: 0 auto;
+			box-shadow: 0 0 2px rgba(0,0,0,0.5);
+		}
+		.box h1{
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+		.box table{
+			width: 100%;
+			height:auto;
+		}
+		.box table tr{
+			height: 30px;
+		}
+		.box table tr td,.box table tr th{
+			width: 20%;
+			line-height: 30px;
+			text-align: center;
+			border-bottom: 1px solid #000;
+		}
+		.del{
+			width: 50%;
+			height: 100%;
+			margin: 0 auto;
+			background: green;
+			border-radius: 5px;
+			line-height: 25px;
+			color: #fff;
+			text-align: center;
+		}
+		.add{
+			width: 50%;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background: red;
+			color: #FFFFFF;
+			border-radius: 5px;
+			margin: 0 auto;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<h1>学生管理系统</h1>
+			<table border="0" cellspacing="0" cellpadding="">
+				<tr>
+					<th>学号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th></th>
+				</tr>	
+			</table>
+			<div class="add">增加</div>
+		</div>
+	</body>
+	<script>
+	var tbody=$("tbody")[0];
+	var arr=["num","name","sex","age"];
+	ajax({
+		dataType:"json",
+		url:"load.php",
+		success:function(obj){
+			
+			for(var i=0;i<obj.length;i++){
+				var tr =$("<tr>");
+				tr.id=obj[i].id;
+				for(var j in obj[i]){
+					var td =$("<td>");
+					td.className=j;
+					if(j=="id"){
+						continue;
+					}
+					td.innerHTML=obj[i][j];
+					tr.appendChild(td);
+				}
+				var td=$("<td>");
+				td.innerHTML="<div class='del'>删除</div>";
+				tr.appendChild(td);
+				tbody.appendChild(tr);
+			}	
+		}
+	})
+		//增加
+		var add=$(".add")[0]
+		add.onclick=function(){
+			ajax({
+				url:"add.php",
+				success:function(text){
+					if(!isNaN(text)){
+						var tr=$("<tr>");
+						tr.id=text;
+						for(var i=0;i<arr.length;i++){
+							var td=$("<td>");
+							td.className=arr[i]
+							tr.appendChild(td)
+//							if(arr[i]==="id"){
+//							}
+						}
+						var deltd=$("<td>")
+						deltd.innerHTML="<div class='del'>删除</div>"
+						tr.appendChild(deltd)
+						tbody.appendChild(tr)
+					}else{
+						alert(text)
+					}
+				}
+			})
+		}
+		//删除：事件委派
+		tbody.onclick=function(e){
+			var ev=e||window.event;
+			var targetObj=ev.target||ev.srcElement;
+			if(targetObj.className=="del"){
+				var targetid=targetObj.parentNode.parentNode.id;
+				ajax({
+					url:"del.php",
+					data:"id="+targetid,
+					success:function(text){
+						if(text==1){
+							tbody.remove(targetObj.parentNode.parentNode)
+							targetObj.parentNode.parentNode=null;
+						}else{
+							alert("删除失败")
+						}
+					}
+				})
+			}else if(targetObj.nodeName="TD"&&getChilds(targetObj).length=0){
+				var value=targetObj.innerText;
+				targetObj.innerHTML=""
+				var input=$("<input>")
+				input.type="text";
+				input.value=value;
+				targetObj.appendChild(input);
+				input.focus();
+				input.onblur=function(){
+					var val=this.value;
+					if(val==""||val==value){
+						targetObj.innerHTML=value;
+					}else{
+						var ziduan=targetObj.className;
+						var id=targetObj.parentNode.id
+						ajax({
+							url:"update.php",
+							data:{id:id,type:ziduan,value:val},
+							//updata student set ziduan=value where id
+							success:function(text){
+								if(text==1){
+									targetObj.innerHTML=val;
+								}else{
+									alert()
+								}
+							}
+						})
+					}
+				}
+			}//修改：事件委派
+		}
+		
+		//删除：删除的数据位置，根据id修改
+		//增加：知道返回的id
+		//修改:根据字段保存
+	</script>
+</html>

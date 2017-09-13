@@ -1,0 +1,21 @@
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,li,dt,dd,input{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img{
+	border:0;
+	margin: 0;
+	margin: 0;
+}
+     /*兼容性问题（不同浏览器显示的样式不一样），在低版本中有一像素的边框*/
+a{
+	text-decoration: none;
+}      
+     /*(链接去除下划线)*/
+body{
+	font-family: "微软雅黑""楷体";/*字体回退系统*/
+    /*parseInt*/ /*滚动条横向隐藏*/
+    font-size: 12px;
+    color: #ddd;
+} 

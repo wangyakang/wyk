@@ -1,0 +1,214 @@
+.main{
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+}
+/*状态栏*/
+    .statue{
+        width: 730px;
+        height: 40px;
+        padding: 0 10px;
+        background: #D33D3C;
+        font-size: 28px;
+        color: #fff;
+        line-height: 40px;
+    }
+    .statue p{
+        width: auto;
+        height: 100%;
+        float: left;
+    }
+    .statue p.statueRight{
+        float: right;
+    }
+    .statue p:before{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .statue p:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .statueRight .iconfont{
+        font-size: 28px;
+        color: #fff;
+        line-height: 40px;
+    }
+/*手机顶部*/
+    .webTop{
+        width: 702px;
+        height: 88px;
+        background: #D33D3C;
+        line-height: 88px;
+        padding: 0 24px;
+    }
+    .webTop a{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 48px;
+        color: #fff;
+    }
+    .webTop input{
+        width: 475px;
+        margin-left: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        height: 58px;
+        border-radius: 10px;
+        border: none;
+    }
+    .webTop input.sou{
+        font-size: 24px;
+        padding-left:10px;
+    }
+/*手机导航*/
+    .nav{
+        width: 702px;
+        height: 88px;
+        background: #F5F5F3;
+        line-height: 88px;
+        padding: 0 24px;
+        position: relative;
+        border-bottom:1px solid #E6E6E4;
+    }
+    .navLists{
+        width: auto;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top:0;
+        font-size: 40px;
+    }
+    .navLists>li{
+        float: left;
+    }
+    .navLists>li>a{
+        color: #1A1A18;
+        padding: 0 20px;
+    }
+    .navLists>li:nth-child(4)>a{
+        color: #C26762;
+    }
+    .navAdd{
+        width: 80px;
+        height: 60px;
+        position: absolute;
+        right: 0;
+        top:0;
+        bottom: 0;
+        margin: auto;
+        background: rgba(245,245,243,0.6);
+        z-index: 2;
+        border-left: 1px solid rgba(156,156,154,0.2);
+        text-align: center;
+        line-height: 60px;
+    }
+    .navAdd>.iconfont{
+        font-size: 42px;
+        color: #1A1A18;
+    }
+    /*主体*/
+    .shows{
+        width:100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .showsNews{
+        width: 702px;
+        margin: 0 auto;
+    }
+    .showsNews li{
+        width: 702px;
+        padding: 30px 0 20px;
+        border-bottom:1px solid #E6E6E4;
+    }
+    .showsNews li .message{
+        font-size: 34px;
+        letter-spacing: 1px;
+        color: #1A1A1A;
+    }
+    .showsNews li .small{
+        margin-top: 20px;
+        font-size: 24px;
+        color: #8C8C8C;
+    }
+    .showsNews li .small span{
+         float: left;
+        padding: 0;
+        margin: 0;
+     }
+    .showsNews li .small .close{
+        float: right;
+        border: 1px solid #8C8C8C;
+        padding: 0 10px;
+        border-radius: 15px;
+    }
+    .showsNews li .small .close .iconfont{
+        font-size: 30px;
+    }
+    .showsNews li .small .clear{
+        clear: both;
+    }
+    /**/
+    .second{
+        width: 60%;
+        height: auto;
+        float: left;
+    }
+    .tp{
+        width: 35%;
+        /*height: 100px;*/
+        float: right;
+        background: red;
+    }
+    .tp img{
+        width: 100%;
+    }
+    .showsNews li .clear{
+        clear: both;
+    }
+    /*图片新闻*/
+    .imgNews{
+        width: 100%;
+        text-align: justify;
+        padding-top:10px;
+        margin-bottom: -20px;
+    }
+    .imgNews img{
+        width: 30%;
+    }
+    .imgNews img:nth-child(1){
+        height: 140px;
+    }
+    span.hang{
+        display: inline-block;
+        width: 100%;
+    }
+    /*网页底部*/
+    .webBottom{
+        width: 100%;
+        height: 98px;
+        border-top: 2px solid #E6E6E6;
+        background: #F9F9F9;
+    }
+    .webBottom>div{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    .webBottom>div>p:first-child{
+        margin-top: 15px;
+         font-size: 34px;
+         text-align: center;
+     }
+    .webBottom>div>p:last-child{
+        font-size: 22px;
+        text-align: center;
+    }
+    .webBottom>div:first-child>p{
+        color: #F7585C;
+    }
+
+

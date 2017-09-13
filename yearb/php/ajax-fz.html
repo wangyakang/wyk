@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" />
+	</body>
+	<script>
+	//1.到什么地方取数据
+	//2.取得方式
+	//3.取到的数据类型
+	//4.对取到的数据进行处理   回调函数
+	//5.容错处理
+	//6.是否要异步
+	//7.传参使用json格式进行处理，可以对多种类型的数据类型进行处理
+		var btn=document.querySelectorAll("input")[0];
+		btn.onclick=function(){
+			ajax({
+				method:"post",   
+				url:"1.php",  //请求地址
+				asynch:true,	//[true] [false]
+//				dataType:"json",  //返回数据的类型
+				data:{aa:"bb",cc:"dd"},
+//				data:"aa=bb&cc=bb",  //传递的数据   str[search]  obj[{}](json格式传数据时不存在+的连接，减少工作出错率)
+				success:function(text){  //fn[callback]
+					console.log(text)
+				},
+				erro:function(e){
+					console.log(e)
+				}
+			})
+		}
+		function ajax(obj){
+			if(typeof obj!=="object"){
+				console.error("请输入正确的参数格式");
+				return false;
+			}
+			if(typeof obj.url=="undefined"){
+				console.error("请输入请求地址")
+				return false;
+			}
+			var method=obj.method||"get";
+			var url=obj.url;
+			var asynch=obj.asynch=="undefined"?true:obj.asynch;
+			var dataType=obj.dataType||"text";
+			var data=obj.data;
+			var success=obj.success;
+			var erro=obj.erro;
+			if(typeof data=="object"){
+				var str="";
+				for(var i in data){
+					str+=i+"="+data[i]+"&";
+				}
+				data=str.slice(0,-1)
+			}
+			var ajax=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+			if(method=="get"){
+				ajax.open(method,url+"?"+data,asynch);
+				ajax.responseType=dataType;
+				ajax.send()
+			}
+			if(method=="post"){
+				ajax.open(method,url,asynch);
+				ajax.responseType=dataType;
+				ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+				ajax.send(data)
+			}
+			ajax.onreadystatechange=function(){
+				if(ajax.readyState==4){
+					if(ajax.status==200){
+						if(dataType=="xml"){
+							var result=ajax.responseXML;
+						}else{
+							var result=ajax.response
+						}
+						if(success){
+							success(result)
+						}
+					}else if(ajax.status==404){
+						var info="找不到页面"
+						erro(info)
+					}else{
+						var info="错误地址"
+						erro(info)
+					}
+				}
+				
+			}
+			
+		}
+	</script>
+</html>

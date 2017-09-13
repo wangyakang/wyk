@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H5</title>
+</head>
+<body>
+    h5：生态圈和相关的性能
+        功能型转变为用户型
+一、响应式(css3提供的功能)
+    现在很流行的一个设计理念，随着移动互联网的盛行，为解决各式各样的浏览器分辨率以及不同移动设备的显示效果，设计师提出了响应式布局的设计方案，所谓的响应式布局，
+    就是一个网站能够兼容多个终端，而不是每一个终端有一个特定的版本，也就是说一个页面可以在多个终端呈现你想要的效果，能够兼容各个终端。
+    优点：面对不同分辨率设备灵活性强
+          能够快捷解决多设备显示适应性问题
+          根据不同的显示器调整设计最适合用户浏览习惯的页面
+          可维护性强
+    缺点：  兼容各种设备工作量大，效率低下
+            代码累赘，会出现隐藏无用的元素，加载时间加长
+            其实这是一种折衷性质的设计解决方案，多方面因素影响而达不到最佳效果
+            因为要适应不用的设备，页面的结构可能有所不同，会导致页面的辨识度不强
+    页面图片较多，不适合响应式，移动端耗电（渲染效果、）耗流量
+    1.@media //监测屏幕的大小   css也具有逻辑性（小屏优先）    <!--@media screen and(满足条件时执行){}-->
+    2.css的重叠性
+    3.代码的冗余
+    box-sizing: border-box;   /*边框不影响整个宽高(盒子模型)*/
+    div.aa{$$}*6    //内容为自增数字
+
+
+    流式布局/液体布局：按照100%布局，随着页面大小改变大小
+    固定布局：父元素与单个元素都确定
+
+    栅格化：页面宽度平均分配，最适合12栅格化
+    小屏类名
+    .col-s-1{
+        width:8.333333%   //1/12
+        float:left;
+    }
+    .col-s-hide{
+        display:none;
+    }
+    .col-m-hide{
+        display:block;
+    }
+    .col-l-hide{
+        display:block;
+    }
+    //中屏
+    @media screen and (min-width=900px){
+         .col-m-1{
+             width:8.333333%   //1/12
+             float:left;
+         }
+         .col-s-hide{
+            display:block;
+         }
+         .col-m-hide{
+             display:none;
+         }
+        .col-l-hide{
+            display:block;
+        }
+    }
+    @media screen and (min-width=1200px){
+        .col-l-1{
+            width:8.333333%   //1/12
+            float:left;
+        }
+        .col-s-hide{
+            display:block;
+        }
+        .col-m-hide{
+            display:block;
+        }
+        .col-l-hide{
+            display:none;
+        }
+    }
+    二、less://以编程的方式进行编写css语言  是一门css预处理语言，它扩展了css语言，增加了变量、Mixin、函数等特性，使css更易维护和扩展
+        依赖于node.js
+        安装node.js ->npm 包管理工具     (npm install -g less)->lessc -v ->配置lessc环境(setting->tool->file watcher->编辑)
+        1.where node //node 的安装目录
+        2.where lessc  //less安装目录
+        3.编译完成后文件
+        lessc语言   @定义
+        less less.less>less.less   //编译less语言
+        <!--css 编程思想过程化->css3 模块化方式进行升级-->
+        语法：
+            1.定义变量：@abv=aa;
+            2.定义函数
+                .raduis(@num:50%,@num:50%,@num:50%,@num:50%){           //二义性，本身可以编译,加括号取消二义性，可传参
+                    border-radius:@arguments;
+                }
+                div{
+                    .raduis(20px,20px,20px,20px);
+                }
+            3.条件语句   when
+                .shadow(@type,@x:0,@y:0,@b:5px,@c:#000) when (@type=inset){
+                     box-shadow:@x @y @b @c @type;
+                }
+                .shadow(@type,@x:0,@y:0,@b:10px,@c:#000) when (@type=outset){
+                    box-shadow:@x @y @b @c;
+                }
+                div{.shadow(outset/inset)}
+            4.循环语句
+                .aa(@i:0) when (@i<10){
+                    .inner@{i}{
+                         width:@i/12*100%;
+                    }
+                     .aa(@i:@i+1);
+                }
+                .aa();
+            5.混合式语法
+                .one{        //css3新增选择器
+                    & :before,&:after{  //解决浮动影响
+                        content:"";
+                        clear:both;
+                    }
+                }
+                //
+                .one{
+                }
+                .one:before,.one:after{
+                    content:"";
+                }
+三、图片转变为字体（字体图标）
+    svg 图片变为字体：
+    @font-face{  //引入字体
+        font-family: "font";
+        url:();   //字体地址，可以是本地相对地址或http://
+    }
+    .apple{
+        font-family: "font";   //引用字体图标
+        color:red;            //设置字体样式
+    }
+    .apple:before{
+    content: "\e60b";           //字体代码
+    }
+    //消除字体锯齿：-webkit-font-smoothing:antialiased;
+                                        grayscale;
+四、移动端的touch事件3个  touch.js
+五、视频、音频
+    b/s架构必将取代c/s架构
+六、canvas 标签
+    通过javascript绘制图片
+</body>
+<style>
+    .aa{
+        -webkit-font-smoothing: ;
+    }
+</style>
+</html>

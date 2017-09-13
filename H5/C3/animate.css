@@ -1,0 +1,72 @@
+/*常用类*/
+.infinite{
+    animation-iteration-count: infinite;
+}
+.animation-normal{
+    animation-duration: 1s;
+}
+.animation-small{
+    animation-duration: 0.3s;
+}
+.animation-long{
+    animation-duration: 2s;
+}
+.animation-back{
+    animation-fill-mode: backwards;
+}
+.animation-for{
+    animation-fill-mode: forwards;
+}
+/*常用*/
+.animation-alt{
+    animation-direction: alternate;
+}
+/*淡入*/
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.fadeIn{
+    animation-name: fadeIn;
+}
+/*放大*/
+@keyframes zoomIn{
+    0%{
+        transform: scale(0,0);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+.zoomIn{
+    animation-name: zoomIn;
+}
+/*缩小*/
+@keyframes zoomOut{
+    0%{
+        transform: scale(0,0);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+.zoomOut{
+    animation-name: zoomOut;
+}
+/*缩小*/
+@keyframes rotate{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.rotate{
+    animation-name: rotate;
+    animation-timing-function: linear;
+}

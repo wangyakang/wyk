@@ -1,0 +1,9 @@
+$(document).ready(function(){
+//友情链接
+	$('.linksbox').click(function(){
+		$('.index_ul').slideToggle("fast");
+	})
+	$('.linksbox').mouseleave(function(){
+		$('.index_ul').slideUp("fast");
+	})
+})

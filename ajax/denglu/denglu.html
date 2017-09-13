@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="fengzhuang.js"></script>
+		<script src="function.js"></script>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.input{
+			width: 500px;
+			height: 30px;
+			line-height: 30px;
+		}
+		.input input{
+			width: 150px;
+		}
+		.input span{
+			font-size: 12px;
+			color: red;
+		}
+	</style>
+	<body>
+		<form>
+			<!-- placeholder="请输入账号"  inut-->
+			<div class="input">
+				账号：<input type="text" name="zhanghao" flag="false"/>
+				<span></span>
+			</div>
+		 	<div class="input">
+				密码：<input type="password" name="pass" flag="false"/>
+				<span></span>
+			</div>
+			<input type="button" name="btn1" value="登录"/>  
+			<input type="button" name="btn2" value="注册"/>  
+			
+		</form>
+	</body>
+	<script type="text/javascript">
+		var form=document.forms[0];
+		var elems=form.elements;
+		elems.zhanghao.onfocus=function(){
+			this.setAttribute("flag",false)
+			var next=getNext(this);
+			next.innerHTML="请输入6-20位数字或字母"
+		}
+		elems.zhanghao.onblur=function(){
+			var next=getNext(this);
+			var reg=/^[0-9a-zA-Z]{6,20}$/
+			var value=this.value;
+			if(reg.test(value)){
+				this.setAttribute("flag",true)
+				next.innerHTML="输入正确"
+			}
+		}
+		elems.pass.onfocus=function(){
+			this.setAttribute("flag",false)
+			var next=getNext(this);
+			next.innerHTML="请输入6-10位数字或字母"
+		}
+		elems.pass.onblur=function(){
+			var next=getNext(this);
+			var reg=/^[0-9a-zA-Z]{6,10}$/
+			var reg2=/\d[a-zA-Z]|[a-zA-Z]\d/
+			var value=this.value;
+			if(reg.test(value)&&reg2.test(value)){
+				next.innerHTML="输入正确"
+				this.setAttribute("flag",true)
+			}
+		}
+		elems.btn1.onclick=function(){
+			if(elems.zhanghao.getAttribute("flag")=="true"&&elems.pass.getAttribute("flag")=="true"){
+				var data={};
+				var input=$("input",form);
+				for(var i=0;i<input.length;i++){
+					
+					data[input[i].name]=input[i].value;
+				}
+				ajax({
+					url:"login.php",
+					data:data,
+					success:function(text){
+						console.log(text)
+					}
+				})
+			}else if(elems.zhanghao.getAttribute("flag")=="false"){
+				elems.zhanghao.focus()
+			}else if(elems.pass.getAttribute("flag")=="false"){
+				elems.pass.focus()
+			}else if(elems.pass.getAttribute("flag")=="false"&&elems.zhanghao.getAttribute("flag")=="false"){
+				elems.zhanghao.focus()
+			}
+			
+		}
+	</script>
+</html>

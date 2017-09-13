@@ -1,0 +1,51 @@
+//本地存储
+    // localStorage
+//   1. 存储数据
+        localStorage.num=23  //直接存储
+        localStorage.setItem("num",23)
+//    2.获取值
+    console.log(localStorage.getItem("num"))
+    console.log(localStorage.num)
+//    3.修改值
+//    4.删除值
+    localStorage.removeItem("num")
+    localStorage.clear()  //全部清空
+
+
+    //cookie  存储量 4kb  50键值对    --可设置过期时间，默认浏览器打开的时间  --记录状态
+    //localStorage  4M                --永久存储
+    //sessionStorage      --浏览器打开的时间使用，存储的内容比cookie多一些
+    var infor=[{name:"zhangsan"}]
+    localStorage.info=JSON.stringify(info)  //只能存储字符串
+    console.log(JSON.parse(localStorage.info)[0].name) //转变为对象格式
+    //angular 单页面的应用，对于数据的增删改查比较频繁的应用当中
+//1.双向数据绑定 mvvm
+//2.控制器：controller
+//3.过滤器：filter
+//4.服务  factory  自定义服务可以依赖注入任何场景
+//5.ng-rout 路由
+
+//nodejs+angularjs可编辑表格
+    1.nodejs包管理工具  package.json配置文件
+    2.下载包  express mysql path
+    3.#前台指定路径，页面不发生跳转，并且有历史记录
+        使用前端的路由进行ajax获取数据并形成地址
+        ng-view指定其他页面显示的空间
+    4.服务，不同页面共享的数据可创建服务
+
+//    Promise:构造函数    ec6
+    原型上的方法：可通过实例化获得
+    1.指定要执行的函数
+    2.在执行完毕后要调用reslove()
+    3.then()来执行最后的步骤
+    var obj=new Promise(function(reslove){
+        //执行的函数
+        setTimeout(function(){},3000)
+        reslove("执行完毕") //确定执行完毕,会传送给then的function
+    })
+    obj.then(function(e){
+        //执行完毕后再执行的函数
+        console.log(e)
+    })
+
+    //$q  angular中对Promise进行封装

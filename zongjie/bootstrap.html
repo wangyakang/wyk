@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap</title>
+</head>
+<body>
+    一、标签
+        1.<small>、<strong>、<cite> 和类名.lead给文本做突出样式处理
+        2.加粗：<b>和<strong>标签让文本直接加粗。
+        3.斜体：<em>、<i>
+        4.强调类：
+                .text-muted：提示，使用浅灰色（#999）
+                .text-primary：主要，使用蓝色（#428bca）
+                .text-success：成功，使用浅绿色(#3c763d)
+                .text-info：通知信息，使用浅蓝色（#31708f）
+                .text-warning：警告，使用黄色（#8a6d3b）
+                .text-danger：危险，使用褐色（#a94442）
+        5.对齐：
+                .text-left：左对齐
+                .text-center：居中对齐
+                .text-right：右对齐
+                .text-justify：两端对齐
+        6.通过给无序列表添加一个类名“.list-unstyled”,这样就可以去除默认的列表样式的风格
+          通过添加类名“.list-inline”来实现内联列表，简单点说就是把垂直列表换成水平列表，而且去掉项目符号（编号），保持水平显示。也可以说内联列表就是为制作水平导航而生。
+          给<dl>添加类名“.dl-horizontal”给定义列表实现水平显示效果。
+        7.显示代码的风格
+                1、<code>：一般是针对于单个单词或单个句子的代码，显示单行内联代码
+                2、<pre>：一般是针对于多行代码（也就是成块的代码）
+                3、<kbd>:一般是表示用户要通过键盘输入的内容
+        8.在pre标签上添加类名“.pre-scrollable”，就可以控制代码块区域最大高度为340px，一旦超出这个高度，就会在Y轴出现滚动条
+        9.表格<table class="table">
+               .table：基础表格
+               .table-striped：斑马线表格
+               .table-bordered：带边框的表格
+               .table-hover：鼠标悬停高亮的表格
+               .table-condensed：紧凑型表格
+               .table-responsive：响应式表格
+        <tr class="danger">  背景色
+             .active  表示当前活动的信息
+             .success 表示成功或者正确的行为
+             .info   表示中立的信息或行为
+             .warning  表示警告，需要特别注意
+             .danger   表示危险或者可能是错误的行为
+        10.表单控件<input type="password" class="form-control" placeholder="请输入您的邮箱密码">
+            .form-control:焦点状态
+             1、宽度变成了100%
+             2、设置了一个浅灰色（#ccc）的边框
+             3、具有4px的圆角
+             4、设置阴影效果，并且元素得到焦点之时，阴影和边框效果会有所变化
+             5、设置了placeholder的颜色为#999
+              <!--<form role="form">-->
+                    <!--<div class="form-group">-->
+                      <!--<label for="exampleInputEmail1">邮箱：</label>-->
+                      <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入您的邮箱地址">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                      <!--<label for="exampleInputPassword1">密码</label>-->
+                      <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入您的邮箱密码">-->
+                    <!--</div>-->
+                    <!--<div class="checkbox">-->
+                      <!--<label>-->
+                        <!--<input type="checkbox"> 记住密码-->
+                      <!--</label>-->
+                    <!--</div>-->
+                    <!--<button type="submit" class="btn btn-default">进入邮箱</button>-->
+              <!--</form>-->
+             *在Bootstrap框架中要实现水平表单效果，必须满足以下两个条件：
+                1、在<form>元素是使用类名“form-horizontal”。
+                2、配合Bootstrap框架的网格系统。（网格布局会在以后的章节中详细讲解）
+             *<form>元素中添加类名“form-inline”:表单控件在一行内显示
+             *如果你要在input前面添加一个label标签时，会导致input换行显示。如果你必须添加这样的一个label标签，并且不想让input换行，你需要将label标签也放在容器“form-group”中
+             *textarea元素中添加了类名“form-control”类名，则无需设置cols属性。因为Bootstrap框架中的“form-control”样式的表单控件宽度为100%或auto。
+             *在Bootstrap框架中，主要借助“.checkbox”和“.radio”样式，来处理复选框、单选按钮与标签的对齐方式。
+                    1、不管是checkbox还是radio都使用label包起来了
+                    2、checkbox连同label标签放置在一个名为“.checkbox”的容器内
+                    3、radio连同label标签放置在一个名为“.radio”的容器内
+                     <!--<div class="checkbox">-->
+                        <!--<label>-->
+                          <!--<input type="checkbox" value="">-->
+                          <!--记住密码-->
+                        <!--</label>-->
+                     <!--</div>-->
+                     <!--<div class="radio">-->
+                        <!--<label>-->
+                          <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="love" checked>-->
+                          <!--喜欢-->
+                        <!--</label>-->
+                     <!--</div>-->
+             *1、如果checkbox需要水平排列，只需要在label标签上添加类名“checkbox-inline”
+              2、如果radio需要水平排列，只需要在label标签上添加类名“radio-inline”
+             *表单控制状态
+                    1.（禁用）
+                 在需要禁用的表单控件上加上“disabled”
+                    2.验证状态
+                    <form role="form">
+                        <div class="form-group has-success has-feedback">
+                             <label class="control-label" for="inputSuccess1">成功状态</label>
+                            <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            <span class="help-block">你输入的信息是正确的</span>
+                        </div>
+                    </form>
+                        1、.has-warning:警告状态（黄色）
+                        2、.has-error：错误状态（红色）
+                        3、.has-success：成功状态（绿色）
+                    如果想让表单在对应的状态下显示 icon 出来，只需要在此基础上在对应的状态下添加类名“has-feedback”
+                    使用了一个"help-block"样式，将提示信息以块状显示，并且显示在控件底部。
+             *按钮
+                     <button class="btn" type="button">基础按钮.btn</button>
+                     <button class="btn btn-default btn-lg" type="button">默认按钮.btn-default 大型按钮.btn-lg</button>
+                     <button class="btn btn-primary btn-sm" type="button">主要按钮.btn-primary 小型按钮.btn-sm</button>
+                     <button class="btn btn-success btn-xs" type="button">成功按钮.btn-success 超小型按钮.btn-xs</button>
+                     <button class="btn btn-info btn-block" type="button">信息按钮.btn-info 块状按钮.btn-block充满整个容器</button>
+                     <button class="btn btn-warning" type="button">警告按钮.btn-warning</button>
+                     <button class="btn btn-danger" type="button">危险按钮.btn-danger</button>
+                     <button class="btn btn-link" type="button">链接按钮.btn-link</button>
+        10.图像，在img标签上添加对应的属性
+            1、img-responsive：响应式图片，主要针对于响应式设计
+            2、img-rounded：圆角图片
+            3、img-circle：圆形图片
+            4、img-thumbnail：缩略图片
+        11.icon <span class="glyphicon glyphicon-search(对应图标名称)"></span>
+
+    二、网格系统
+         <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8 col-md-offset-4">.col-md-4</div>
+                <div class="col-md-4 col-md-pull-4">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             12栅格化
+             .col-md-4：所占列数      col-md-push-8：向右移动  col-md-pull-4：向左移动，进行互换位置
+             col-md-offset-4：偏移，相当于margin-left
+             可以在列中加入多个行容器row
+    三、下拉菜单
+             <div class="dropdown">  //使用一个名为“dropdown”的容器包裹了整个下拉菜单元素
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"> <!--使用了一个<button>按钮做为父菜单，并且定义类名“dropdown-toggle”和自定义“data-toggle”属性，且值必须和最外容器类名一致-->
+                <span class="caret"></span><!--  按钮向下箭头 -->
+                </button>
+                <ul class="dropdown-menu pull-right dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1"><!--下拉菜单项使用一个ul列表，并且定义一个类名为“dropdown-menu”   使用pull-right或dropdown-menu-right类使下拉菜单与父容器右边对齐-->
+                    <li role="presentation" class="dropdown-header">第一部分菜单头部</li><!--dropdown-header给每组分类标题添加头部-->
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>   <!--class="active" 当前状态，背景颜色蓝色--!>
+                    <li role="presentation" class="divider"></li><!--通过添加一个空的<li>，并且给这个<li>添加类名“divider”来实现添加下拉分隔线的功能-->
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+                </ul>
+            </div>
+    四、按钮组
+    <div class="btn-toolbar">
+        <div class="btn-group btn-group-justified dropdown-toggle">
+            <!--“btn-group”上追加一个“btn-group-justified”类名实现等分按钮，自适应按钮-->
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-align-left"></span>
+            </button>
+        </div>
+        <div class="btn-group"></div>
+    </div>
+    <!--将按钮组“btn-group”按组放在一个大的容器“btn-toolbar”中,让容器的多个分组“btn-group”元素进行浮动，并且组与组之前保持5px的左外距,也可以单独使用btn-group组-->
+<!--水平分组的“btn-group”类名换成“btn-group-vertical”实现按钮垂直分组效果-->
+ <!--类似导航效果，使用的时候，只需要把当初制作下拉菜单的“dropdown”的容器换成“btn-group”，并且和普通的按钮放在同一级。-->
+    <div class="btn-group dropdown-toggle">
+        <button class="btn btn-default" type="button">首页</button>
+        <button class="btn btn-default" type="button">产品展示</button>
+        <div class="btn-group dropup">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">关于我们<span class="caret">按钮向下三角</span></button>
+            <ul class="dropdown-menu">
+    	        <li><a href="##">公司简介</a></li>
+    	        <li><a href="##">企业文化</a></li>
+    	        <li><a href="##">组织结构</a></li>
+    	        <li><a href="##">客服服务</a></li>
+            </ul>
+        </div>
+    </div>
+    五、导航样式
+        Bootstrap框架中制作导航条主要通过“.nav”样式。默认的“.nav”样式不提供默认的导航样式，必须附加另外一个样式才会有效，比如“nav-tabs”、“nav-pills”之类。
+        1.选项卡导航
+           <ul class="nav nav-tabs">
+               <li class="active"><a href="##">Home</a></li> <!--当前选中项-->
+                <li class="disabled"><a href="##">CSS3</a></li><!--禁用项-->
+           </ul>
+        2.胶囊型导航,选中时高亮，并带有圆角效果
+           将.nav-tabs 换成.nav-pills
+        3.制作垂直堆叠导航只需要在“nav-pills”的基础上添加一个“nav-stacked”类名即可：
+        4.自适应导航：.nav-justified 与nav-pills或nav-tabs配合
+        5.二级导航：将li当作父容器，使用类名“dropdown”，同时在li中嵌套另一个列表ul
+            <ul class="nav nav-pills">
+                <li class="active"><a href="##">首页</a></li>
+                    <li class="dropdown">
+                        <a href="##" class="dropdown-toggle" data-toggle="dropdown">教程<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="##">CSS3</a></li>
+                            …
+                        </ul>
+                    </li>
+                <li><a href="##">关于我们</a></li>
+            </ul>
+        6.面包屑导航：为ol加入breadcrumb类
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">我的书</a></li>
+            </ol>
+    六、导航条
+       1. <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <!--在列表外部添加一个容器（div），并且使用类名“navbar”和“navbar-default”-->
+            <!--  .navbar-fixed-top：导航条固定在浏览器窗口顶部
+              .navbar-fixed-bottom：导航条固定在浏览器窗口底部-->
+            <div class="navbar-header">
+  　             <a href="##" class="navbar-brand">慕课网</a>
+  　        </div>
+            <!--加入导航条标题:通过“navbar-header”和“navbar-brand”来实现，-->
+            <ul class="nav navbar-nav">
+                <!--在制作导航的列表(<ul class=”nav”>)基础上添加类名“navbar-nav”-->
+	 	        <li class="active"><a href="##">网站首页</a></li>
+                <li>
+                    <a href="##" data-toggle="dropdown" class="dropdown-toggle">系列教程<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+        	            <li><a href="##">CSS3</a></li>
+        	            <li><a href="##">JavaScript</a></li>
+        	            <li class="disabled"><a href="##">PHP</a></li>
+                    </ul>
+                </li>
+                <li><a href="##" class="navbar-text">名师介绍</a></li>
+                <li><a href="##">成功案例</a></li>
+                <li><a href="##">关于我们</a></li>
+	        </ul>
+        2.    <!--带有搜索表单：在navbar容器中放置一个带有navbar-form类名的表单，.navbar-left左浮动navbar-right右浮动-->
+            <form action="##" class="navbar-form navbar-left" rol="search">
+   	            <div class="form-group">
+   		            <input type="text" class="form-control" placeholder="请输入关键词" />
+   	            </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+        </div>
+        <!--1、导航条中的按钮navbar-btn
+            2、导航条中的文本navbar-text
+            3、导航条中的普通链接navbar-link-->
+        3.响应式导航条
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+     　          <!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素，保证在窄屏时要显示的图标样式（固定写法） -->
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <!--data-target-->
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                 <!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
+                    <a href="##" class="navbar-brand">慕课网</a>
+                 </div>
+                <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+    	            <ul class="nav navbar-nav">
+      		            <li class="active"><a href="##">网站首页</a></li>
+      		            <li><a href="##">系列教程</a></li>
+      		            <li><a href="##">名师介绍</a></li>
+      		            <li><a href="##">成功案例</a></li>
+      		            <li><a href="##">关于我们</a></li>
+	 	            </ul>
+                </div>
+            </div>
+            <!--将navbar-deafult类名换成navbar-inverse。其变化只是导航条的背景色和文本做了修改，反色：黑色-->
+      4.分页导航
+        <ul class="pagination pagination-lg">
+            <li><a href="#">&laquo;第一页</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li class="active"><a href="#">13</a></li>
+            <li class="disabled"><a href="#">最后一页&raquo;</a></li>
+        </ul>
+         <!--ul>li>a的结构，在ul标签上加入pagination ，pagination-lg分页导航变大，pagination-sm分页导航变小-->
+        翻页导航
+        <ul class="pager">
+            <li><a href="#">&laquo;上一页</a></li>
+            <li><a href="#">下一页&raquo;</a></li>
+        </ul>
+      5.标签(与按钮或导航配合使用，同时在没有内容时隐藏)
+        <h3>Example heading <span class="label label-default">New</span></h3>
+        <!--label：高亮-->
+         <span class="label label-default">默认标签：浅灰</span>
+        <span class="label label-primary">主要标签：深蓝色</span>
+        <span class="label label-success">成功标签：绿色</span>
+        <span class="label label-info">信息标签：浅蓝色</span>
+        <span class="label label-warning">警告标签：橙色</span>
+        <span class="label label-danger">错误标签：红色</span>
+      6.徽章(与按钮或导航配合使用，同时在没有内容时隐藏)
+        <span class="badge">23</span>
+  七、内置组件
+       1.缩略图
+        <!--通过“thumbnail”样式配合bootstrap的网格系统来实现。-->
+        <div class="container">
+            <div class="row">
+		        <div class="col-xs-6 col-md-3">
+                    <!--缩略图-->
+			        <a href="#" class="thumbnail">
+				        <img src="http://img.mukewang.com/5434eba100014fe906000338.png" style="height: 180px; width: 100%; display: block;" alt="">
+			        </a>
+                    <!--在仅有缩略图的基础上，添加了一个div名为“caption“的容器，在这个容器中放置其他内容，比如说标题，文本描述，按钮等：-->
+			        <div class="caption">
+				        <h3>Bootstrap框架系列教程</h3>
+				        <p>Bootstrap框架是一个优秀的前端框，就算您是一位后端程序员或者你是一位不懂设计的前端人员，你也能依赖于Bootstrap制作做优美的网站...</p>
+				        <p>
+					        <a href="##" class="btn btn-primary">开始学习</a>
+					        <a href="##" class="btn btn-info">正在学习</a>
+				        </p>
+			        </div>
+		        </div>
+            </div>
+        </div>
+       2.警示框
+          <!--默认警示框-->
+        <div class="alert alert-success" role="alert">成功警告框</div>
+        <div class="alert alert-info" role="alert">信息警告框</div>
+        <div class="alert alert-warning" role="alert">警告警示框</div>
+        <div class="alert alert-danger" role="alert">错误警示框 </div>
+        <!--可关闭的警示框-->
+        <div class="alert alert-success alert-dismissable" role="alert">
+        <!--1、需要在基本警示框“alert”的基础上添加“alert-dismissable”样式。-->
+            <button class="close" type="button" data-dismiss="alert">&times;</button>
+              <!--2、在button标签中加入class="close"类，实现警示框关闭按钮的样式。-->
+              <!--3、要确保关闭按钮元素上设置了自定义属性：“data-dismiss="alert"”（因为可关闭警示框需要借助于Javascript来检测该属性，从而控制警示框的关闭）。-->
+            恭喜您操作成功！
+        </div>
+        <!--警示框的链接-->
+        <!--给警示框加的链接添加一个名为“alert-link”的类名，通过“alert-link”样式给链接提供高亮显示。-->
+        <div class="alert alert-success" role="alert">
+            <strong>Well done!</strong>
+            You successfully read
+	        <a href="#" class="alert-link">this important alert message</a>
+        </div>
+        3.进度调
+        <!--外容器使用“progress”样式，子容器使用“progress-bar”样式。其中progress用来设置进度条的容器样式，而progress-bar用于限制进度条的进度。-->
+        <div class="progress">
+            <!--条纹进度条：在进度条的容器“progress”基础上增加类名“progress-striped”-->
+            <!--动态进度条：在进度条“progress progress-striped”两个类的基础上再加入“active”类名。-->
+            <div class="progress-bar" style="width:40%"></div>
+            <!--<div class="progress-bar" style="width:40%"></div>    再添加进度条，变为层叠样式，水平排列-->
+        </div>
+          带lable的进度条
+            <div class="progress">
+                <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">20%</div>
+            </div>
+  八、媒体对象
+    <div class="media">
+        <!--媒体对像的容器：常使用“media”类名表示，用来容纳媒体对象的所有内容-->
+        <a class="pull-left" href="#">
+            <!--媒体对像的对象：常使用“media-object”表示，就是媒体对象中的对象，常常是图片-->
+    	    <img class="media-object" src="http://img.mukewang.com/52e1d29d000161fe06000338-300-170.jpg" alt="...">
+  	    </a>
+  	    <div class="media-body">
+            <!--媒体对象的主体：常使用“media-body”表示，就是媒体对像中的主体内容，可以是任何元素，常常是图片侧边内容-->
+    	    <h4 class="media-heading">系列：十天精通CSS3</h4>
+            <!--媒体对象的标题：常使用“media-heading”表示，就是用来描述对象的一个标题，此部分可选-->
+    	    <div>经典案例分析，代码同步调试，让网页穿上绚丽装备！</div>
+
+            <!--将另一个媒体对象结构放置在媒体对象的主体内“media-body”，实现媒体的嵌套-->
+  	    </div>
+    </div>
+
+    <!--媒体对象列表形式-->
+     <ul class="media-list">
+         <li class="media">媒体对象</li>
+         <li class="media">媒体对象</li>
+     </ul>
+  九、列表
+    <ul class="list-group">
+        <!--list-group：列表组容器，常用的是ul元素，当然也可以是ol或者div元素-->
+        <!--list-group-item：列表项，常用的是li元素，当然也可以是div元素-->
+        <li class="list-group-item  active">
+             <span class="badge">13</span>
+            <!--带徽章的列表：list-group-item”中添加徽章组件badge-->
+                揭开CSS3的面纱
+        </li>
+	    <li class="list-group-item">CSS3选择器</li>
+	    <li class="list-group-item">
+            <!--如果你想给列表项添加什么背景色，只需要在“list-group-item”基础上增加对应的类名
+            list-group-item-success：成功，背景色绿色
+            list-group-item-info：信息，背景色蓝色
+            list-group-item-warning：警告，背景色为黄色
+            list-group-item-danger：错误，背景色为红色-->
+            CSS3边框
+        </li>
+	    <li class="list-group-item">CSS3背景</li>
+	    <li class="list-group-item">
+            <h4 class="list-group-item-heading">图解CSS3</h4>
+            <p class="list-group-item-text">...</p>
+        </li>
+        <!--自定义列表-->
+        <!--list-group-item-heading：用来定义列表项头部样式
+            list-group-item-text：用来定义列表项主要内容-->
+    </ul>
+    <!--带链接的列表(链接的点击区域是整个列表区域)：ul.list-group使用div.list-group来替换，而li.list-group-item直接用a.list-group-item来替换-->
+  十、面板
+    <!--运用“panel”样式，产生一个具有边框的文本显示块。增加一个控制颜色的主题“panel-default”，另外在里面添加了一个“div.panel-body”来放置面板主体内容：-->
+    <div class="panel panel-default">
+        <div class="panel-heading">面板头部</div>
+        <div class="panel-body">放置面板主体内容</div>
+        <!-- 面板中嵌套表格-->
+        <table class="table table-bordered">…</table>
+        <!--面板中嵌套列表组-->
+        <ul class="list-group">
+			<li class="list-group-item">我是列表项</li>
+		</ul>
+        <div class="panel-footer">面板尾部</div>
+    </div>
+  十一、弹出框
+<<!-- 触发模态弹出窗的元素 -->
+<button type="button" data-toggle="modal" data-target="#mymodal" class="btn btn-primary">点击我会弹出模态弹出窗</button>
+  <!-- 模态弹出窗 ：data-toggle和data-target-->
+<div class="modal fade" id="mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- 模态弹出窗内容 -->
+            <div class="modal-header"></div>
+            <div class="modal-body"></div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

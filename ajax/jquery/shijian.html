@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin: 10px;
+			float: left;
+		}
+	</style>
+	<body>
+		<div class="one"></div>
+		<div class="div">1</div>
+		<div class="div">2</div>
+		<div class="div">3</div>
+		<div class="div">4</div>
+		<div class="div">5</div>
+		<div class="aa">
+			<input type="text" />
+		</div>
+	</body>
+	<script>
+//		$(function(){})   //页面加载完成后才可执行
+//		$(document).ready(function(){});//所有文档都加载完成之后执行代码
+//		function aa(){
+//			alert(1)
+//		}
+		//2.on:在选择元素上绑定一个或多个事件的事件处理函数。  所有事件的核心on(events,[selector],[data],fn)
+//		$(".one").on("click mouseover",aa)   //绑定事件，多个事件可用空格隔开
+//		$(".one").click(function(){      //基于on进行的，所有效果不会覆盖，相当于绑定多个事件
+//			alert(2)
+//		})
+//		$(document.body).on("click","div",function(){    //事件委派，传第二个参数为委托对象，默认为body身上的后代元素
+//			alert(1)
+//		})
+//		$("div").on("click",{aa:"bb"},function(e){   //e表示jQuery对象   data属性：触发事件时，传入的数据将存入e.data中
+//			console.log(e.data.aa)
+//		})
+		//3.off()
+//		$(".one").off('click mouseover')     //移除事件对象
+//		//4.bind():为每个匹配元素的特定事件绑定事件处理函数。  unbind():解除绑定事件   on的分支函数
+//		$('.one').bind("click",function(){    //事件委派，传第二个参数默认为body身上的后代元素
+//			alert(1)
+//		})
+//		//5.one():为每一个匹配元素的特定事件（像click）绑定一个一次性的事件处理函数。
+//		$(".one").one("click mouseover",aa) 
+//		//6.事件委派：脚本语言、ajax返回的数据进行添加事件\事件优化
+//		delegate(selector,[type],[data],fn)
+//		$(document.body).delegate(".one","click",aa)
+//		$(document.body).on("click",".one",aa)
+//		//undelegate(selector,[type],[data],fn)  删除事件委派
+//		$(document.body).undelegate(".one","click",aa)
+//		//7.hover([over,]out)
+//		//8.focus  focusin:可以在父元素上检测子元素获取焦点的情况         获取焦点时触发事件
+//		$(".aa input:text").focus(function(){
+//			console.log(1)
+//			$(this).val("获取焦点")
+//			return  $(this).val("获取焦点")
+//		})
+//		$(".aa").focusin(function(){
+////			alert(1)
+////			console.log(this)
+////			$(this).children("input").val("获取焦点")
+//			$(this).find("input").val("获取焦点")
+//		})
+//			//focusout:当元素失去焦点时触发 focusout 事件。 blur
+//"click.aa":aa相当于第一个函数的别名，在清除函数事件时可以通过清除.aa的形式清除第一个事件的引用
+		$(".one").on("click.aa",function(){    
+			alert(1)
+		})
+		$(".one").on("click.bb",function(){    
+			alert(2)
+		})
+		$(".one").off("click.aa")
+	</script>
+</html>

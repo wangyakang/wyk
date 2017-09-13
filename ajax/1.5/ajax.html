@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="fengzhuang.js"></script>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="zhanghao"/><br />
+			<input type="password" name="mima"/> <br />
+			<input type="button" name="sub" value="登录"/>  
+		</form>
+	</body>
+	<script type="text/javascript">
+		var btn=document.forms[0].elements.sub;
+//		
+//		//get方式获取html文件
+//		btn.onclick=function(){
+//			var ajax=window.XMLHttpRequest? new XMLHttpRequest() :new ActiveXObject("Microsoft.XMLHTTP") 
+//			ajax.open("get","login.php?aa=bb&cc=dd",true);
+//			ajax.send();
+//			ajax.onreadystatechange=function(){
+//				if(ajax.readyState===4){
+//					if(ajax.status===200){
+//						console.log(ajax.responseText)
+//					}
+//				}
+//			}
+//		}
+//		//post方式获取html文件
+//		btn.onclick=function(){
+//			var ajax=window.XMLHttpRequest? new XMLHttpRequest() :new ActiveXObject("Microsoft.XMLHTTP") 
+//			ajax.open("post","login.php",true);
+//			ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+//			ajax.send('aa=bb&cc=dd');
+//			ajax.onreadystatechange=function(){
+//				if(ajax.readyState===4){
+//					if(ajax.status===200){
+//						console.log(ajax.responseText)
+////						console.log(ajas.responseXML)
+////						var he=xml.getElementsByTagName("header")[0];
+////						console.log()
+//
+////						var result="("+ajax.response+")";
+////						console.log(eval(result))
+//					}
+//				}
+//			}
+//		}
+//		//get方式获取xml文件
+//	btn.onclick=function(){
+//			var ajax=window.XMLHttpRequest? new XMLHttpRequest() :new ActiveXObject("Microsoft.XMLHTTP") 
+//			ajax.open("get","login.php?aa=bb&cc=dd",true);
+//			ajax.send();
+//			ajax.onreadystatechange=function(){
+//				if(ajax.readyState===4){
+//					if(ajax.status===200){
+//						console.log(ajax.responseXML)
+//						var xml=ajax.responseXML;
+//						var he=xml.getElementsByTagName("header")[0];
+//						console.log(he)
+////						var result="("+ajax.response+")";
+////						console.log(eval(result))
+//					}
+//				}
+//			}
+//	}
+//	
+//		//get方式获取json格式
+//	btn.onclick=function(){
+//			var ajax=window.XMLHttpRequest? new XMLHttpRequest() :new ActiveXObject("Microsoft.XMLHTTP") 
+//			ajax.open("get","login.php?aa=bb&cc=dd",true);
+//			ajax.send();
+//			ajax.onreadystatechange=function(){
+//				if(ajax.readyState===4){
+//					if(ajax.status===200){
+//						var result="("+ajax.response+")";
+//						console.log(eval(result))
+//					}
+//				}
+//			}
+//	}
+
+//调用封装函数
+	btn.onclick=function(){
+		ajax({
+			method:"post",
+			url:"login.php",
+			asynch:true,
+			dataType:"json",
+//			data:{aa:"bb",cc:"dd"},
+			data:"aa=bb&cc=dd",
+			success:function(text){
+				console.log(text)
+			}
+		})
+	}
+	</script>
+</html>

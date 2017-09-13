@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+</style>
+<body>
+
+</body>
+<script>
+    //1
+//   var a="undefined";
+//   var b="false";
+//   var c="";
+//   function aa(avar) {
+//       if(avar){
+//           alert(true);
+//       }else {
+//           alert(false)
+//       }
+//   }
+//   aa(a);
+//   aa(b);
+//   aa(c);
+
+//  2  //变量作用域及变量的赋值,匿名函数预解析顺序
+//    var a,b;
+//    (function () {
+//        alert(a)
+//        alert(b)
+//        var a=b=3;
+//        alert(a)
+//        alert(b)
+//    })()
+//    alert(a)
+//    alert(b)
+
+    //3
+//   var x=new Boolean(false);
+//   console.log(x)  //是一个对象
+//   if(x){
+//       alert("hi")
+//   }
+//   var y=Boolean(0);
+//   console.info(y)  //false
+//   if(y){
+//       alert("hello")
+//   }
+
+//    //对象属性的遍历
+//    var aa={name:"zhangan",age:10,sex:"女"}
+//    for (x in aa){
+////        console.log(x)   //name  age  sex
+//        console.log(aa[x])   //属性值
+//    }
+
+
+
+//    //时间函数
+//        setTimeout(aa,1000)
+//        function aa() {
+//            alert(1)
+//        }
+
+   //ajax
+    var xhr=window.XMLHttpRequest? new XMLHttpRequest() :new ActiveXObject("Microsoft.XMLHTTP")
+    xhr.open("get","login.php",true)
+    xhr.send(null)
+//        console.log(xhr)
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4){
+            console.log(xhr.status)
+            if(xhr.status==200){
+                console.log(xhr.responseText)
+            }
+        }
+    }
+    xhr.getAllResponseHeaders()
+</script>
+</html>

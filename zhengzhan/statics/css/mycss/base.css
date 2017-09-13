@@ -1,0 +1,25 @@
+/**{
+	padding: 0;
+	margin:0;
+	list-style: none;
+}*/
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd,input{
+	margin: 0;
+	padding: 0;
+	list-style:none;
+}
+img{
+	border: 0;
+}
+/*img有兼容问题，低版本浏览器不兼容，有一像素边框如：IE6*/
+a{
+	text-decoration: none;
+}
+/*去下划线*/
+body{
+	font-family: "微软雅黑","楷体";
+	background: #f6f6f6;
+/*多个字体支持回退系统，一个字体不支持支持下一个字体，
+都不支持用默认字体*/
+}
+/*不同浏览器兼容性不同，实现的样子不一样*/

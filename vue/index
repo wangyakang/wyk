@@ -1,0 +1,15 @@
+组件：以编程式的方式进行
+组件：结构  html\css\
+      逻辑  js
+      数据
+
+
+      数据的传递
+      ajax
+      fetch("地址").then(function(res){
+        return res.text()     //获取内容的处理
+      }).then(function(data){
+         //返回数据
+      })
+
+      props:接收参数
